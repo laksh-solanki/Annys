@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
 import App from './App.vue'
 import router from './router'   
 import 'vuetify/styles'
@@ -8,10 +11,8 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
-// Import the functions you need from the SDKs you need
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+
+import { initializeApp } from "firebase/app"; 
 const firebaseConfig = {
   apiKey: "AIzaSyBmxnLcizoxCxSqXDnbr6YvwZpkR4-7hRU",
   authDomain: "annys-8eb9d.firebaseapp.com",
@@ -23,8 +24,7 @@ const firebaseConfig = {
   measurementId: "G-4976HSY605"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
-const analytics = getAnalytics(firebaseApp);
+initializeApp(firebaseConfig);
 
 const app = createApp(App)
 
@@ -36,6 +36,5 @@ const vuetify = createVuetify({
 app.use(createPinia())
 app.use(router)
 app.use(vuetify)
-app.use(analytics)
 
 app.mount('#app')
