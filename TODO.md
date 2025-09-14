@@ -1,3 +1,0 @@
-- [ ] Import profile.vue in Navbar.vue
-- [ ] Replace user email display and sign out button with profile component
-- [ ] Remove sign out logic from Navbar.vue

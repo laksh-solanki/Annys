@@ -1,9 +1,15 @@
+
 <script setup>
+
 </script>
+
 <template>
-    <div>
-     complete   
-    </div>
+  <v-card>
+    
+  </v-card>
 </template>
+
+
 <style scoped>
+
 </style>
