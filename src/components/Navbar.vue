@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg shadow-sm w-100 bg-info" data-bs-theme="light">
+  <nav class="navbar navbar-expand-lg shadow-sm w-100" data-bs-theme="light">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">Annys</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
