@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   linkExactActiveClass: 'active',
   routes: [
     {
@@ -44,19 +44,6 @@ const router = createRouter({
       component: () => import('../views/Gemini.vue'),
     },
   ],
-})
-
-router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth) {
-    const isAuthenticated = false
-    if (!isAuthenticated) {
-      next({ name: 'login' })
-    } else {
-      next()
-    }
-  } else {
-    next()
-  }
 })
 
 export default router
