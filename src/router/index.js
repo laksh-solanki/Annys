@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
-  linkExactActiveClass: 'active',
+  // linkExactActiveClass: 'active',
   routes: [
     {
       path: '/',
