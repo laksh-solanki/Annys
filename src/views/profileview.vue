@@ -20,21 +20,23 @@ function showContent(identifier) {
 </script>
 
 <template>
-  <v-app>
-    <v-navigation-drawer v-model="drawer">
-      <v-sheet class="pa-4" color="grey-lighten-4">
-        <v-avatar class="mb-4" color="grey-darken-1" size="64"></v-avatar>
-        <div>john@google.com</div>
-      </v-sheet>
-      <v-divider></v-divider>
-      <v-list>
-        <v-list-item v-for="[icon, text, identifier] in links" :key="icon" :prepend-icon="icon" :title="text"
-          :active="identifier === activeContent" @click="showContent(identifier)" link></v-list-item>
-      </v-list>
-    </v-navigation-drawer> 
-    <v-main class="overflow-auto" style="max-height: 100vh;">
+  <v-app >
+    <div class="position-absolute start-0 h-100">
+      <v-navigation-drawer v-model="drawer" elevation="3" class="position-sticky">
+        <v-sheet class="pa-4" color="grey-lighten-4">
+          <v-avatar class="mb-4" color="grey-darken-1" size="64"></v-avatar>
+          <div>john@google.com</div>
+        </v-sheet>
+        <v-divider></v-divider>
+        <v-list>
+          <v-list-item v-for="[icon, text, identifier] in links" :key="icon" :prepend-icon="icon" :title="text"
+            :active="identifier === activeContent" @click="showContent(identifier)" link></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+    </div>
+    <v-main class="overflow-auto main-content" style="max-height: 100vh;">
       <!-- Container 1 -->
-      <v-container v-if="activeContent === 'content1'">
+      <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
             <v-sheet min-height="268" rounded="lg" elevation="2">
@@ -85,4 +87,29 @@ function showContent(identifier) {
 
 <style scoped>
 /* Any specific styles for this component can go here */
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.div1 {
+  grid-row: span 4 / span 4;
+}
+
+.div2 {
+  grid-column: span 4 / span 4;
+  grid-row: span 4 / span 4;
+}
+
+.div3 {
+  grid-column: span 5 / span 5;
+  grid-row-start: 5;
+}
+
+.main-content {
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
 </style>

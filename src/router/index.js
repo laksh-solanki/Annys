@@ -8,27 +8,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/signin',
       name: 'signin',
-      component: () => import('../views/signin.vue')
+      component: () => import('../views/signin.vue'),
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/login.vue')
+      component: () => import('../views/login.vue'),
     },
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('../views/profileview.vue')
+      component: () => import('../views/profileview.vue'),
     },
     {
       path: '/settings',
@@ -37,13 +37,18 @@ const router = createRouter({
       // meta: {
       //   requiresAuth: true
       // }
-    }
-  ]
+    },
+    {
+      path: '/gemini',
+      name: 'gemini',
+      component: () => import('../views/Gemini.vue'),
+    },
+  ],
 })
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    const isAuthenticated = false 
+    const isAuthenticated = false
     if (!isAuthenticated) {
       next({ name: 'login' })
     } else {
