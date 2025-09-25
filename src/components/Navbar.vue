@@ -7,7 +7,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse mx-5 justify-content-evenly" id="navbarScroll">
-        <ul class="nav navbar-nav gap-1 flex-row justify-content-evenly mx-auto my-1 fs-6">
+        <ul class="nav navbar-nav gap-2 flex-row justify-content-evenly mx-auto my-1 fs-6">
           <li class="nav-item">
             <router-link class="nav-link" to="/" exact>Home</router-link>
           </li>
