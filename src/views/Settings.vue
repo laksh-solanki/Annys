@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [
@@ -29,6 +29,17 @@ function checkCredentials() {
 }
 
 const search = ref('')
+const rowRefs = ref([])
+
+watch(search, async (newValue) => {
+  if (newValue) {
+    await nextTick()
+    const highlightedRow = rowRefs.value[parseInt(newValue) - 1]
+    if (highlightedRow) {
+      highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+})
 </script>
 
 <template>
@@ -127,12 +138,25 @@ const search = ref('')
                   </v-card-title>
                 </template>
                 <v-card-text class="bg-surface-light pt-4">
-                  <v-expansion-panels>
-                    <v-expansion-panel v-for="i in 48" :key="i"
-                      :class="{ 'highlight': search && i === parseInt(search) }"
-                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                      :title="`Student - ${i}`"></v-expansion-panel>
-                  </v-expansion-panels>
+                  <v-table theme="dark" height="500px" fixed-header>
+                    <thead>
+                      <tr>
+                        <th class="text-left">
+                          Roll N0.
+                        </th>
+                        <th class="text-left">
+                          Submittion
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="i in 48" :key="i" :ref="el => { if (el) rowRefs[i - 1] = el }"
+                        :class="{ 'highlight': search && i === parseInt(search) }">
+                        <td>{{ i }}</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </v-table>
                 </v-card-text>
               </v-card>
             </v-container>
@@ -165,5 +189,6 @@ const search = ref('')
 
 .highlight {
   background-color: yellow;
+  color: black;
 }
 </style>
