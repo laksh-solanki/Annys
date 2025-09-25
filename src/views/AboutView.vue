@@ -1,5 +1,5 @@
 <template>
-   <v-container>
+  <v-container>
     <v-row>
       <v-col cols="12">
         <h1 class="text-h4">About Page</h1>
@@ -9,6 +9,4 @@
   </v-container>
 </template>
 
-<style>
-
-</style>
+<style></style>

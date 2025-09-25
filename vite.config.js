@@ -79,7 +79,7 @@ ${chalk.green.bold('✅ Happy Coding! ✨')}
             }),
           )
           // Keep rainbow title cycling forever
-          const rainbowTitle = chalkAnimation.rainbow("✨ VITE SERVER READY ✨");
+          const rainbowTitle = chalkAnimation.rainbow('✨ VITE SERVER READY ✨')
         })
       },
     },

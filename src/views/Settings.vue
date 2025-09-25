@@ -39,8 +39,8 @@ function showContent(identifier) {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet min-height="268" rounded="lg" elevation="2">
-              <v-card image="https://cdn.vuetifyjs.com/docs/images/cards/dark-beach.jpg"></v-card>
+            <v-sheet min-height="268" rounded="lg" elevation="2"
+              image="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
             </v-sheet>
           </v-col>
 

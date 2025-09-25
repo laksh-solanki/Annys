@@ -13,8 +13,6 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
-
-
 const app = createApp(App)
 
 const vuetify = createVuetify({
@@ -25,6 +23,5 @@ const vuetify = createVuetify({
 app.use(createPinia())
 app.use(router)
 app.use(vuetify)
-
 
 app.mount('#app')
