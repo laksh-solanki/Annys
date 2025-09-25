@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [
@@ -27,6 +27,8 @@ function checkCredentials() {
     showError.value = true
   }
 }
+
+const search = ref('')
 </script>
 
 <template>
@@ -117,13 +119,19 @@ function checkCredentials() {
             <v-container v-if="showCard" class="pa-5">
               <v-card class="mx-auto" prepend-icon="mdi-account">
                 <template v-slot:title>
-                  <v-card-title class="text-h5 text-center">Student Submit List</v-card-title>
+                  <v-card-title class="d-flex align-center pe-2">
+                    <span class="ms-1">Student Submited List</span>
+                    <v-spacer></v-spacer>
+                    <v-text-field v-model="search" density="compact" label="Search" prepend-inner-icon="mdi-magnify"
+                      variant="solo-filled" flat hide-details single-line></v-text-field>
+                  </v-card-title>
                 </template>
                 <v-card-text class="bg-surface-light pt-4">
                   <v-expansion-panels>
                     <v-expansion-panel v-for="i in 48" :key="i"
+                      :class="{ 'highlight': search && i === parseInt(search) }"
                       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                      title="student-1"></v-expansion-panel>
+                      :title="`Student - ${i}`"></v-expansion-panel>
                   </v-expansion-panels>
                 </v-card-text>
               </v-card>
@@ -153,5 +161,9 @@ function checkCredentials() {
     top: 55px;
     right: -26px;
   }
+}
+
+.highlight {
+  background-color: yellow;
 }
 </style>
