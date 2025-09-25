@@ -5,15 +5,33 @@ const activeContent = ref('content1')
 const links = [
   ['mdi-account-box-outline', 'Profile', 'content1'],
   ['mdi-cogs', 'Settings', 'content2'],
+  ['mdi-account-key', 'Student', 'content3'],
 ]
 function showContent(identifier) {
   activeContent.value = identifier
+}
+
+const id = ref('')
+const password = ref('')
+const showCard = ref(false)
+const showError = ref(false)
+
+const fixedId = 'Lucky2912'
+const fixedPassword = 'Lucky.2912'
+
+function checkCredentials() {
+  if (id.value === fixedId && password.value === fixedPassword) {
+    showCard.value = true
+    showError.value = false
+  } else {
+    showError.value = true
+  }
 }
 </script>
 
 <template>
   <v-app>
-    <div class="position-sticky h-100" style="top: 0;">
+    <div class="position-sticky" style="top: 0;">
       <v-navigation-drawer v-model="drawer" elevation="2" class="position-fixed">
         <v-sheet class="pa-4" style="margin-top: 60px;" color="grey-lighten-4">
           <v-avatar class="mb-4" color="grey-darken-1" size="64"></v-avatar>
@@ -39,8 +57,7 @@ function showContent(identifier) {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet min-height="268" rounded="lg" elevation="2"
-              image="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
+            <v-sheet min-height="268" rounded="lg" elevation="2">
             </v-sheet>
           </v-col>
 
@@ -77,6 +94,40 @@ function showContent(identifier) {
             <v-sheet min-height="70vh" rounded="lg" elevation="2">
               <!--  -->
             </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+
+      <!-- Container 3 -->
+
+      <v-container v-if="activeContent === 'content3'" class="content3">
+        <v-row>
+          <v-col cols="12">
+            <v-card v-if="!showCard" class="pa-5">
+              <v-card-title class="text-h5 text-center">Enter Credentials</v-card-title>
+              <v-card-text>
+                <v-form @submit.prevent="checkCredentials">
+                  <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
+                  <v-text-field v-model="password" label="Password" type="password" variant="outlined"></v-text-field>
+                  <v-btn type="submit" color="primary">Submit</v-btn>
+                  <v-alert v-if="showError" type="error" class="mt-3">Invalid ID or password</v-alert>
+                </v-form>
+              </v-card-text>
+            </v-card>
+            <v-container v-if="showCard" class="pa-5">
+              <v-card class="mx-auto" prepend-icon="mdi-account">
+                <template v-slot:title>
+                  <v-card-title class="text-h5 text-center">Student Submit List</v-card-title>
+                </template>
+                <v-card-text class="bg-surface-light pt-4">
+                  <v-expansion-panels>
+                    <v-expansion-panel v-for="i in 48" :key="i"
+                      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                      title="student-1"></v-expansion-panel>
+                  </v-expansion-panels>
+                </v-card-text>
+              </v-card>
+            </v-container>
           </v-col>
         </v-row>
       </v-container>
