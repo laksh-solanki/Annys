@@ -15,7 +15,13 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "@primevue/themes": "^4.3.9",
+    "@vercel/express": "^0.0.22",
+    "@vercel/gatsby-plugin-vercel-builder": "^2.0.95",
+    "@vercel/h3": "^0.1.2",
+    "@vercel/hono": "^0.1.2",
+    "@vercel/node": "^5.3.24",
+    "@vercel/remix-builder": "^5.4.12",
+    "@vercel/static-build": "^2.7.23",
     "bootstrap": "^5.3.8",
     "boxen": "^8.0.1",
     "chalk": "^5.6.2",
@@ -26,9 +32,7 @@
     "node-fetch": "^3.3.2",
     "ora": "^8.2.0",
     "pinia": "^3.0.3",
-    "primeicons": "^7.0.0",
-    "primevue": "^4.3.9",
-    "vercel": "^25.2.0",
+    "vercel": "^48.1.6",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1",
     "vuetify": "^3.10.0"
@@ -39,5 +43,10 @@
     "vite": "^7.1.5",
     "vite-plugin-inspect": "^11.3.3",
     "vite-plugin-vue-devtools": "^8.0.0"
+  },
+  "overrides": {
+    "esbuild": "0.25.10",
+    "path-to-regexp": "6.3.0",
+    "undici": "5.29.0"
   }
 }

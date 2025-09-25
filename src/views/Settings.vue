@@ -74,7 +74,7 @@ function showContent(identifier) {
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="overflow-y-auto">
+            <v-sheet min-height="70vh" rounded="lg" elevation="2">
               <!--  -->
             </v-sheet>
           </v-col>
