@@ -24,12 +24,16 @@ function getAllLocalIPs() {
 
 export default defineConfig({
   plugins: [
-    vue(),
+    [vue()],
+
     {
       name: 'custom-logger',
+      clearScreen: false,
+      logLevel: 'info', // still show logs
+      server: {
+        hmr: true,
+      },
       configureServer() {
-        console.clear()
-
         // Animated rainbow "Starting..." text
         const rainbow = chalkAnimation.rainbow('🚀 Starting Vite + Vue Dev Server...')
 

@@ -7,7 +7,7 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite --clearScreen false",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "server": "node server.js",
@@ -21,6 +21,7 @@
     "@vercel/hono": "^0.1.2",
     "@vercel/node": "^5.3.24",
     "@vercel/remix-builder": "^5.4.12",
+    "@vercel/speed-insights": "^1.2.0",
     "@vercel/static-build": "^2.7.23",
     "bootstrap": "^5.3.8",
     "boxen": "^8.0.1",
@@ -29,6 +30,7 @@
     "dotenv": "^17.2.2",
     "figlet": "^1.9.1",
     "http": "^0.0.1-security",
+    "mongodb": "^6.20.0",
     "node-fetch": "^3.3.2",
     "ora": "^8.2.0",
     "pinia": "^3.0.3",

@@ -1,5 +1,4 @@
-<script>
-</script>
+<script></script>
 <template>
   <v-container>
     <v-row>

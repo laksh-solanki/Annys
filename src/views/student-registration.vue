@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card class="pa-5">
+    <v-card class="pa-5" elevation="1">
       <v-card-title class="text-h5 text-center">Student Registration Form</v-card-title>
       <v-card-text>
         <v-form>
@@ -48,8 +48,7 @@
   </v-container>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style scoped>
 .v-card {
