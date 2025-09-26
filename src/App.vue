@@ -18,6 +18,10 @@ import Footer from '@/components/Footer.vue'
 
 <style>
 #app {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+  border: 0%;
   font-family: 'Roboto', sans-serif;
 }
 </style>
