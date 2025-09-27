@@ -25,21 +25,20 @@
 
 ## 🚀 Technologies Used
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-    <div style="background: #4CAF50;color: white;padding: 20px;text-align: center;border-radius: 8px;">Column 1</div>
-    <div style="background: #4CAF50;color: white;padding: 20px;text-align: center;border-radius: 8px;">Column 2</div>
-</div>
-
-- **Frontend:** - **Backend:**
-  - [Vue.js 3](https://vuejs.org/) - [Node.js](https://nodejs.org/)
-  - [Vite](https://vitejs.dev/) - **Deployment:**
-  - [Pinia](https://pinia.vuejs.org/) - [Vercel](https://vercel.com/)
-  - [Vue Router](https://router.vuejs.org/) - [Docker](https://www.docker.com/)
+- **Frontend:**
+  - [Vue.js 3](https://vuejs.org/)
+  - [Vite](https://vitejs.dev/)
+  - [Pinia](https://pinia.vuejs.org/)
+  - [Vue Router](https://router.vuejs.org/)
 - **Component Libraries:**
   - [Vuetify](https://vuetifyjs.com/)
   - [Bootstrap](https://getbootstrap.com/)
   - [FontAwesome](https://fontawesome.com/)
   - [Material Design Icons](https://materialdesignicons.com/)
+- **Backend:**
+  - [Node.js](https://nodejs.org/)
+- **Deployment:**
+  - [Vercel](https://vercel.com/)
 
 ## 📦 Getting Started
 
