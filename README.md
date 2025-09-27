@@ -40,7 +40,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📠 Contact
 
-<table align="center" border="1" cellpadding="20" style="border-radius: 8px;">
+<table align="center" border="2" bgcolor="#f9f9f9" cellpadding="20">
   <tr>
     <td align="center">
       <h3>LAKSH SOLANKI</h3>
