@@ -43,7 +43,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <table align="center" border="2" bgcolor="#ff0000ff" cellpadding="20">
   <tr>
     <td align="center">
-    <p>🙍🏻‍♂️</p>
+      <h2>🙍🏻‍♂️</h2>
       <h3>LAKSH SOLANKI</h3>
       <p>lakshsolanki848@example.com</p>
     </td>
