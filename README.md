@@ -9,9 +9,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HITESH/Annys/actions/workflows/firebase-hosting-merge.yml">
-    <img src="https://github.com/HITESH/Annys/actions/workflows/firebase-hosting-merge.yml/badge.svg" alt="Build Status">
-  </a>
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
   </a>
