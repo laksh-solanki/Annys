@@ -40,12 +40,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📠 Contact
 
-<table align="center" border="5" bgcolor="#ffffffff" cellpadding="10">
-  <tr>
-    <td align="center">
-      <h2>🙍🏻‍♂️</h2>
-      <h3>LAKSH SOLANKI</h3>
-      <p>lakshsolanki848@example.com</p>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="contact-card.svg" alt="Contact Card">
+</p>
