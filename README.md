@@ -37,3 +37,12 @@
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+##  kontak
+
+<div align="center">
+  <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px; max-width: 400px; margin: 20px;">
+    <h3>Your Name</h3>
+    <p><strong>Email:</strong> your.email@example.com</p>
+  </div>
+</div>
