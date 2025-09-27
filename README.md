@@ -18,16 +18,6 @@
 <table>
   <tr>
     <td width="50%">
-      <h3>User Authentication</h3>
-      <p>Secure login and registration system.</p>
-    </td>
-    <td width="50%">
-      <h3>User Profiles</h3>
-      <p>View and manage user profiles.</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
       <h3>Gemini Integration</h3>
       <p>Powered by Google's Gemini for advanced features.</p>
     </td>
