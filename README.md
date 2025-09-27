@@ -26,12 +26,6 @@
       <p>A dedicated module for student registration.</p>
     </td>
   </tr>
-  <tr>
-    <td colspan="2" align="center">
-        <h3>Settings</h3>
-        <p>Customizable user settings.</p>
-    </td>
-  </tr>
 </table>
 
 <hr>
