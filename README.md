@@ -40,9 +40,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📠 Contact
 
-<div align="center">
-  <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px; max-width: 400px; margin: 20px;">
-    <h3>LAKSH SOLANKI</h3>
-    <p><strong>Email:</strong> lakshsolanki848@example.com</p>
-  </div>
-</div>
+<table align="center" border="1" cellpadding="20" style="border-radius: 8px;">
+  <tr>
+    <td align="center">
+      <h3>LAKSH SOLANKI</h3>
+      <p>lakshsolanki848@example.com</p>
+    </td>
+  </tr>
+</table>
