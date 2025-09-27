@@ -3,11 +3,13 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
         .card {
-          border: 1px solid #ccc;
+          border: 1px solid #fff;
           border-radius: 8px;
           padding: 20px;
           max-width: 400px;
+          text-align: center;
           margin: 20px;
+          color: #fff;
           font-family: sans-serif;
         }
         .name {
@@ -19,6 +21,7 @@
         }
       </style>
       <div class="card">
+        <
         <div class="name">LAKSH SOLANKI</div>
         <div class="email">lakshsolanki848@example.com</div>
       </div>
