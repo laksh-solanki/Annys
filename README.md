@@ -30,11 +30,11 @@
   - [Vite](https://vitejs.dev/)
   - [Pinia](https://pinia.vuejs.org/)
   - [Vue Router](https://router.vuejs.org/)
-  - **Component Libraries:**
-  - [Vuetify](https://vuetifyjs.com/)
-    - [Bootstrap](https://getbootstrap.com/)
-    - [FontAwesome](https://fontawesome.com/)
-    - [Material Design Icons](https://materialdesignicons.com/)
+    - **Component Libraries:**
+      - [Vuetify](https://vuetifyjs.com/)
+      - [Bootstrap](https://getbootstrap.com/)
+      - [FontAwesome](https://fontawesome.com/)
+      - [Material Design Icons](https://materialdesignicons.com/)
 - **Backend:**
   - [Node.js](https://nodejs.org/)
 - **Deployment:**
