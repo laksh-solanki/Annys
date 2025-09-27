@@ -48,8 +48,13 @@ import { RouterLink } from 'vue-router'
 .text-style {
   font-family: "Oooh Baby", cursive;
   font-size: xx-large;
-  font-weight: bolder;
+  font-weight: 999;
   color: red;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0%;
+  padding: 0%;
   margin-left: 20px;
 }
 </style>

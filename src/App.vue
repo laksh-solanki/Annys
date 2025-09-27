@@ -21,7 +21,6 @@ import Footer from '@/components/Footer.vue'
   box-sizing: border-box;
   padding: 0%;
   margin: 0%;
-  border: 0%;
   font-family: 'Roboto', sans-serif;
 }
 </style>
