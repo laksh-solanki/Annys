@@ -51,8 +51,8 @@
 | Category      | Technology                                                                                             |
 |---------------|--------------------------------------------------------------------------------------------------------|
 | **Frontend**  | [Vue.js 3](https://vuejs.org/), [Vite](https://vitejs.dev/), [Vuetify](https://vuetifyjs.com/), [Pinia](https://pinia.vuejs.org/), [Vue Router](https://router.vuejs.org/) |
-| **Backend**   | [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/) (via Vercel)                       |
-| **Deployment**| [Vercel](https://vercel.com/), [Firebase Hosting](https://firebase.google.com/docs/hosting)             |
+| **Backend**   | [Node.js](https://nodejs.org/)                      |
+| **Deployment**| [Vercel](https://vercel.com/)             |
 
 ## 📦 Getting Started
 
