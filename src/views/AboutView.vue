@@ -75,7 +75,6 @@
         </v-container>
       </section>
     </div>
-    <Footer />
   </div>
 </template>
 
