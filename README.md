@@ -1,51 +1,75 @@
-# Annys
-
-<p align="center">
+<div align="center">
   <img src="src/assets/logo.svg" alt="Annys logo" width="120"/>
-</p>
-
-<p align="center">
-  A modern web application built with Vue.js.
-</p>
-
-<p align="center">
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
-  </a>
-  <img src="https://img.shields.io/badge/node-^22.12.0-blue.svg" alt="Node.js version">
-</p>
+  <h1>Annys</h1>
+  <p>A modern web application built with Vue.js.</p>
+  <p>
+    <a href="https://github.com/HITESH/Annys/actions/workflows/firebase-hosting-merge.yml">
+      <img src="https://github.com/HITESH/Annys/actions/workflows/firebase-hosting-merge.yml/badge.svg" alt="Build Status">
+    </a>
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+    </a>
+    <img src="https://img.shields.io/badge/node-^22.12.0-blue.svg" alt="Node.js version">
+  </p>
+</div>
 
 ## ✨ Features
 
-- **User Authentication:** Secure login and registration system.
-- **User Profiles:** View and manage user profiles.
-- **Gemini Integration:** Powered by Google's Gemini for advanced features.
-- **Student Registration:** A dedicated module for student registration.
-- **Settings:** Customizable user settings.
+<table>
+  <tr>
+    <td width="50%">
+      <h3>User Authentication</h3>
+      <p>Secure login and registration system.</p>
+    </td>
+    <td width="50%">
+      <h3>User Profiles</h3>
+      <p>View and manage user profiles.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>Gemini Integration</h3>
+      <p>Powered by Google's Gemini for advanced features.</p>
+    </td>
+    <td width="50%">
+      <h3>Student Registration</h3>
+      <p>A dedicated module for student registration.</p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+        <h3>Settings</h3>
+        <p>Customizable user settings.</p>
+    </td>
+  </tr>
+</table>
 
 ## 🚀 Technologies Used
 
-- **Frontend:**
-  - [Vue.js 3](https://vuejs.org/)
-  - [Vite](https://vitejs.dev/)
-  - [Pinia](https://pinia.vuejs.org/)
-  - [Vue Router](https://router.vuejs.org/)
-- **Component Libraries:**
-  - [Vuetify](https://vuetifyjs.com/)
-  - [Bootstrap](https://getbootstrap.com/)
-  - [FontAwesome](https://fontawesome.com/)
-  - [Material Design Icons](https://materialdesignicons.com/)
-- **Backend:**
-  - [Node.js](https://nodejs.org/)
-- **Deployment:**
-  - [Vercel](https://vercel.com/)
+### Frontend
+
+*   [Vue.js 3](https://vuejs.org/)
+*   [Vite](https://vitejs.dev/)
+*   [Vuetify](https://vuetifyjs.com/)
+*   [Pinia](https://pinia.vuejs.org/)
+*   [Vue Router](https://router.vuejs.org/)
+
+### Backend
+
+*   [Node.js](https://nodejs.org/)
+*   [Express.js](https://expressjs.com/) (via Vercel)
+
+### Deployment
+
+*   [Vercel](https://vercel.com/)
+*   [Firebase Hosting](https://firebase.google.com/docs/hosting)
 
 ## 📦 Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/en/) version `^22.12.0` or higher.
-- [npm](https://www.npmjs.com/)
+*   [Node.js](https://nodejs.org/en/) version `^22.12.0` or higher.
+*   [npm](https://www.npmjs.com/)
 
 ### Installation & Setup
 
