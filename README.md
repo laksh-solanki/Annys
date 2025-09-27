@@ -51,6 +51,7 @@
 | Category      | Technology                                                                                             |
 |---------------|--------------------------------------------------------------------------------------------------------|
 | **Frontend**  | [Vue.js 3](https://vuejs.org/), [Vite](https://vitejs.dev/), [Vuetify](https://vuetifyjs.com/), [Pinia](https://pinia.vuejs.org/), [Vue Router](https://router.vuejs.org/) |
+| **Components**| [Bootstrap 5](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/)                     |
 | **Backend**   | [Node.js](https://nodejs.org/)                      |
 | **Deployment**| [Vercel](https://vercel.com/)             |
 
