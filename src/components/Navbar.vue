@@ -1,13 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg shadow-sm w-100 bg-light z-3 position-sticky top-0" data-bs-theme="light">
-    <div class="container-fluid">
+    <div class="container">
       <router-link class="navbar-brand text-style" to="/">Annys</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse mx-5 justify-content-evenly" id="navbarScroll">
-        <ul class="nav navbar-nav gap-2 flex-row justify-content-evenly mx-auto my-1 fs-6">
+        <ul class="nav navbar-nav gap-2 flex-row justify-content-evenly fs-6">
           <li class="nav-item">
             <router-link class="nav-link" to="/" exact>Home</router-link>
           </li>
@@ -20,7 +20,7 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/Student-registration">Student-registration</router-link>
           </li>
-          <li class="nav-item dropdown">
+          <li class="dropdown nav-item">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Settings
             </a>
@@ -46,9 +46,10 @@ import { RouterLink } from 'vue-router'
 @import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
 
 .text-style {
-  font-family: "Oooh Baby", cursive;
-  font-size: xx-large;
-  font-weight: 999;
+  font-family: "Oooh Baby", cursive;  
+  position: relative;
+  font-size: x-large;
+  font-weight: 900;
   color: red;
   text-decoration: none;
   text-underline-offset: 3px;
