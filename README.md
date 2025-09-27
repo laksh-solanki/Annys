@@ -40,7 +40,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📠 Contact
 
-<table align="center" border="2" bgcolor="#ff0000ff" cellpadding="20">
+<table align="center" border="3" bgcolor="#ffffffff" cellpadding="10">
   <tr>
     <td align="center">
       <h2>🙍🏻‍♂️</h2>
