@@ -10,8 +10,6 @@
   </p>
 </div>
 
-<hr>
-
 ## ✨ Features
 
 <table>
@@ -27,8 +25,6 @@
   </tr>
 </table>
 
-<hr>
-
 ## 🚀 Technologies Used
 
 | Category      | Technology                                                                                             |
@@ -37,54 +33,6 @@
 | **Components**|  [Vuetify](https://vuetifyjs.com/),[Bootstrap 5](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/)                     |
 | **Backend**   | [Node.js](https://nodejs.org/)                      |
 | **Deployment**| [Vercel](https://vercel.com/)             |
-
-## 📦 Getting Started
-
-### Prerequisites
-
-*   [Node.js](https://nodejs.org/en/) version `^22.12.0` or higher.
-*   [npm](https://www.npmjs.com/)
-
-### Installation & Setup
-
-1.  Clone the repository:
-    ```sh
-    git clone https://github.com/HITESH/Annys.git
-    ```
-2.  Navigate to the project directory:
-    ```sh
-    cd Annys
-    ```
-3.  Install the dependencies:
-    ```sh
-    npm install
-    ```
-
-### Development
-
-To run the development server with hot-reloading:
-
-```sh
-npm run dev
-```
-
-### Production Build
-
-To build the application for production:
-
-```sh
-npm run build
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a pull request.
-
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
 
 ## 📄 License
 
