@@ -3,15 +3,14 @@
   <h1>Annys</h1>
   <p>A modern web application built with Vue.js.</p>
   <p>
-    <a href="https://github.com/HITESH/Annys/actions/workflows/firebase-hosting-merge.yml">
-      <img src="https://github.com/HITESH/Annys/actions/workflows/firebase-hosting-merge.yml/badge.svg" alt="Build Status">
-    </a>
     <a href="https://opensource.org/licenses/MIT">
       <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
     </a>
     <img src="https://img.shields.io/badge/node-^22.12.0-blue.svg" alt="Node.js version">
   </p>
 </div>
+
+<hr>
 
 ## ✨ Features
 
