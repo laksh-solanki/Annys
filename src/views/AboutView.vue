@@ -1,165 +1,125 @@
 <template>
-  <div>
-    <div class="about-page">
-      <section class="hero">
-        <v-container>
-          <v-row>
-            <v-col cols="12">
-              <h1 class="hero-title">About Our Company</h1>
-              <p class="hero-subtitle">We are a team of passionate individuals dedicated to creating innovative solutions.</p>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
+  <v-container class="about-page bg-style" fluid>
+    <v-responsive class="align-center text-center fill-height ">
+      <h1 class="text-h2 font-weight-bold">About Us</h1>
+      <div class="py-4" />
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="12">
+          <p class="text-body-1">
+            Welcome to our website! We are a company dedicated to providing the best services to our customers.
+            Our team is composed of passionate and experienced professionals who are always ready to help you.
+            Feel free to contact us for any inquiries or questions.
+          </p>
+        </v-col>
+      </v-row>
+    </v-responsive>
 
-      <section class="company-overview">
-        <v-container>
-          <v-row>
-            <v-col cols="12" md="6">
-              <h2 class="section-title">Our Story</h2>
-              <p class="section-content">Founded in 2024, our company has been on a mission to revolutionize the industry. We started with a small team of dedicated professionals and have since grown into a thriving organization with a global reach. Our success is built on a foundation of innovation, collaboration, and a commitment to excellence.</p>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Office" class="company-image"></v-img>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
+    <v-divider class="my-8"></v-divider>
 
-      <section class="mission-statement">
-        <v-container>
-          <v-row>
-            <v-col cols="12">
-              <h2 class="section-title">Our Mission</h2>
-              <p class="mission-text">Our mission is to empower businesses with cutting-edge technology and innovative solutions. We strive to be a trusted partner for our clients, helping them to achieve their goals and stay ahead of the competition. We are committed to delivering the highest quality products and services, and to making a positive impact on the world.</p>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
+    <v-row>
+      <v-col cols="12">
+        <h2 class="text-h4 font-weight-bold text-center">Our Mission</h2>
+        <p class="text-body-1 text-center mt-4">
+          Our mission is to deliver innovative and high-quality solutions that exceed our clients' expectations.
+          We are committed to continuous improvement and to making a positive impact on the world.
+        </p>
+      </v-col>
+    </v-row>
 
-      <section class="team">
-        <v-container>
-          <h2 class="section-title">Meet Our Team</h2>
-          <v-row>
-            <v-col cols="12" md="4">
-              <v-card class="team-member-card" flat>
-                <v-avatar size="150" class="team-member-avatar">
-                  <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKTSVbrfHfzhNAOXt0S5eJ_mOlz4nMIc9A32dO3DqNW7ZztuljtCc9APAWsI4f0wXvIpA&usqp=CAU" alt="Team Member 1"></v-img>
-                </v-avatar>
-                <v-card-title class="team-member-name">John Doe</v-card-title>
-                <v-card-subtitle class="team-member-title">CEO & Founder</v-card-subtitle>
-                <v-card-text class="team-member-bio">John is a visionary leader with a passion for innovation. He founded the company with the goal of making a positive impact on the world.</v-card-text>
-              </v-card>
-            </v-col>
-            <v-col cols="12" md="4">
-              <v-card class="team-member-card" flat>
-                <v-avatar size="150" class="team-member-avatar">
-                  <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKTSVbrfHfzhNAOXt0S5eJ_mOlz4nMIc9A32dO3DqNW7ZztuljtCc9APAWsI4f0wXvIpA&usqp=CAU" alt="Team Member 2"></v-img>
-                </v-avatar>
-                <v-card-title class="team-member-name">Jane Smith</v-card-title>
-                <v-card-subtitle class="team-member-title">Chief Technology Officer</v-card-subtitle>
-                <v-card-text class="team-member-bio">Jane is a brilliant engineer with a deep understanding of technology. She leads our team of talented developers and engineers.</v-card-text>
-              </v-card>
-            </v-col>
-            <v-col cols="12" md="4">
-              <v-card class="team-member-card" flat>
-                <v-avatar size="150" class="team-member-avatar">
-                  <v-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKTSVbrfHfzhNAOXt0S5eJ_mOlz4nMIc9A32dO3DqNW7ZztuljtCc9APAWsI4f0wXvIpA&usqp=CAU" alt="Team Member 3"></v-img>
-                </v-avatar>
-                <v-card-title class="team-member-name">Peter Jones</v-card-title>
-                <v-card-subtitle class="team-member-title">Chief Operating Officer</v-card-subtitle>
-                <v-card-text class="team-member-bio">Peter is an experienced operations executive with a proven track record of success. He is responsible for the day-to-day operations of the company.</v-card-text>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </section>
-    </div>
-  </div>
+    <v-divider class="my-8"></v-divider>
+
+    <v-row>
+      <v-col cols="12">
+        <h2 class="text-h4 font-weight-bold text-center">Our Team</h2>
+      </v-col>
+      <v-col v-for="(member, i) in team" :key="i" cols="12" md="4">
+        <v-card class="mx-auto" max-width="344">
+          <v-img :src="member.avatar" height="200px"></v-img>
+          <v-card-title class="text-center">{{ member.name }}</v-card-title>
+          <v-card-subtitle class="text-center">{{ member.title }}</v-card-subtitle>
+          <v-card-text>{{ member.bio }}</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <v-divider class="my-8"></v-divider>
+
+    <v-row>
+      <v-col cols="12">
+        <h2 class="text-h4 font-weight-bold text-center">Why Choose Us?</h2>
+        <v-list lines="two" class="mt-4">
+          <v-list-item v-for="(feature, i) in features" :key="i" :title="feature.title"
+            :subtitle="feature.subtitle"></v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
+
+  </v-container>
 </template>
+
+<script setup>
+const team = [
+  {
+    name: 'John Doe',
+    title: 'CEO & Founder',
+    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    bio: 'John is a visionary leader with a passion for innovation. He founded the company with the goal of making a positive impact on the world.',
+  },
+  {
+    name: 'Jane Smith',
+    title: 'Chief Technology Officer',
+    avatar: 'https://randomuser.me/api/portraits/women/2.jpg',
+    bio: 'Jane is a brilliant engineer with a deep understanding of technology. She leads our team of talented developers and engineers.',
+  },
+  {
+    name: 'Peter Jones',
+    title: 'Chief Operating Officer',
+    avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
+    bio: 'Peter is an experienced operations executive with a proven track record of success. He is responsible for the day-to-day operations of the company.',
+  },
+];
+
+const features = [
+  {
+    title: 'Innovative Solutions',
+    subtitle: 'We provide cutting-edge solutions tailored to your needs.',
+  },
+  {
+    title: 'Dedicated Support',
+    subtitle: 'Our team is available 24/7 to assist you with any issues.',
+  },
+  {
+    title: 'Proven Track Record',
+    subtitle: 'We have a long history of delivering successful projects for our clients.',
+  },
+];
+</script>
 
 <style scoped>
 .about-page {
-  font-family: 'Poppins', sans-serif;
-  color: #4f4f4f;
+  background-color: #f5f5f5;
+  padding: 2rem;
 }
 
-.hero {
-  background-color: #f9f9f9;
-  padding: 4rem 0;
-  text-align: center;
+h1,
+h2 {
+  font-family: 'Georgia', serif;
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: 600;
+p {
   margin-bottom: 1rem;
 }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-.company-overview {
-  padding: 6rem 0;
-}
-
-.section-title {
-  font-size: 2.8rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-.section-content {
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-.company-image {
-  border-radius: 8px;
-}
-
-.mission-statement {
-  background-color: #f9f9f9;
-  padding: 6rem 0;
-  text-align: center;
-}
-
-.mission-text {
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.team {
-  padding: 6rem 0;
-}
-
-.team-member-card {
-  background-color: transparent;
-  text-align: center;
-}
-
-.team-member-avatar {
-  margin-bottom: 1.5rem;
-}
-
-.team-member-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.team-member-title {
-  font-size: 1rem;
-  color: #1976D2;
-  margin-bottom: 1rem;
-}
-
-.team-member-bio {
-  font-size: 1rem;
-  line-height: 1.6;
+.bg-style {
+  background:
+linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+background-color: #131313;
+color: #ffffff;
+background-size: 20px 20px;
 }
 </style>
