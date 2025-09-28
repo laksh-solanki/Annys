@@ -33,9 +33,20 @@ function checkCredentials() {
   }
 }
 
-window.onRecaptchaSuccess = () => {
-  recaptchaVerified.value = true;
-};
+watch(activeContent, (newValue) => {
+  if (newValue === 'content3') {
+    nextTick(() => {
+      if (window.grecaptcha && document.getElementById('recaptcha-container')) {
+        grecaptcha.render('recaptcha-container', {
+          sitekey: '6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc',
+          callback: () => {
+            recaptchaVerified.value = true;
+          },
+        });
+      }
+    });
+  }
+});
 
 const search = ref('')
 const rowRefs = ref([])
@@ -152,9 +163,9 @@ watch(search, async (newValue) => {
                     variant="outlined"
                   ></v-text-field>
                   <div
+                    id="recaptcha-container"
                     class="g-recaptcha"
                     data-sitekey="6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc"
-                    data-callback="onRecaptchaSuccess"
                   ></div>
                   <v-btn type="submit" color="primary">Submit</v-btn>
                   <v-alert v-if="showError" type="error" class="mt-3"
