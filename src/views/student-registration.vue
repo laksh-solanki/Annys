@@ -37,6 +37,16 @@
           </v-row>
 
           <v-row class="mt-5">
+            <v-col cols="12">
+              <h3 class="text-h6">Student Key</h3>
+              <v-divider class="my-3"></v-divider>
+            </v-col>
+            <v-col cols="12">
+              <div id="recaptcha-container"></div>
+            </v-col>
+          </v-row>
+
+          <v-row class="mt-5">
             <v-col cols="12" class="text-center">
               <v-btn color="primary" class="mr-4">Submit</v-btn>
               <v-btn color="secondary">Reset</v-btn>
@@ -48,7 +58,21 @@
   </v-container>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, ref } from 'vue';
+
+const recaptchaWidgetId = ref(null);
+
+onMounted(() => {
+  if (window.grecaptcha) {
+    window.grecaptcha.ready(() => {
+      recaptchaWidgetId.value = window.grecaptcha.render('recaptcha-container', {
+        sitekey: '6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc',
+      });
+    });
+  }
+});
+</script>
 
 <style scoped>
 .v-card {

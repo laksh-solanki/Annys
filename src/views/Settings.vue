@@ -1,5 +1,4 @@
 <script setup>
-import 'https://www.google.com/recaptcha/api.js'
 import { ref, computed, watch, nextTick } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
@@ -16,11 +15,16 @@ const id = ref('')
 const password = ref('')
 const showCard = ref(false)
 const showError = ref(false)
+const recaptchaVerified = ref(false)
 
 const fixedId = 'Lucky2912'
 const fixedPassword = 'Lucky.2912'
 
 function checkCredentials() {
+  if (!recaptchaVerified.value) {
+    alert('Please complete the reCAPTCHA.')
+    return
+  }
   if (id.value === fixedId && password.value === fixedPassword) {
     showCard.value = true
     showError.value = false
@@ -28,6 +32,10 @@ function checkCredentials() {
     showError.value = true
   }
 }
+
+window.onRecaptchaSuccess = () => {
+  recaptchaVerified.value = true;
+};
 
 const search = ref('')
 const rowRefs = ref([])
@@ -146,6 +154,7 @@ watch(search, async (newValue) => {
                   <div
                     class="g-recaptcha"
                     data-sitekey="6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc"
+                    data-callback="onRecaptchaSuccess"
                   ></div>
                   <v-btn type="submit" color="primary">Submit</v-btn>
                   <v-alert v-if="showError" type="error" class="mt-3"
