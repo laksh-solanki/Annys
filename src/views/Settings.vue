@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, nextTick } from 'vue'
+import { ref, computed, watch } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [
@@ -15,38 +15,25 @@ const id = ref('')
 const password = ref('')
 const showCard = ref(false)
 const showError = ref(false)
-const recaptchaVerified = ref(false)
 
 const fixedId = 'Lucky2912'
 const fixedPassword = 'Lucky.2912'
 
 function checkCredentials() {
-  if (!recaptchaVerified.value) {
-    alert('Please complete the reCAPTCHA.')
-    return
-  }
-  if (id.value === fixedId && password.value === fixedPassword) {
-    showCard.value = true
-    showError.value = false
-  } else {
-    showError.value = true
-  }
-}
+  grecaptcha.ready(function () {
+    grecaptcha.execute('YOUR_RECAPTCHA_V3_SITE_KEY', { action: 'login' }).then(function (token) {
+      // IMPORTANT: You need to send this token to your backend for verification.
+      console.log('reCAPTCHA token:', token);
 
-watch(activeContent, (newValue) => {
-  if (newValue === 'content3') {
-    nextTick(() => {
-      if (window.grecaptcha && document.getElementById('recaptcha-container')) {
-        grecaptcha.render('recaptcha-container', {
-          sitekey: '6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc',
-          callback: () => {
-            recaptchaVerified.value = true;
-          },
-        });
+      if (id.value === fixedId && password.value === fixedPassword) {
+        showCard.value = true
+        showError.value = false
+      } else {
+        showError.value = true
       }
     });
-  }
-});
+  });
+}
 
 const search = ref('')
 const rowRefs = ref([])
@@ -162,11 +149,6 @@ watch(search, async (newValue) => {
                     type="password"
                     variant="outlined"
                   ></v-text-field>
-                  <div
-                    id="recaptcha-container"
-                    class="g-recaptcha"
-                    data-sitekey="6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc"
-                  ></div>
                   <v-btn type="submit" color="primary">Submit</v-btn>
                   <v-alert v-if="showError" type="error" class="mt-3"
                     >Invalid ID or password</v-alert
