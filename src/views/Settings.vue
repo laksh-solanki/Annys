@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [
@@ -15,13 +15,39 @@ const id = ref('')
 const password = ref('')
 const showCard = ref(false)
 const showError = ref(false)
+let recaptchaPromise = null;
 
 const fixedId = 'Lucky2912'
 const fixedPassword = 'Lucky.2912'
 
+function loadRecaptcha() {
+  if (!recaptchaPromise) {
+    recaptchaPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://www.google.com/recaptcha/api.js?render=6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        grecaptcha.ready(resolve);
+      };
+      script.onerror = (error) => {
+        reject(error);
+      };
+      document.head.appendChild(script);
+    });
+  }
+  return recaptchaPromise;
+}
+
+watch(activeContent, (newValue) => {
+  if (newValue === 'content3') {
+    loadRecaptcha().catch(error => console.error("reCAPTCHA script failed to load:", error));
+  }
+});
+
 function checkCredentials() {
-  grecaptcha.ready(function () {
-    grecaptcha.execute('YOUR_RECAPTCHA_V3_SITE_KEY', { action: 'login' }).then(function (token) {
+  loadRecaptcha().then(() => {
+    grecaptcha.execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' }).then(function (token) {
       // IMPORTANT: You need to send this token to your backend for verification.
       console.log('reCAPTCHA token:', token);
 
@@ -32,7 +58,7 @@ function checkCredentials() {
         showError.value = true
       }
     });
-  });
+  }).catch(error => console.error("reCAPTCHA execution failed:", error));
 }
 
 const search = ref('')
