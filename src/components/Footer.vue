@@ -1,7 +1,9 @@
 <template>
   <v-footer elevation="2" color="white" app absolute inset>
     <v-col class="text-center" cols="12">
-      &copy; {{ new Date().getFullYear() }} <p class="footer-text"> Annys</p> . All rights reserved.
+      &copy; {{ new Date().getFullYear() }}
+      <p class="footer-text">Annys</p>
+      . All rights reserved.
     </v-col>
   </v-footer>
 </template>
@@ -11,7 +13,7 @@
 <style scoped>
 .footer-text {
   display: inline-block;
-  font-family: "Oooh Baby", cursive;
+  font-family: 'Oooh Baby', cursive;
   font-size: x-large;
   font-weight: 999;
   color: red;

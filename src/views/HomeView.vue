@@ -4,20 +4,46 @@
       <v-container>
         <v-row class="align-center py-5 gap-5">
           <v-col cols="12" md="6" class="content-1 py-5 d-flex flex-column justify-center">
-            <h1 class="hero-title">Building the<p class="main-text"> Annys</p> Future, Today.</h1>
-            <p class="hero-subtitle">We provide innovative solutions for your business needs. Our team of experts is
-              dedicated to delivering high-quality results.</p>
+            <h1 class="hero-title">
+              Building the
+              <p class="main-text">Annys</p>
+              Future, Today.
+            </h1>
+            <p class="hero-subtitle">
+              We provide innovative solutions for your business needs. Our team of experts is
+              dedicated to delivering high-quality results.
+            </p>
             <div class="hero-buttons gap-2 d-flex flex-wrap">
-              <v-btn class="hero-button" to="/gemini" rounded="5" width="200" height="50" color="white"
-                variant="outlined" large>Our Gemini</v-btn>
-              <v-btn class="hero-button" to="/about" rounded="5" width="200" height="50" color="white"
-                variant="outlined" large>About me</v-btn>
+              <v-btn
+                class="hero-button"
+                to="/gemini"
+                rounded="5"
+                width="200"
+                height="50"
+                color="white"
+                variant="outlined"
+                large
+                >Our Gemini</v-btn
+              >
+              <v-btn
+                class="hero-button"
+                to="/about"
+                rounded="5"
+                width="200"
+                height="50"
+                color="white"
+                variant="outlined"
+                large
+                >About me</v-btn
+              >
             </div>
           </v-col>
           <v-col cols="12" md="5">
             <v-img
               src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Professional Team" class="hero-image"></v-img>
+              alt="Professional Team"
+              class="hero-image"
+            ></v-img>
           </v-col>
         </v-row>
       </v-container>
@@ -27,8 +53,8 @@
 
 <script>
 export default {
-  name: "Home",
-};
+  name: 'Home',
+}
 </script>
 
 <style scoped>
@@ -54,7 +80,7 @@ export default {
 .main-text {
   width: 100%;
   display: inline-block;
-  font-family: "Oooh Baby", cursive;
+  font-family: 'Oooh Baby', cursive;
   font-weight: 900;
   font-size: larger;
   font-style: normal;
@@ -67,7 +93,7 @@ export default {
 }
 
 .hero-title {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 76px;
   font-style: normal;
   font-weight: 500;

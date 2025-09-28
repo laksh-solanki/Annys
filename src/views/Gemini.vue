@@ -1,26 +1,50 @@
 <template>
   <main class="container py-4 bg-style">
     <div class="chat-container">
-      <div class="d-flex align-content-center justify-content-start gap-3 mb-3" style="width: 250px">
-        <svg xmlns="http://www.w3.org/2000/svg" x="10px" y="10px" width="35" height="35" viewBox="0 0 32 32" class="">
-          <radialGradient id="OtCq8xA9WcMqTYvHIGk1Ca_iBkBIBWE6tfT_gr1" cx="22.154" cy="24.931" r="26.492"
-            gradientUnits="userSpaceOnUse">
+      <div
+        class="d-flex align-content-center justify-content-start gap-3 mb-3"
+        style="width: 250px"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          x="10px"
+          y="10px"
+          width="35"
+          height="35"
+          viewBox="0 0 32 32"
+          class=""
+        >
+          <radialGradient
+            id="OtCq8xA9WcMqTYvHIGk1Ca_iBkBIBWE6tfT_gr1"
+            cx="22.154"
+            cy="24.931"
+            r="26.492"
+            gradientUnits="userSpaceOnUse"
+          >
             <stop offset="0" stop-color="#1ba1e3"></stop>
             <stop offset="0" stop-color="#1ba1e3"></stop>
             <stop offset=".432" stop-color="#5489d6"></stop>
             <stop offset=".777" stop-color="#9b72cb"></stop>
           </radialGradient>
-          <path fill="url(#OtCq8xA9WcMqTYvHIGk1Ca_iBkBIBWE6tfT_gr1)"
-            d="M16,0l0.028,0.722c0.327,8.283,6.967,14.923,15.25,15.25L32,16l-0.722,0.028	c-8.283,0.327-14.923,6.967-15.25,15.25L16,32l-0.028-0.722c-0.327-8.283-6.967-14.923-15.25-15.25L0,16l0.722-0.028	c8.283-0.327,14.923-6.967,15.25-15.25L16,0z">
-          </path>
-          <linearGradient id="OtCq8xA9WcMqTYvHIGk1Cb_iBkBIBWE6tfT_gr2" x1="16" x2="16" y1="0" y2="32"
-            gradientUnits="userSpaceOnUse">
+          <path
+            fill="url(#OtCq8xA9WcMqTYvHIGk1Ca_iBkBIBWE6tfT_gr1)"
+            d="M16,0l0.028,0.722c0.327,8.283,6.967,14.923,15.25,15.25L32,16l-0.722,0.028	c-8.283,0.327-14.923,6.967-15.25,15.25L16,32l-0.028-0.722c-0.327-8.283-6.967-14.923-15.25-15.25L0,16l0.722-0.028	c8.283-0.327,14.923-6.967,15.25-15.25L16,0z"
+          ></path>
+          <linearGradient
+            id="OtCq8xA9WcMqTYvHIGk1Cb_iBkBIBWE6tfT_gr2"
+            x1="16"
+            x2="16"
+            y1="0"
+            y2="32"
+            gradientUnits="userSpaceOnUse"
+          >
             <stop offset="0" stop-opacity=".02"></stop>
             <stop offset="1" stop-opacity=".15"></stop>
           </linearGradient>
-          <path fill="url(#OtCq8xA9WcMqTYvHIGk1Cb_iBkBIBWE6tfT_gr2)"
-            d="M31.278,15.972	c-8.283-0.327-14.923-6.967-15.25-15.25L16,0l-0.028,0.722c-0.327,8.283-6.967,14.923-15.25,15.25L0,16l0.722,0.028	c8.283,0.327,14.923,6.967,15.25,15.25L16,32l0.028-0.722c0.327-8.283,6.967-14.923,15.25-15.25L32,16L31.278,15.972z M16,29.174	C14.842,22.487,9.512,17.158,2.826,16C9.512,14.842,14.842,9.512,16,2.826C17.158,9.512,22.488,14.842,29.174,16	C22.488,17.158,17.158,22.487,16,29.174z">
-          </path>
+          <path
+            fill="url(#OtCq8xA9WcMqTYvHIGk1Cb_iBkBIBWE6tfT_gr2)"
+            d="M31.278,15.972	c-8.283-0.327-14.923-6.967-15.25-15.25L16,0l-0.028,0.722c-0.327,8.283-6.967,14.923-15.25,15.25L0,16l0.722,0.028	c8.283,0.327,14.923,6.967,15.25,15.25L16,32l0.028-0.722c0.327-8.283,6.967-14.923,15.25-15.25L32,16L31.278,15.972z M16,29.174	C14.842,22.487,9.512,17.158,2.826,16C9.512,14.842,14.842,9.512,16,2.826C17.158,9.512,22.488,14.842,29.174,16	C22.488,17.158,17.158,22.487,16,29.174z"
+          ></path>
         </svg>
         <h2>Gemini</h2>
       </div>
@@ -34,7 +58,12 @@
           <div id="chat"></div>
         </div>
         <div class="input-group mt-3">
-          <input type="text" id="prompt" class="form-control" placeholder="Ask Gemini something..." />
+          <input
+            type="text"
+            id="prompt"
+            class="form-control"
+            placeholder="Ask Gemini something..."
+          />
           <button class="btn btn-primary" onclick="sendMsg()">Send</button>
         </div>
       </div>
@@ -45,7 +74,6 @@
 <script></script>
 
 <style>
-
 .chat-container {
   background: #fff;
   border-radius: 10px;
@@ -170,7 +198,6 @@
 }
 
 @keyframes bounce {
-
   0%,
   80%,
   100% {
