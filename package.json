@@ -25,6 +25,7 @@
     "@vercel/static-build": "^2.7.23",
     "bootstrap": "^5.3.8",
     "dotenv": "^17.2.2",
+    "firebase": "^12.3.0",
     "http": "^0.0.1-security",
     "mongodb": "^6.20.0",
     "node-fetch": "^3.3.2",
