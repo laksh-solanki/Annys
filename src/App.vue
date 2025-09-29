@@ -21,6 +21,9 @@ import Footer from '@/components/Footer.vue'
   box-sizing: border-box;
   padding: 0%;
   margin: 0%;
-  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  color: #3d3d3d;
 }
 </style>

@@ -1,137 +1,164 @@
 <template>
-  <v-container class="about-page bg-style" fluid>
-    <v-responsive class="align-center text-center fill-height">
-      <h1 class="text-h2 font-weight-bold">About Us</h1>
-      <div class="py-4" />
-      <v-row class="d-flex align-center justify-center">
-        <v-col cols="12">
-          <p class="text-body-1">
-            Welcome to our website! We are a company dedicated to providing the best services to our
-            customers. Our team is composed of passionate and experienced professionals who are
-            always ready to help you. Feel free to contact us for any inquiries or questions.
+  <div class="about-page">
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="6" class="text-center About-header">
+          <h1 class="display-2 font-weight-bold mb-4">About Our Company</h1>
+          <p class="subheading-1">
+            We are a team of passionate individuals dedicated to creating innovative solutions for the future.
           </p>
         </v-col>
+        <v-col cols="12" md="6" class="d-flex justify-content- align-center">
+          <img src="/src/assets/65328048fbd9a45bcec820b9_ReactComponentLibraries.svg" class="About-image ms-auto" alt=""> 
+        </v-col>
       </v-row>
-    </v-responsive>
 
-    <v-divider class="my-8"></v-divider>
+      <v-row class="mt-12">
+        <v-col cols="12">
+          <h2 class="display-1 font-weight-bold text-center mb-8">Our Journey</h2>
+          <v-timeline align="start">
+            <v-timeline-item v-for="(item, i) in timeline" :key="i" :dot-color="item.color" size="small">
+              <template v-slot:opposite>
+                <div :class="`pt-1 headline font-weight-bold text-${item.color}`" v-text="item.year"></div>
+              </template>
+              <div>
+                <h2 :class="`mt-n1 headline font-weight-light mb-4 text-${item.color}`">
+                  {{ item.title }}
+                </h2>
+                <p>{{ item.description }}</p>
+              </div>
+            </v-timeline-item>
+          </v-timeline>
+        </v-col>
+      </v-row>
 
-    <v-row>
-      <v-col cols="12">
-        <h2 class="text-h4 font-weight-bold text-center">Our Mission</h2>
-        <p class="text-body-1 text-center mt-4">
-          Our mission is to deliver innovative and high-quality solutions that exceed our clients'
-          expectations. We are committed to continuous improvement and to making a positive impact
-          on the world.
-        </p>
-      </v-col>
-    </v-row>
+      <v-row class="mt-12">
+        <v-col cols="12">
+          <h2 class="display-1 font-weight-bold text-center mb-8">Our Core Values</h2>
+        </v-col>
+        <v-col v-for="(value, i) in values" :key="i" cols="12" md="4" class="text-center">
+          <v-card class="pa-6" outlined>
+            <v-icon size="50" :color="value.color">{{ value.icon }}</v-icon>
+            <h3 class="title font-weight-bold mt-4">{{ value.title }}</h3>
+            <p class="mt-2">{{ value.description }}</p>
+          </v-card>
+        </v-col>
+      </v-row>
 
-    <v-divider class="my-8"></v-divider>
-
-    <v-row>
-      <v-col cols="12">
-        <h2 class="text-h4 font-weight-bold text-center">Our Team</h2>
-      </v-col>
-      <v-col v-for="(member, i) in team" :key="i" cols="12" md="4">
-        <v-card class="mx-auto" max-width="344">
-          <v-img :src="member.avatar" height="200px"></v-img>
-          <v-card-title class="text-center">{{ member.name }}</v-card-title>
-          <v-card-subtitle class="text-center">{{ member.title }}</v-card-subtitle>
-          <v-card-text>{{ member.bio }}</v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-
-    <v-divider class="my-8"></v-divider>
-
-    <v-row>
-      <v-col cols="12">
-        <h2 class="text-h4 font-weight-bold text-center">Why Choose Us?</h2>
-        <v-list lines="two" class="mt-4">
-          <v-list-item
-            v-for="(feature, i) in features"
-            :key="i"
-            :title="feature.title"
-            :subtitle="feature.subtitle"
-          ></v-list-item>
-        </v-list>
-      </v-col>
-    </v-row>
-  </v-container>
+      <v-row class="mt-12">
+        <v-col cols="12">
+          <h2 class="display-1 font-weight-bold text-center mb-8">Meet Our Team</h2>
+        </v-col>
+        <v-col v-for="(member, i) in team" :key="i" cols="12" md="4">
+          <v-card class="text-center pa-6" outlined>
+            <v-avatar size="120" class="mb-4">
+              <img :src="member.avatar" :alt="member.name" />
+            </v-avatar>
+            <h3 class="title font-weight-bold">{{ member.name }}</h3>
+            <p class="subheading-1">{{ member.title }}</p>
+            <p class="mt-4">{{ member.bio }}</p>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script setup>
+const timeline = [
+  {
+    year: '2015',
+    color: 'cyan',
+    title: 'Company Founded',
+    description: 'Our journey began with a small team of passionate individuals who wanted to make a difference.',
+  },
+  {
+    year: '2017',
+    color: 'green',
+    title: 'First Major Project',
+    description: 'We launched our first major project, which was a huge success and helped us establish our reputation.',
+  },
+  {
+    year: '2020',
+    color: 'pink',
+    title: 'Expansion and Growth',
+    description: 'We expanded our team and moved into a new office to accommodate our growing business.',
+  },
+  {
+    year: '2023',
+    color: 'amber',
+    title: 'Future Innovations',
+    description: 'We are constantly exploring new technologies and ideas to shape the future of our industry.',
+  },
+];
+
+const values = [
+  {
+    icon: 'mdi-lightbulb-on-outline',
+    color: 'amber',
+    title: 'Innovation',
+    description: 'We are committed to pushing the boundaries of what is possible and creating innovative solutions.',
+  },
+  {
+    icon: 'mdi-account-group-outline',
+    color: 'green',
+    title: 'Collaboration',
+    description: 'We believe in the power of teamwork and collaboration to achieve our goals.',
+  },
+  {
+    icon: 'mdi-heart-outline',
+    color: 'pink',
+    title: 'Integrity',
+    description: 'We are committed to the highest standards of integrity and ethical behavior.',
+  },
+];
+
 const team = [
   {
     name: 'John Doe',
     title: 'CEO & Founder',
     avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-    bio: 'John is a visionary leader with a passion for innovation. He founded the company with the goal of making a positive impact on the world.',
+    bio: 'John is a visionary leader with a passion for innovation.',
   },
   {
     name: 'Jane Smith',
     title: 'Chief Technology Officer',
     avatar: 'https://randomuser.me/api/portraits/women/2.jpg',
-    bio: 'Jane is a brilliant engineer with a deep understanding of technology. She leads our team of talented developers and engineers.',
+    bio: 'Jane is a brilliant engineer with a deep understanding of technology.',
   },
   {
     name: 'Peter Jones',
     title: 'Chief Operating Officer',
     avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
-    bio: 'Peter is an experienced operations executive with a proven track record of success. He is responsible for the day-to-day operations of the company.',
+    bio: 'Peter is an experienced operations executive with a proven track record of success.',
   },
-]
-
-const features = [
-  {
-    title: 'Innovative Solutions',
-    subtitle: 'We provide cutting-edge solutions tailored to your needs.',
-  },
-  {
-    title: 'Dedicated Support',
-    subtitle: 'Our team is available 24/7 to assist you with any issues.',
-  },
-  {
-    title: 'Proven Track Record',
-    subtitle: 'We have a long history of delivering successful projects for our clients.',
-  },
-]
+];
 </script>
 
 <style scoped>
 .about-page {
-  background-color: #f5f5f5;
-  padding: 2rem;
+  width: 100%;
+  height: auto;
+  padding: 0;
+
+  & .About-header{
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .About-image { 
+    width: 100%;
+    border: 2px solid #323232;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
 }
 
-h1,
-h2 {
-  font-family: 'Georgia', serif;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-.bg-style {
-  background:
-    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-    linear-gradient(
-      #1d1d1d 25%,
-      #1a1a1a 25%,
-      #1a1a1a 50%,
-      transparent 50%,
-      transparent 75%,
-      #242424 75%,
-      #242424
-    );
-  background-color: #131313;
-  color: #ffffff;
-  background-size: 20px 20px;
+.v-timeline-item .v-timeline-item__body {
+  max-width: 100%;
 }
 </style>
