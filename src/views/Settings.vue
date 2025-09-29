@@ -15,7 +15,7 @@ const id = ref('')
 const password = ref('')
 const showCard = ref(false)
 const showError = ref(false)
-let recaptchaPromise = null;
+let recaptchaPromise = null
 
 const fixedId = 'Lucky2912'
 const fixedPassword = 'Lucky.2912'
@@ -23,42 +23,47 @@ const fixedPassword = 'Lucky.2912'
 function loadRecaptcha() {
   if (!recaptchaPromise) {
     recaptchaPromise = new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = 'https://www.google.com/recaptcha/api.js?render=6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc';
-      script.async = true;
-      script.defer = true;
+      const script = document.createElement('script')
+      script.src =
+        'https://www.google.com/recaptcha/api.js?render=6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc'
+      script.async = true
+      script.defer = true
       script.onload = () => {
-        grecaptcha.ready(resolve);
-      };
+        grecaptcha.ready(resolve)
+      }
       script.onerror = (error) => {
-        reject(error);
-      };
-      document.head.appendChild(script);
-    });
+        reject(error)
+      }
+      document.head.appendChild(script)
+    })
   }
-  return recaptchaPromise;
+  return recaptchaPromise
 }
 
 watch(activeContent, (newValue) => {
   if (newValue === 'content3') {
-    loadRecaptcha().catch(error => console.error("reCAPTCHA script failed to load:", error));
+    loadRecaptcha().catch((error) => console.error('reCAPTCHA script failed to load:', error))
   }
-});
+})
 
 function checkCredentials() {
-  loadRecaptcha().then(() => {
-    grecaptcha.execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' }).then(function (token) {
-      // IMPORTANT: You need to send this token to your backend for verification.
-      console.log('reCAPTCHA token:', token);
+  loadRecaptcha()
+    .then(() => {
+      grecaptcha
+        .execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' })
+        .then(function (token) {
+          // IMPORTANT: You need to send this token to your backend for verification.
+          console.log('reCAPTCHA token:', token)
 
-      if (id.value === fixedId && password.value === fixedPassword) {
-        showCard.value = true
-        showError.value = false
-      } else {
-        showError.value = true
-      }
-    });
-  }).catch(error => console.error("reCAPTCHA execution failed:", error));
+          if (id.value === fixedId && password.value === fixedPassword) {
+            showCard.value = true
+            showError.value = false
+          } else {
+            showError.value = true
+          }
+        })
+    })
+    .catch((error) => console.error('reCAPTCHA execution failed:', error))
 }
 
 const search = ref('')

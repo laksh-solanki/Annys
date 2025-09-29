@@ -4,7 +4,9 @@
     data-bs-theme="light"
   >
     <div class="container">
-      <router-link class="navbar-brand text-style" to="/">Annys</router-link>
+      <router-link class="navbar-brand img-style" to="/"
+        ><img src="/src/assets/Main-logo.png" alt="" width="40"
+      /></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -62,15 +64,8 @@ import { RouterLink } from 'vue-router'
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
 
-.text-style {
+.img-style {
   font-family: 'Oooh Baby', cursive;
-  position: relative;
-  font-size: 30px;
-  font-weight: bolder;
-  color: red;
-  text-decoration: none;
-  text-underline-offset: 3px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin: 0%;
   padding: 0%;
   margin-left: 20px;

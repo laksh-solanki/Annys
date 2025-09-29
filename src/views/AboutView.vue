@@ -5,11 +5,12 @@
         <v-col cols="12" md="6" class="text-center About-header">
           <h1 class="display-2 font-weight-bold mb-4">About Our Company</h1>
           <p class="subheading-1">
-            We are a team of passionate individuals dedicated to creating innovative solutions for the future.
+            We are a team of passionate individuals dedicated to creating innovative solutions for
+            the future.
           </p>
         </v-col>
         <v-col cols="12" md="6" class="d-flex justify-content- align-center">
-          <img src="/src/assets/65328048fbd9a45bcec820b9_ReactComponentLibraries.svg" class="About-image ms-auto" alt=""> 
+          <img src="/src/assets/use-1.svg" class="About-image ms-auto" alt="" />
         </v-col>
       </v-row>
 
@@ -17,9 +18,17 @@
         <v-col cols="12">
           <h2 class="display-1 font-weight-bold text-center mb-8">Our Journey</h2>
           <v-timeline align="start">
-            <v-timeline-item v-for="(item, i) in timeline" :key="i" :dot-color="item.color" size="small">
+            <v-timeline-item
+              v-for="(item, i) in timeline"
+              :key="i"
+              :dot-color="item.color"
+              size="small"
+            >
               <template v-slot:opposite>
-                <div :class="`pt-1 headline font-weight-bold text-${item.color}`" v-text="item.year"></div>
+                <div
+                  :class="`pt-1 headline font-weight-bold text-${item.color}`"
+                  v-text="item.year"
+                ></div>
               </template>
               <div>
                 <h2 :class="`mt-n1 headline font-weight-light mb-4 text-${item.color}`">
@@ -70,34 +79,39 @@ const timeline = [
     year: '2015',
     color: 'cyan',
     title: 'Company Founded',
-    description: 'Our journey began with a small team of passionate individuals who wanted to make a difference.',
+    description:
+      'Our journey began with a small team of passionate individuals who wanted to make a difference.',
   },
   {
     year: '2017',
     color: 'green',
     title: 'First Major Project',
-    description: 'We launched our first major project, which was a huge success and helped us establish our reputation.',
+    description:
+      'We launched our first major project, which was a huge success and helped us establish our reputation.',
   },
   {
     year: '2020',
     color: 'pink',
     title: 'Expansion and Growth',
-    description: 'We expanded our team and moved into a new office to accommodate our growing business.',
+    description:
+      'We expanded our team and moved into a new office to accommodate our growing business.',
   },
   {
     year: '2023',
     color: 'amber',
     title: 'Future Innovations',
-    description: 'We are constantly exploring new technologies and ideas to shape the future of our industry.',
+    description:
+      'We are constantly exploring new technologies and ideas to shape the future of our industry.',
   },
-];
+]
 
 const values = [
   {
     icon: 'mdi-lightbulb-on-outline',
     color: 'amber',
     title: 'Innovation',
-    description: 'We are committed to pushing the boundaries of what is possible and creating innovative solutions.',
+    description:
+      'We are committed to pushing the boundaries of what is possible and creating innovative solutions.',
   },
   {
     icon: 'mdi-account-group-outline',
@@ -111,7 +125,7 @@ const values = [
     title: 'Integrity',
     description: 'We are committed to the highest standards of integrity and ethical behavior.',
   },
-];
+]
 
 const team = [
   {
@@ -132,7 +146,7 @@ const team = [
     avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
     bio: 'Peter is an experienced operations executive with a proven track record of success.',
   },
-];
+]
 </script>
 
 <style scoped>
@@ -141,7 +155,7 @@ const team = [
   height: auto;
   padding: 0;
 
-  & .About-header{
+  & .About-header {
     width: 100%;
     height: 91vh;
     display: flex;
@@ -150,7 +164,7 @@ const team = [
     align-items: center;
   }
 
-  & .About-image { 
+  & .About-image {
     width: 100%;
     border: 2px solid #323232;
     border-radius: 10px;

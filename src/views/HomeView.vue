@@ -39,11 +39,7 @@
             </div>
           </v-col>
           <v-col cols="12" md="5">
-            <v-img
-              src="/src/assets/sysadmin_03.jpg"
-              alt="Professional Team"
-              class="hero-image"
-            ></v-img>
+            <v-img src="/src/assets/use-2.jpg" alt="Professional Team" class="hero-image"></v-img>
           </v-col>
         </v-row>
       </v-container>
