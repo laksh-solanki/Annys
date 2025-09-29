@@ -6,6 +6,7 @@
 
 <script setup>
 import { jsPDF } from 'jspdf'
+import imageUrl from '../assets/IMCA.jpg'
 
 const props = defineProps({
   formData: {
@@ -22,7 +23,7 @@ const generatePdf = () => {
   const a4Height = 297
 
   // Add a background image
-  const imageUrl = new URL('../assets/IMCA.jpg', import.meta.url).href
+  
   doc.addImage(imageUrl, 'JPEG', 0, 0, a4Width, a4Height)
 
   let y = 129
