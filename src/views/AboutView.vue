@@ -10,7 +10,7 @@
           </p>
         </v-col>
         <v-col cols="12" md="6" class="d-flex justify-content- align-center">
-          <img src="/src/assets/use-1.svg" class="About-image ms-auto" alt="" />
+          <img src="../assets/use-1.svg" class="About-image ms-auto" alt="" />
         </v-col>
       </v-row>
 

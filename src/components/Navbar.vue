@@ -5,7 +5,7 @@
   >
     <div class="container">
       <router-link class="navbar-brand img-style" to="/"
-        ><img src="/src/assets/Main-logo.png" alt="" width="40"
+        ><img src="../assets/Main-logo.png" alt="" width="40"
       /></router-link>
       <button
         class="navbar-toggler"
