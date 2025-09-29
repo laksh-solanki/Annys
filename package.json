@@ -23,6 +23,7 @@
     "@vercel/remix-builder": "^5.4.12",
     "@vercel/speed-insights": "^1.2.0",
     "@vercel/static-build": "^2.7.23",
+    "axios": "^1.12.2",
     "bootstrap": "^5.3.8",
     "dotenv": "^17.2.2",
     "firebase": "^12.3.0",
