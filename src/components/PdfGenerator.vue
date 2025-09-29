@@ -33,7 +33,7 @@ const generatePdf = () => {
 
   y += 10;
 
-  doc.save('student-registration.pdf');
+  doc.save(String(props.formData.fname).toUpperCase() + '.pdf');
 };
 
 defineExpose({
