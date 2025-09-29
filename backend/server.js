@@ -28,6 +28,7 @@ connectDB()
 // API route to save student data
 app.post('/register', async (req, res) => {
   try {
+    console.log('Received registration request. Body:', req.body);
     const studentData = {
       fname: req.body.fname,
       email: req.body.email,
@@ -36,20 +37,23 @@ app.post('/register', async (req, res) => {
       prnNo: req.body.prnNo,
       rollNo: req.body.rollNo,
       createdAt: new Date(),
+    };
+
+    if (!studentsCollection) {
+      console.error('MongoDB studentsCollection is not initialized.');
+      return res.status(500).json({ success: false, error: 'Database collection not ready.' });
     }
 
-    await studentsCollection.insertOne(studentData)
-    res.json({ success: true, message: 'Student registered successfully!' })
+    const result = await studentsCollection.insertOne(studentData);
+    console.log('MongoDB insert result:', result);
+    res.json({ success: true, message: 'Student registered successfully!' });
   } catch (err) {
-    res.status(500).json({ success: false, error: err.message })
+    console.error('Error during student registration:', err);
+    res.status(500).json({ success: false, error: err.message });
   }
-})
+});
 
-app.listen(5000, () => console.log('🚀 Server running at http://localhost:5000'))
+app.listen(5000, () => console.log('🚀 Server running at http://localhost:5000'));
 app.get('/', (req, res) => {
-  res.send('Server is running! 🚀')
-})
-// Backend (server.js)
-app.post("/api/register", (req, res) => {
-  res.send("Registration successful!");
+  res.send('Server is running! 🚀');
 });
