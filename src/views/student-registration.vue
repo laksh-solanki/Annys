@@ -70,8 +70,8 @@ const submitForm = async () => {
 
           <v-row class="mt-5">
             <v-col cols="12" class="text-center">
-              <v-btn color="primary" class="mr-4">Submit</v-btn>
-              <v-btn color="secondary">Reset</v-btn>
+              <v-btn color="primary" type="submit" class="mr-4">Submit</v-btn>
+              <v-btn color="secondary" type="reset">Reset</v-btn>
             </v-col>
           </v-row>
         </v-form>

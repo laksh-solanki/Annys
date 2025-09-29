@@ -8,7 +8,8 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // MongoDB connection
-const uri = 'mongodb+srv://Student_reg:Student_reg.12345@cluster0.prbmefr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' // paste your Atlas URI
+const uri =
+  'mongodb+srv://Student_reg:Student_reg.12345@cluster0.prbmefr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' // paste your Atlas URI
 const client = new MongoClient(uri)
 
 let studentsCollection
@@ -25,7 +26,7 @@ async function connectDB() {
 connectDB()
 
 // API route to save student data
-app.post('/student-registration', async (req, res) => {
+app.post('/register', async (req, res) => {
   try {
     const studentData = {
       fname: req.body.fname,
@@ -45,3 +46,10 @@ app.post('/student-registration', async (req, res) => {
 })
 
 app.listen(5000, () => console.log('🚀 Server running at http://localhost:5000'))
+app.get('/', (req, res) => {
+  res.send('Server is running! 🚀')
+})
+// Backend (server.js)
+app.post("/api/register", (req, res) => {
+  res.send("Registration successful!");
+});
