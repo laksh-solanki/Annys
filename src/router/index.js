@@ -39,11 +39,6 @@ const router = createRouter({
       // }
     },
     {
-      path: '/gemini',
-      name: 'gemini',
-      component: () => import('../views/Gemini.vue'),
-    },
-    {
       path: '/Student-registration',
       name: 'student-registration',
       component: () => import('../views/student-registration.vue'),

@@ -53,7 +53,10 @@ app.post('/register', async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('🚀 Server running at http://localhost:5000'));
+const functions = require('firebase-functions');
+
 app.get('/', (req, res) => {
   res.send('Server is running! 🚀');
 });
+
+exports.api = functions.https.onRequest(app);
