@@ -81,44 +81,28 @@ watch(search, async (newValue) => {
 </script>
 
 <template>
-  <v-app>
-    <div class="position-sticky z-1" style="top: 0">
-      <v-navigation-drawer v-model="drawer" elevation="2" class="position-fixed">
-        <v-sheet class="pa-4" style="margin-top: 60px" color="grey-lighten-4">
-          <v-avatar class="mb-4" color="grey-darken-1" size="70"
-            ><img
-              src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
-              alt=""
-              class="object-fit-cover w-100"
-          /></v-avatar>
-          <div>Laksh Solanki</div>
-          <v-btn
-            icon
-            class="mobile-toggle-btn mt-2"
-            @click="drawer = !drawer"
-            :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'"
-          >
-            <v-icon>{{ drawer ? 'mdi-menu-open' : 'mdi-menu' }}</v-icon>
-          </v-btn>
-        </v-sheet>
-        <v-divider></v-divider>
-        <v-list>
-          <v-list-item
-            v-for="[icon, text, identifier] in links"
-            :key="icon"
-            :prepend-icon="icon"
-            :title="text"
-            :active="identifier === activeContent"
-            @click="showContent(identifier)"
-            link
-          >
-            <template v-slot:append>
-              <v-icon v-if="identifier === activeContent">mdi-chevron-right</v-icon>
-            </template>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-    </div>
+  <v-layout ref="app" class="position-sticky z-1 top-0">
+    <v-navigation-drawer v-model="drawer" elevation="2" class="position-fixed">
+      <v-sheet class="pa-4" style="margin-top: 60px" color="grey-lighten-4">
+        <v-avatar class="mb-4" color="grey-darken-1" size="70"><img
+            src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
+            alt="" class="object-fit-cover w-100" /></v-avatar>
+        <div>Laksh Solanki</div>
+        <v-btn icon class="mobile-toggle-btn mt-2" @click="drawer = !drawer"
+          :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'">
+          <v-icon>{{ drawer ? 'mdi-menu-open' : 'mdi-menu' }}</v-icon>
+        </v-btn>
+      </v-sheet>
+      <v-divider></v-divider>
+      <v-list>
+        <v-list-item v-for="[icon, text, identifier] in links" :key="icon" :prepend-icon="icon" :title="text"
+          :active="identifier === activeContent" @click="showContent(identifier)" link>
+          <template v-slot:append>
+            <v-icon v-if="identifier === activeContent">mdi-chevron-right</v-icon>
+          </template>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-main class="overflow-auto main-content" style="max-height: 100vh">
       <!-- Container 1 -->
       <v-container v-if="activeContent === 'content1'" class="content1">
@@ -168,22 +152,15 @@ watch(search, async (newValue) => {
       <!-- Container 3 -->
       <v-container v-if="activeContent === 'content3'">
         <v-row>
-          <v-col cols="12" md="12">
+          <v-col cols="12" md="12" style="height: 91.4vh;">
             <v-card v-if="!showCard" class="pa-5 z-0">
               <v-card-title class="text-h5 text-center">Enter Credentials</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="checkCredentials">
                   <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
-                  <v-text-field
-                    v-model="password"
-                    label="Password"
-                    type="password"
-                    variant="outlined"
-                  ></v-text-field>
+                  <v-text-field v-model="password" label="Password" type="password" variant="outlined"></v-text-field>
                   <v-btn type="submit" color="primary">Submit</v-btn>
-                  <v-alert v-if="showError" type="error" class="mt-3"
-                    >Invalid ID or password</v-alert
-                  >
+                  <v-alert v-if="showError" type="error" class="mt-3">Invalid ID or password</v-alert>
                 </v-form>
               </v-card-text>
             </v-card>
@@ -193,16 +170,8 @@ watch(search, async (newValue) => {
                   <v-icon>mdi-account</v-icon>
                   <span class="ms-1">Student Submited List</span>
                   <v-spacer></v-spacer>
-                  <v-text-field
-                    v-model="search"
-                    density="compact"
-                    label="Search"
-                    prepend-inner-icon="mdi-magnify"
-                    variant="solo-filled"
-                    flat
-                    hide-details
-                    single-line
-                  ></v-text-field>
+                  <v-text-field v-model="search" density="compact" label="Search" prepend-inner-icon="mdi-magnify"
+                    variant="solo-filled" flat hide-details single-line></v-text-field>
                 </v-card-title>
                 <v-card-text class="bg-surface-light pt-4">
                   <v-table theme="dark" height="500px" fixed-header>
@@ -213,16 +182,10 @@ watch(search, async (newValue) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr
-                        v-for="i in 48"
-                        :key="i"
-                        :ref="
-                          (el) => {
-                            if (el) rowRefs[i - 1] = el
-                          }
-                        "
-                        :class="{ highlight: search && i === parseInt(search) }"
-                      >
+                      <tr v-for="i in 48" :key="i" :ref="(el) => {
+                        if (el) rowRefs[i - 1] = el
+                      }
+                        " :class="{ highlight: search && i === parseInt(search) }">
                         <td>{{ i }}</td>
                         <td></td>
                       </tr>
@@ -235,7 +198,7 @@ watch(search, async (newValue) => {
         </v-row>
       </v-container>
     </v-main>
-  </v-app>
+  </v-layout>
 </template>
 
 <style scoped>
@@ -249,8 +212,7 @@ watch(search, async (newValue) => {
   --color: #e1e1e1;
   background-color: #f3f3f3;
   background-image:
-    linear-gradient(
-      0deg,
+    linear-gradient(0deg,
       transparent 24%,
       var(--color) 25%,
       var(--color) 26%,
@@ -259,10 +221,8 @@ watch(search, async (newValue) => {
       var(--color) 75%,
       var(--color) 76%,
       transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
+      transparent),
+    linear-gradient(90deg,
       transparent 24%,
       var(--color) 25%,
       var(--color) 26%,
@@ -271,8 +231,7 @@ watch(search, async (newValue) => {
       var(--color) 75%,
       var(--color) 76%,
       transparent 77%,
-      transparent
-    );
+      transparent);
   background-size: 55px 55px;
 }
 
@@ -282,8 +241,7 @@ watch(search, async (newValue) => {
   --color: rgba(114, 114, 114, 0.3);
   background-color: #191a1a;
   background-image:
-    linear-gradient(
-      0deg,
+    linear-gradient(0deg,
       transparent 24%,
       var(--color) 25%,
       var(--color) 26%,
@@ -292,10 +250,8 @@ watch(search, async (newValue) => {
       var(--color) 75%,
       var(--color) 76%,
       transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
+      transparent),
+    linear-gradient(90deg,
       transparent 24%,
       var(--color) 25%,
       var(--color) 26%,
@@ -304,8 +260,7 @@ watch(search, async (newValue) => {
       var(--color) 75%,
       var(--color) 76%,
       transparent 77%,
-      transparent
-    );
+      transparent);
   background-size: 55px 55px;
 }
 
@@ -314,6 +269,7 @@ watch(search, async (newValue) => {
 }
 
 @media (max-width: 960px) {
+
   /* Show button on small and extra small screens */
   .mobile-toggle-btn {
     display: inline-flex !important;

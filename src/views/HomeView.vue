@@ -16,14 +16,14 @@
             <div class="hero-buttons gap-2 d-flex flex-wrap">
               <v-btn
                 class="hero-button"
-                to="/gemini"
+                to="/student"
                 rounded="5"
                 width="200"
                 height="50"
                 color="white"
                 variant="outlined"
                 large
-                >Our Gemini</v-btn
+                >Our Students</v-btn
               >
               <v-btn
                 class="hero-button"

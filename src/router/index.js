@@ -39,9 +39,9 @@ const router = createRouter({
       // }
     },
     {
-      path: '/Student-registration',
-      name: 'student-registration',
-      component: () => import('../views/student-registration.vue'),
+      path: '/Student',
+      name: 'student',
+      component: () => import('../views/student.vue'),
     },
   ],
 })
