@@ -10,40 +10,20 @@
               <v-divider class="my-3"></v-divider>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field
-                v-model="form.fname"
-                label="Full Name"
-                variant="outlined"
-                name="fname"
-                id="fname"
-              ></v-text-field>
+              <v-text-field v-model="form.fname" label="Full Name" variant="outlined" name="fname"
+                id="fname"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field
-                v-model="form.email"
-                label="Email"
-                variant="outlined"
-                name="email"
-                id="email"
-              ></v-text-field>
+              <v-text-field v-model="form.email" label="Email" variant="outlined" name="email"
+                id="email"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field
-                v-model="form.studentMobile"
-                label="Student Mobile No."
-                variant="outlined"
-                name="studentMobile"
-                id="studentMobile"
-              ></v-text-field>
+              <v-text-field v-model="form.studentMobile" label="Student Mobile No." variant="outlined"
+                name="studentMobile" id="studentMobile"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field
-                v-model="form.parentsMobile"
-                label="Parents Mobile No."
-                variant="outlined"
-                name="parentsMobile"
-                id="parentsMobile"
-              ></v-text-field>
+              <v-text-field v-model="form.parentsMobile" label="Parents Mobile No." variant="outlined"
+                name="parentsMobile" id="parentsMobile"></v-text-field>
             </v-col>
           </v-row>
 
@@ -53,22 +33,12 @@
               <v-divider class="my-3"></v-divider>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field
-                v-model="form.prnNo"
-                label="PRN No."
-                variant="outlined"
-                name="prnNo"
-                id="prnNo"
-              ></v-text-field>
+              <v-text-field v-model="form.prnNo" label="PRN No." variant="outlined" name="prnNo"
+                id="prnNo"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field
-                v-model="form.rollNo"
-                label="Roll No."
-                variant="outlined"
-                name="rollNo"
-                id="rollNo"
-              ></v-text-field>
+              <v-text-field v-model="form.rollNo" label="Roll No." variant="outlined" name="rollNo"
+                id="rollNo"></v-text-field>
             </v-col>
           </v-row>
 
@@ -107,7 +77,8 @@ const pdfGenerator = ref(null)
 
 const submitForm = async () => {
   try {
-            const res = await axios.post('/api/register', form)    message.value = res.data.message
+    const res = await axios.post('/api/register', form);
+    message.value = res.data.message;
     if (res.status === 200) {
       pdfGenerator.value.generatePdf()
     }
