@@ -77,8 +77,7 @@ const pdfGenerator = ref(null)
 
 const submitForm = async () => {
   try {
-    const res = await axios.post('/api/register', form);
-    message.value = res.data.message;
+    const res = await axios.post('http://localhost:5000/register', form)
     if (res.status === 200) {
       pdfGenerator.value.generatePdf()
     }
