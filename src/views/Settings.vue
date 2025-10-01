@@ -81,14 +81,14 @@ watch(search, async (newValue) => {
 </script>
 
 <template>
-  <v-layout ref="app" class="position-sticky z-1 top-0">
-    <v-navigation-drawer v-model="drawer" elevation="2" class="position-fixed">
-      <v-sheet class="pa-4" style="margin-top: 60px" color="grey-lighten-4">
+  <v-layout ref="app">
+    <v-navigation-drawer v-model="drawer" elevation="2">
+      <v-sheet class="pa-4">
         <v-avatar class="mb-4" color="grey-darken-1" size="70"><img
             src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
             alt="" class="object-fit-cover w-100" /></v-avatar>
         <div>Laksh Solanki</div>
-        <v-btn icon class="mobile-toggle-btn mt-2" @click="drawer = !drawer"
+        <v-btn icon class="mobile-toggle-btn" @click="drawer = !drawer"
           :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'">
           <v-icon>{{ drawer ? 'mdi-menu-open' : 'mdi-menu' }}</v-icon>
         </v-btn>
@@ -177,7 +177,7 @@ watch(search, async (newValue) => {
                   <v-table theme="dark" height="500px" fixed-header>
                     <thead>
                       <tr>
-                        <th class="text-left">Roll N0.</th>
+                        <th class="text-left">Roll No.</th>
                         <th class="text-left">Submittion</th>
                       </tr>
                     </thead>
@@ -274,13 +274,14 @@ watch(search, async (newValue) => {
   .mobile-toggle-btn {
     display: inline-flex !important;
     position: fixed;
-    top: 55px;
+    border: 1px solid #ccc; 
+    top: 35px;
     right: -26px;
   }
 }
 
 .highlight {
-  background-color: yellow;
+  background-color: rgb(255, 255, 120);
   color: black;
 }
 </style>

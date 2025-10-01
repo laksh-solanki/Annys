@@ -6,7 +6,7 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <v-app theme="light">
+  <v-app theme="dark" id="app">
     <Navbar />
     <v-main>
       <router-view />
@@ -22,8 +22,7 @@ import Footer from '@/components/Footer.vue'
   padding: 0%;
   margin: 0%;
   width: 100%;
-  background-color: #f5f5f5;
+  min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  color: #3d3d3d;
 }
 </style>

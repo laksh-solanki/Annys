@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg shadow-sm w-100 bg-light z-3 position-sticky top-0">
+  <nav class="navbar navbar-expand-lg bg-black border-bottom border-dark navbar-dark shadow-sm w-100 z-3 position-sticky top-0">
     <div class="container">
       <router-link class="navbar-brand img-style" to="/"><img src="../assets/Main-logo.png" alt=""
           width="40" /></router-link>
@@ -54,7 +54,6 @@ import { RouterLink } from 'vue-router'
 }
 
 .nav-link {
-  color: black;
   font-weight: 500;
   width: 100%;
   transition: all 0.3s ease-in-out;
