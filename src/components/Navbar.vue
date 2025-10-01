@@ -31,7 +31,7 @@
               >Student</router-link
             >
           </li>
-          <li class="dropdown nav-item">
+          <li class="dropdown nav-item justify-content-center">
             <a
               class="nav-link dropdown-toggle"
               role="button"
@@ -66,5 +66,22 @@ import { RouterLink } from 'vue-router'
   margin: 0%;
   padding: 0%;
   margin-left: 20px;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    width: 100% !important;
+  }
+
+  .nav-link {
+    padding: 12px 16px;
+  }
 }
 </style>
