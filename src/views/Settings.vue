@@ -81,8 +81,8 @@ watch(search, async (newValue) => {
 </script>
 
 <template>
-  <v-layout ref="app">
-    <v-navigation-drawer v-model="drawer" elevation="2">
+  <v-layout ref="app" class="fill-height z-0" >
+    <v-navigation-drawer v-model="drawer" elevation="2" app>
       <v-sheet class="pa-4">
         <v-avatar class="mb-4" color="grey-darken-1" size="70"><img
             src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
@@ -108,19 +108,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="268" rounded="lg" elevation="3" >
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="9">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -131,19 +131,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content2'">
         <v-row>
           <v-col cols="12" md="9">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="268" rounded="lg" elevation="3">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="268" rounded="lg" elevation="3">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -204,64 +204,6 @@ watch(search, async (newValue) => {
 <style scoped>
 .main-content {
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-}
-
-.bg-style-1 {
-  width: 100%;
-  height: 100%;
-  --color: #e1e1e1;
-  background-color: #f3f3f3;
-  background-image:
-    linear-gradient(0deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent),
-    linear-gradient(90deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent);
-  background-size: 55px 55px;
-}
-
-.bg-style-2 {
-  width: 100%;
-  height: 100%;
-  --color: rgba(114, 114, 114, 0.3);
-  background-color: #191a1a;
-  background-image:
-    linear-gradient(0deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent),
-    linear-gradient(90deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent);
-  background-size: 55px 55px;
 }
 
 .mobile-toggle-btn {
