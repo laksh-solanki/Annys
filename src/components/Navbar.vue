@@ -1,25 +1,14 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg shadow-sm w-100 bg-light z-3 position-sticky top-0"
-    data-bs-theme="light"
-  >
+  <nav class="navbar navbar-expand-lg shadow-sm w-100 bg-light z-3 position-sticky top-0">
     <div class="container">
-      <router-link class="navbar-brand img-style" to="/"
-        ><img src="../assets/Main-logo.png" alt="" width="40"
-      /></router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <router-link class="navbar-brand img-style" to="/"><img src="../assets/Main-logo.png" alt=""
+          width="40" /></router-link>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse mx-5 justify-content-evenly" id="navbarScroll">
-        <ul class="nav navbar-nav gap-2 flex-row justify-content-evenly fs-6">
+      <div class="collapse w-100 navbar-collapse justify-content-center" id="navbarScroll">
+        <ul class="nav navbar-nav gap-3 flex-row w-100 justify-content-center">
           <li class="nav-item">
             <router-link class="nav-link" to="/" exact>Home</router-link>
           </li>
@@ -27,26 +16,19 @@
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Student"
-              >Student</router-link
-            >
+            <router-link class="nav-link" to="/Student">Student</router-link>
           </li>
-          <li class="dropdown nav-item justify-content-center">
-            <a
-              class="nav-link dropdown-toggle"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
+          <li class="dropdown nav-item">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Settings
             </a>
-            <ul class="dropdown-menu">
-              <li><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
-              <li><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
+            <ul class="dropdown-menu position-absolute">
+              <li class="p-0"><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
+              <li class="p-0"><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li class="p-0"><router-link class="dropdown-item" to="/login">Login</router-link></li>
             </ul>
           </li>
         </ul>
@@ -75,13 +57,15 @@ import { RouterLink } from 'vue-router'
   transition: all 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar {
-    width: 100% !important;
-  }
+.dropdown-menu[data-bs-popper]{
+  left: -75px !important;
+}
 
-  .nav-link {
-    padding: 12px 16px;
-  }
+.dropdown-menu {
+  z-index: 1000;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+
 }
 </style>
