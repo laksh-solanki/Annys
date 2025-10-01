@@ -1,7 +1,7 @@
 <template>
-  <v-container>
-    <v-card class="pa-5" elevation="1">
-      <v-card-title class="text-h5 text-center">Student Registration Form</v-card-title>
+  <v-container class="student-container" fluid>
+    <v-card class="pa-5" style="max-width: 900px; width: 100%;" elevation="1">
+      <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="submitForm">
           <v-row>
@@ -88,6 +88,18 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
+.student-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #313131;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  background-repeat: repeat;
+}
+
 .v-card {
   border-radius: 10px;
 }

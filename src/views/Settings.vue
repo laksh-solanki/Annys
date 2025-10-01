@@ -81,7 +81,7 @@ watch(search, async (newValue) => {
 </script>
 
 <template>
-  <v-layout ref="app" class="fill-height z-0" >
+  <v-layout ref="app" class="fill-height z-0">
     <v-navigation-drawer v-model="drawer" elevation="2" app>
       <v-sheet class="pa-4">
         <v-avatar class="mb-4" color="grey-darken-1" size="70"><img
@@ -108,19 +108,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet min-height="268" rounded="lg" elevation="3" >
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="9">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -131,19 +131,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content2'">
         <v-row>
           <v-col cols="12" md="9">
-            <v-sheet min-height="268" rounded="lg" elevation="3">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="268" rounded="lg" elevation="3">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-2">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -153,7 +153,7 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content3'">
         <v-row>
           <v-col cols="12" md="12" style="height: 91.4vh;">
-            <v-card v-if="!showCard" class="pa-5 z-0">
+            <v-card v-if="!showCard" class="pa-5 z-0" rounded="4">
               <v-card-title class="text-h5 text-center">Enter Credentials</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="checkCredentials">
@@ -165,8 +165,8 @@ watch(search, async (newValue) => {
               </v-card-text>
             </v-card>
             <v-container v-if="showCard" class="pa-5">
-              <v-card class="mx-auto z-0" max-width="1100">
-                <v-card-title class="d-flex align-center pe-2">
+              <v-card class="mx-auto z-0">
+                <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
                   <v-icon>mdi-account</v-icon>
                   <span class="ms-1">Student Submited List</span>
                   <v-spacer></v-spacer>
@@ -210,13 +210,80 @@ watch(search, async (newValue) => {
   display: none;
 }
 
+.bg-style-1 {
+  background: radial-gradient(circle farthest-side at 0% 50%,
+      #282828 23.5%,
+      rgba(255, 170, 0, 0) 0) 21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%,
+      #a1000e 24%,
+      rgba(240, 166, 17, 0) 0) 19px 30px,
+    linear-gradient(#282828 14%,
+      rgba(240, 166, 17, 0) 0,
+      rgba(240, 166, 17, 0) 85%,
+      #282828 0) 0 0,
+    linear-gradient(150deg,
+      #282828 24%,
+      #a1000e 0,
+      #a1000e 26%,
+      rgba(240, 166, 17, 0) 0,
+      rgba(240, 166, 17, 0) 74%,
+      #a1000e 0,
+      #a1000e 76%,
+      #282828 0) 0 0,
+    linear-gradient(30deg,
+      #282828 24%,
+      #a1000e 0,
+      #a1000e 26%,
+      rgba(240, 166, 17, 0) 0,
+      rgba(240, 166, 17, 0) 74%,
+      #a1000e 0,
+      #a1000e 76%,
+      #282828 0) 0 0,
+    linear-gradient(90deg, #a1000e 2%, #282828 0, #282828 98%, #a1000e 0%) 0 0 #282828;
+  background-size: 40px 60px;
+}
+
+.bg-style-2 {
+  background: radial-gradient(circle farthest-side at 0% 50%,
+      #282828 23.5%,
+      rgba(255, 170, 0, 0) 0) 21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%,
+      #2c3539 24%,
+      rgba(240, 166, 17, 0) 0) 19px 30px,
+    linear-gradient(#282828 14%,
+      rgba(240, 166, 17, 0) 0,
+      rgba(240, 166, 17, 0) 85%,
+      #282828 0) 0 0,
+    linear-gradient(150deg,
+      #282828 24%,
+      #2c3539 0,
+      #2c3539 26%,
+      rgba(240, 166, 17, 0) 0,
+      rgba(240, 166, 17, 0) 74%,
+      #2c3539 0,
+      #2c3539 76%,
+      #282828 0) 0 0,
+    linear-gradient(30deg,
+      #282828 24%,
+      #2c3539 0,
+      #2c3539 26%,
+      rgba(240, 166, 17, 0) 0,
+      rgba(240, 166, 17, 0) 74%,
+      #2c3539 0,
+      #2c3539 76%,
+      #282828 0) 0 0,
+    linear-gradient(90deg, #2c3539 2%, #282828 0, #282828 98%, #2c3539 0%) 0 0 #282828;
+  background-size: 40px 60px;
+}
+
+
 @media (max-width: 960px) {
 
   /* Show button on small and extra small screens */
   .mobile-toggle-btn {
     display: inline-flex !important;
     position: fixed;
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
     top: 35px;
     right: -26px;
   }
