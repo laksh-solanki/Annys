@@ -23,12 +23,15 @@
               Settings
             </a>
             <ul class="dropdown-menu position-absolute">
-              <li class="p-0"><router-link class="dropdown-item" to="/profile">Profile</router-link></li>
-              <li class="p-0"><router-link class="dropdown-item" to="/settings">Settings</router-link></li>
+              <li><router-link class="dropdown-item" to="/profile"><i
+                    class="fa-solid fa-user me-2"></i>Profile</router-link></li>
+              <li><router-link class="dropdown-item" to="/settings"><i
+                    class="fa-solid fa-gear me-2"></i>Settings</router-link></li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li class="p-0"><router-link class="dropdown-item" to="/login">Login</router-link></li>
+              <li><router-link class="dropdown-item" to="/Help"><i
+                    class="fa-solid fa-circle-question me-2"></i>Help</router-link></li>
             </ul>
           </li>
         </ul>
@@ -57,7 +60,7 @@ import { RouterLink } from 'vue-router'
   transition: all 0.3s ease-in-out;
 }
 
-.dropdown-menu[data-bs-popper]{
+.dropdown-menu[data-bs-popper] {
   left: -75px !important;
 }
 
