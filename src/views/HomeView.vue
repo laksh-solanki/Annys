@@ -14,32 +14,14 @@
               dedicated to delivering high-quality results.
             </p>
             <div class="hero-buttons gap-2 d-flex flex-wrap">
-              <v-btn
-                class="hero-button"
-                to="/student"
-                rounded="5"
-                width="200"
-                height="50"
-                color="white"
-                variant="outlined"
-                large
-                >Our Students</v-btn
-              >
-              <v-btn
-                class="hero-button"
-                to="/about"
-                rounded="5"
-                width="200"
-                height="50"
-                color="white"
-                variant="outlined"
-                large
-                >About me</v-btn
-              >
+              <v-btn class="hero-button" to="/student" rounded="5" width="200" height="50" color="white"
+                variant="outlined" large>Our Students</v-btn>
+              <v-btn class="hero-button" to="/about" rounded="5" width="200" height="50" color="white"
+                variant="outlined" large>About me</v-btn>
             </div>
           </v-col>
           <v-col cols="12" md="5">
-            <v-img :src="homeImage" alt="Professional Tea" class="hero-image"></v-img>
+            <v-img :src="homeImage" alt="Professional Tea" class="hero-image image-animation"></v-img>
           </v-col>
         </v-row>
       </v-container>
@@ -115,5 +97,20 @@ export default {
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   max-width: 100%;
+}
+
+.image-animation {
+	animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>

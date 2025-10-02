@@ -32,7 +32,7 @@
                 <hr class="dropdown-divider" />
               </li>
               <li><router-link class="dropdown-item" to="/Help"><i
-                    class="fa-solid fa-circle-question me-2"></i>Help</router-link></li>
+                    class="fa-solid fa-circle-question"></i>Help</router-link></li>
             </ul>
           </li>
         </ul>
@@ -61,12 +61,11 @@ import { RouterLink } from 'vue-router'
 }
 
 .dropdown-menu[data-bs-popper] {
-  left: -75px !important;
+  left: -73px !important;
 }
 
 .dropdown-menu {
   z-index: 1000;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+  border: 3px solid rgba(144, 144, 144, 0.908) !important;
 }
 </style>

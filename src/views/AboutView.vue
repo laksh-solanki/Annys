@@ -26,6 +26,7 @@
   width: 100%;
   height: auto;
   padding: 0;
+  animation: color-change-2x 5s linear infinite alternate both;
 
   & .About-header {
     width: 100%;
@@ -41,6 +42,16 @@
     border: 3px solid #000000;
     border-radius: 10px;
     transition: transform 0.3s ease;
+  }
+}
+
+@keyframes color-change-2x {
+  0% {
+    background: #19dcea;
+  }
+
+  100% {
+    background: #b22cff;
   }
 }
 </style>

@@ -164,7 +164,7 @@ watch(search, async (newValue) => {
                 </v-form>
               </v-card-text>
             </v-card>
-            <v-container v-if="showCard" class="pa-5">
+            <v-container v-if="showCard">
               <v-card class="mx-auto z-0">
                 <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
                   <v-icon>mdi-account</v-icon>
@@ -187,7 +187,7 @@ watch(search, async (newValue) => {
                       }
                         " :class="{ highlight: search && i === parseInt(search) }">
                         <td>{{ i }}</td>
-                        <td></td>
+                        <td>undefined</td>
                       </tr>
                     </tbody>
                   </v-table>
