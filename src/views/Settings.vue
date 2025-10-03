@@ -103,24 +103,24 @@ watch(search, async (newValue) => {
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main class="overflow-auto main-content" style="max-height: 100vh">
+    <v-main class="main-content overflow-auto" >
       <!-- Container 1 -->
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1 rounded-4">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="9">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -131,19 +131,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content2'">
         <v-row>
           <v-col cols="12" md="9">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1 rounded-4">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-2">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -152,7 +152,7 @@ watch(search, async (newValue) => {
       <!-- Container 3 -->
       <v-container v-if="activeContent === 'content3'">
         <v-row>
-          <v-col cols="12" md="12" style="height: 91.4vh;">
+          <v-col cols="12" md="12" style="height: 91.4vh; padding: 0%;">
             <v-card v-if="!showCard" class="pa-5 z-0" rounded="4">
               <v-card-title class="text-h5 text-center">Enter Credentials</v-card-title>
               <v-card-text>
@@ -165,7 +165,7 @@ watch(search, async (newValue) => {
               </v-card-text>
             </v-card>
             <v-container v-if="showCard">
-              <v-card class="mx-auto z-0">
+              <v-card class="mx-auto z-0" rounded="3">
                 <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
                   <v-icon>mdi-account</v-icon>
                   <span class="ms-1">Student Submited List</span>
@@ -173,7 +173,7 @@ watch(search, async (newValue) => {
                   <v-text-field v-model="search" density="compact" label="Search" prepend-inner-icon="mdi-magnify"
                     variant="solo-filled" flat hide-details single-line></v-text-field>
                 </v-card-title>
-                <v-card-text class="bg-surface-light pt-4">
+                <v-card-text class="pt-4">
                   <v-table theme="dark" height="500px" fixed-header>
                     <thead>
                       <tr>

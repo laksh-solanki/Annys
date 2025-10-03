@@ -32,7 +32,7 @@
                 <hr class="dropdown-divider" />
               </li>
               <li><router-link class="dropdown-item" to="/Help"><i
-                    class="fa-solid fa-circle-question"></i>Help</router-link></li>
+                    class="fa-solid fa-circle-question me-2"></i>Help</router-link></li>
             </ul>
           </li>
         </ul>
@@ -66,6 +66,7 @@ import { RouterLink } from 'vue-router'
 
 .dropdown-menu {
   z-index: 1000;
+  background-color: #16293e;
   border: 3px solid rgba(144, 144, 144, 0.908) !important;
 }
 </style>

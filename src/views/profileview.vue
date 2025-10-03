@@ -1,12 +1,31 @@
 <template>
-  <v-container>
+  <v-container fluid class="px-2 px-lg-5">
     <v-row>
-      <v-col cols="12">
-        <v-card height="566" width="100%" class="d-flex flex-column justify-content-center text-center align-center">
-          <v-card-title>Profile</v-card-title>
-          <v-card-text>
-            <p>This is the profile page.</p>
-          </v-card-text>
+      <v-col cols="12" md="12">
+        <v-card width="100%" class="pa-4" rounded="4">
+          <v-row>
+            <v-col cols="12" md="12">
+              <v-card elevation="3" class="pa-1 text-wrap" rounded="4" color="teal-lighten-4">
+                <v-row class="d-flex justify-content-start align-items-center" height="180">
+                  <v-col cols="12" md="2" class="d-flex justify-center align-center">
+                    <v-avatar size="100" color="grey-darken-1 m-4">
+                      <img src="../assets/profile-pic.webp" width="70" alt="Profile Picture">
+                    </v-avatar>
+                  </v-col>
+                  <v-col md="10" class="d-flex flex-column p-0">
+                    <v-card-title>Laksh Solanki</v-card-title>
+                    <v-card-subtitle class="text-truncate text-wrap">lakshsolanki848@gmail.com</v-card-subtitle>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-col>
+            <v-col>
+              <v-card elevation="3" class="pa-2 d-flex justify-content-start align-items-center"  
+                rounded="4" color="cyan-lighten-3">
+                
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card>
       </v-col>
     </v-row>

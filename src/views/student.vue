@@ -1,6 +1,6 @@
 <template>
   <v-container class="student-container" fluid>
-    <v-card class="pa-5" style="max-width: 900px; width: 100%;" elevation="1">
+    <v-card class="pa-5" style="max-width: 900px; width: 100%;" elevation="2" rounded="5">
       <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="submitForm">
