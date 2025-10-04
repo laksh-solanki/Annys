@@ -15,8 +15,8 @@
 <table>
   <tr>
     <td width="50%">
-      <h3>Gemini Integration</h3>
-      <p>Powered by Google's Gemini for advanced features.</p>
+      <h3>Certificates Genrater</h3>
+      <p>Powered by Annys advanced Certificates features.</p>
     </td>
     <td width="50%">
       <h3>Student Registration</h3>
