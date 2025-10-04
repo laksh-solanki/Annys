@@ -1,5 +1,5 @@
 <template>
-  <v-footer elevation="2" color="dark" app absolute inset>
+  <v-footer elevation="2" color="dark" app absolute class="border-top border-secondary">
     <v-col class="text-center" cols="12">
       &copy; {{ new Date().getFullYear() }}
       <p class="footer-text">Annys</p>

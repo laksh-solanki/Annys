@@ -99,18 +99,16 @@ watch(search, async (newValue) => {
 
 <template>
   <v-layout ref="app" class="fill-height z-0">
-    <v-navigation-drawer v-model="drawer" elevation="2" app>
-      <v-sheet class="pa-4">
-        <v-avatar class="mb-4" color="grey-darken-1" size="70"><img
-            src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001877.png"
-            alt="" class="object-fit-cover w-100" /></v-avatar>
+    <v-navigation-drawer v-model="drawer" class="border-secondary border-end" color="dark" elevation="2" app>
+      <v-sheet class="pa-4 border-bottom border-secondary" color="dark">
+        <v-avatar class="mb-4" color="grey-darken-1" size="70"><img src="../assets/profile-pic.webp" alt=""
+            class="rounded-5 object-fit-cover p-0" width="60" /></v-avatar>
         <div>Laksh Solanki</div>
         <v-btn icon class="mobile-toggle-btn" @click="drawer = !drawer"
           :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'">
           <v-icon>{{ drawer ? 'mdi-menu-open' : 'mdi-menu' }}</v-icon>
         </v-btn>
       </v-sheet>
-      <v-divider></v-divider>
       <v-list>
         <v-list-item v-for="[icon, text, identifier] in links" :key="icon" :prepend-icon="icon" :title="text"
           :active="identifier === activeContent" @click="showContent(identifier)" link>
@@ -125,8 +123,18 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1 rounded-4">
-              <!--  -->
+            <v-sheet rounded="lg" elevation="3" class="pa-3 bg-style-1 rounded-4 text-wrap" color="teal-lighten-4">
+              <v-row class="d-flex justify-content-start align-items-center">
+                <v-col cols="12" md="2" class="d-flex justify-center align-center">
+                  <v-avatar size="100" color="grey-darken-1 m-4">
+                    <img src="../assets/profile-pic.webp" width="70" alt="Profile Picture">
+                  </v-avatar>
+                </v-col>
+                <v-col md="10" class="d-flex flex-column text-center text-lg-start text-md-start text-wrap">
+                  <v-card-title>Laksh Solanki</v-card-title>
+                  <v-card-subtitle>lakshsolanki848@gmail.com</v-card-subtitle>
+                </v-col>
+              </v-row>
             </v-sheet>
           </v-col>
 
@@ -169,7 +177,7 @@ watch(search, async (newValue) => {
       <!-- Container 3 -->
       <v-container v-if="activeContent === 'content3'">
         <v-row>
-          <v-col cols="12" md="12" style="height: 91.4vh; padding: 0%;">
+          <v-col cols="12" md="12" style="height: 91.4vh;">
             <v-card v-if="!showCard" class="pa-5 z-0" rounded="4">
               <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
               <v-card-text>
@@ -206,11 +214,13 @@ watch(search, async (newValue) => {
                         " :class="{ highlight: search && i === parseInt(search) }">
                         <td>{{ i }}</td>
                         <td>
-                          <span v-if="submissions[i - 1].status === 'submitted'" class="text-green font-weight-bold">Submitted</span>
+                          <span v-if="submissions[i - 1].status === 'submitted'"
+                            class="text-green font-weight-bold">Submitted</span>
                           <span v-else-if="submissions[i - 1].status === 'not-submitted'"
                             class="text-red font-weight-bold">Not Submitted</span>
                           <div v-else class="d-flex">
-                            <v-btn size="small" color="green" @click="updateSubmission(i - 1, 'submitted')">Submitted</v-btn>
+                            <v-btn size="small" color="green"
+                              @click="updateSubmission(i - 1, 'submitted')">Submitted</v-btn>
                             <v-btn size="small" color="red" class="ml-2"
                               @click="updateSubmission(i - 1, 'not-submitted')">Not Submitted</v-btn>
                           </div>
@@ -234,78 +244,8 @@ watch(search, async (newValue) => {
 </template>
 
 <style scoped>
-.main-content {
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-}
-
 .mobile-toggle-btn {
   display: none;
-}
-
-.bg-style-1 {
-  background: radial-gradient(circle farthest-side at 0% 50%,
-      #282828 23.5%,
-      rgba(255, 170, 0, 0) 0) 21px 30px,
-    radial-gradient(circle farthest-side at 0% 50%,
-      #a1000e 24%,
-      rgba(240, 166, 17, 0) 0) 19px 30px,
-    linear-gradient(#282828 14%,
-      rgba(240, 166, 17, 0) 0,
-      rgba(240, 166, 17, 0) 85%,
-      #282828 0) 0 0,
-    linear-gradient(150deg,
-      #282828 24%,
-      #a1000e 0,
-      #a1000e 26%,
-      rgba(240, 166, 17, 0) 0,
-      rgba(240, 166, 17, 0) 74%,
-      #a1000e 0,
-      #a1000e 76%,
-      #282828 0) 0 0,
-    linear-gradient(30deg,
-      #282828 24%,
-      #a1000e 0,
-      #a1000e 26%,
-      rgba(240, 166, 17, 0) 0,
-      rgba(240, 166, 17, 0) 74%,
-      #a1000e 0,
-      #a1000e 76%,
-      #282828 0) 0 0,
-    linear-gradient(90deg, #a1000e 2%, #282828 0, #282828 98%, #a1000e 0%) 0 0 #282828;
-  background-size: 40px 60px;
-}
-
-.bg-style-2 {
-  background: radial-gradient(circle farthest-side at 0% 50%,
-      #282828 23.5%,
-      rgba(255, 170, 0, 0) 0) 21px 30px,
-    radial-gradient(circle farthest-side at 0% 50%,
-      #2c3539 24%,
-      rgba(240, 166, 17, 0) 0) 19px 30px,
-    linear-gradient(#282828 14%,
-      rgba(240, 166, 17, 0) 0,
-      rgba(240, 166, 17, 0) 85%,
-      #282828 0) 0 0,
-    linear-gradient(150deg,
-      #282828 24%,
-      #2c3539 0,
-      #2c3539 26%,
-      rgba(240, 166, 17, 0) 0,
-      rgba(240, 166, 17, 0) 74%,
-      #2c3539 0,
-      #2c3539 76%,
-      #282828 0) 0 0,
-    linear-gradient(30deg,
-      #282828 24%,
-      #2c3539 0,
-      #2c3539 26%,
-      rgba(240, 166, 17, 0) 0,
-      rgba(240, 166, 17, 0) 74%,
-      #2c3539 0,
-      #2c3539 76%,
-      #282828 0) 0 0,
-    linear-gradient(90deg, #2c3539 2%, #282828 0, #282828 98%, #2c3539 0%) 0 0 #282828;
-  background-size: 40px 60px;
 }
 
 

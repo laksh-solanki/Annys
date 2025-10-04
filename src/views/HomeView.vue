@@ -1,6 +1,6 @@
 <template>
   <div class="home h-100 w-100">
-    <section class="hero py-5">
+    <section class="hero">
       <v-container>
         <v-row class="align-center py-5 gap-5">
           <v-col cols="12" md="6" class="content-1 py-5 d-flex flex-column justify-center">

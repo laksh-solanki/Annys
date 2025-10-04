@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg bg-dark border-3 border-bottom border-dark navbar-dark shadow-sm w-100 z-3 position-sticky top-0">
+    class="navbar navbar-expand-lg bg-dark border-1 border-bottom border-secondary navbar-dark shadow-sm w-100 z-3 position-sticky top-0">
     <div class="container">
       <router-link class="navbar-brand img-style" to="/"><img src="../assets/Main-logo.png" alt=""
           width="40" /></router-link>
@@ -23,9 +23,7 @@
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Settings
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark position-absolute z-3">
-              <li><router-link class="dropdown-item" to="/profile"><i
-                    class="fa-solid fa-user me-2"></i>Profile</router-link></li>
+            <ul class="dropdown-menu rounded-3 dropdown-menu-dark position-absolute z-3">
               <li><router-link class="dropdown-item" to="/settings"><i
                     class="fa-solid fa-gear me-2"></i>Settings</router-link></li>
               <li>

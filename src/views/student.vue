@@ -93,14 +93,9 @@ const submitForm = async () => {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #313131;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
-  background-size: 40px 30px;
-  background-position: -5px -5px;
-  background-repeat: repeat;
 }
 
 .v-card {
-  border-radius: 10px;
+  box-shadow: rgb(255, 255, 255) 0px 0.2px 8px !important;
 }
 </style>
