@@ -16,11 +16,11 @@
   <tr>
     <td width="50%">
       <h3>Certificates Genrater</h3>
-      <p>Powered by Annys advanced Certificates features.</p>
+      <p>Powered by Annys advanced Certificates Features.</p>
     </td>
     <td width="50%">
       <h3>Student Registration</h3>
-      <p>A dedicated module for student registration.</p>
+      <p>A dedicated module for student registration with Features.</p>
     </td>
   </tr>
 </table>
@@ -30,7 +30,7 @@
 | Category      | Technology                                                                                             |
 |---------------|--------------------------------------------------------------------------------------------------------|
 | **Frontend**  | [Vue.js 3](https://vuejs.org/), [Vite](https://vitejs.dev/), [Pinia](https://pinia.vuejs.org/), [Vue Router](https://router.vuejs.org/) |
-| **Components**|  [Vuetify](https://vuetifyjs.com/),[Bootstrap 5](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/)                     |
+| **Components**| [Vuetify](https://vuetifyjs.com/), [Bootstrap 5](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/)                    |
 | **Backend**   | [Node.js](https://nodejs.org/)                      |
 | **Deployment**| [Vercel](https://vercel.com/)             |
 
