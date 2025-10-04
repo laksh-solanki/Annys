@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src/assets/main-logo.svg" alt="Annys logo" width="120"/>
+  <img src="src/assets/Main-logo.png" alt="Annys logo" width="120"/>
   <h1>Annys</h1>
   <p>A modern web application built with Vue.js.</p>
   <p>
