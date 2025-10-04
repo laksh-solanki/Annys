@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, nextTick } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [
@@ -69,6 +69,23 @@ function checkCredentials() {
 const search = ref('')
 const rowRefs = ref([])
 
+const submissions = ref(
+  JSON.parse(localStorage.getItem('studentSubmissions')) ||
+  Array(48).fill().map(() => ({ status: 'undefined' }))
+)
+
+watch(submissions, (newSubmissions) => {
+  localStorage.setItem('studentSubmissions', JSON.stringify(newSubmissions))
+}, { deep: true })
+
+function updateSubmission(index, newStatus) {
+  submissions.value[index].status = newStatus
+}
+
+function editSubmission(index) {
+  submissions.value[index].status = 'undefined'
+}
+
 watch(search, async (newValue) => {
   if (newValue) {
     await nextTick()
@@ -103,7 +120,7 @@ watch(search, async (newValue) => {
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main class="main-content overflow-auto" >
+    <v-main class="main-content overflow-auto">
       <!-- Container 1 -->
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
@@ -154,7 +171,7 @@ watch(search, async (newValue) => {
         <v-row>
           <v-col cols="12" md="12" style="height: 91.4vh; padding: 0%;">
             <v-card v-if="!showCard" class="pa-5 z-0" rounded="4">
-              <v-card-title class="text-h5 text-center">Enter Credentials</v-card-title>
+              <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="checkCredentials">
                   <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
@@ -168,7 +185,7 @@ watch(search, async (newValue) => {
               <v-card class="mx-auto z-0" rounded="3">
                 <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
                   <v-icon>mdi-account</v-icon>
-                  <span class="ms-1">Student Submited List</span>
+                  <span class="ms-1">Student Submitted List</span>
                   <v-spacer></v-spacer>
                   <v-text-field v-model="search" density="compact" label="Search" prepend-inner-icon="mdi-magnify"
                     variant="solo-filled" flat hide-details single-line></v-text-field>
@@ -179,6 +196,7 @@ watch(search, async (newValue) => {
                       <tr>
                         <th class="text-left">Roll No.</th>
                         <th class="text-left">Submittion</th>
+                        <th class="text-left">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -187,7 +205,21 @@ watch(search, async (newValue) => {
                       }
                         " :class="{ highlight: search && i === parseInt(search) }">
                         <td>{{ i }}</td>
-                        <td>undefined</td>
+                        <td>
+                          <span v-if="submissions[i - 1].status === 'submitted'" class="text-green font-weight-bold">Submitted</span>
+                          <span v-else-if="submissions[i - 1].status === 'not-submitted'"
+                            class="text-red font-weight-bold">Not Submitted</span>
+                          <div v-else class="d-flex">
+                            <v-btn size="small" color="green" @click="updateSubmission(i - 1, 'submitted')">Submitted</v-btn>
+                            <v-btn size="small" color="red" class="ml-2"
+                              @click="updateSubmission(i - 1, 'not-submitted')">Not Submitted</v-btn>
+                          </div>
+                        </td>
+                        <td>
+                          <v-btn size="small" icon @click="editSubmission(i - 1)">
+                            <v-icon>mdi-pencil</v-icon>
+                          </v-btn>
+                        </td>
                       </tr>
                     </tbody>
                   </v-table>
