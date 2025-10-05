@@ -99,11 +99,13 @@ watch(search, async (newValue) => {
 
 <template>
   <v-layout ref="app" class="fill-height z-0">
-    <v-navigation-drawer v-model="drawer" class="border-secondary border-end" color="dark" elevation="2" app>
+    <v-navigation-drawer v-model="drawer" class="border-secondary border-end container-animate" color="dark"
+      elevation="2" app>
       <v-sheet class="pa-4 border-bottom border-secondary" color="dark">
         <v-avatar class="mb-4" color="grey-darken-1" size="70"><img src="../assets/profile-pic.webp" alt=""
-            class="rounded-5 object-fit-cover p-0" width="60" /></v-avatar>
-        <div>Laksh Solanki</div>
+            class="rounded-5 object-fit-cover" width="60" /></v-avatar>
+        <v-card-title class="p-0">Laksh Solanki</v-card-title>
+        <v-card-subtitle class="p-0">lakshsolanki848@gmail.com</v-card-subtitle>
         <v-btn icon class="mobile-toggle-btn" @click="drawer = !drawer"
           :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'">
           <v-icon>{{ drawer ? 'mdi-menu-open' : 'mdi-menu' }}</v-icon>
@@ -123,7 +125,8 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet rounded="lg" elevation="3" class="pa-3 bg-style-1 rounded-4 text-wrap" color="teal-lighten-4">
+            <v-sheet rounded="lg" elevation="3" class="pa-3 bg-style-1 rounded-4 text-wrap sheet1-animation"
+              color="teal-lighten-4">
               <v-row class="d-flex justify-content-start align-items-center">
                 <v-col cols="12" md="2" class="d-flex justify-center align-center">
                   <v-avatar size="100" color="grey-darken-1 m-4">
@@ -139,13 +142,13 @@ watch(search, async (newValue) => {
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="9">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -156,19 +159,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content2'">
         <v-row>
           <v-col cols="12" md="9">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-1 rounded-4">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="rounded-4 sheet1-animation">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
+            <v-sheet min-height="268" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="bg-style-2 rounded-4">
+            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -178,7 +181,7 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content3'">
         <v-row>
           <v-col cols="12" md="12" style="height: 91.4vh;">
-            <v-card v-if="!showCard" class="pa-5 z-0" rounded="4">
+            <v-card v-if="!showCard" class="pa-5 z-0 sheet1-animation" rounded="4">
               <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="checkCredentials">
@@ -190,7 +193,7 @@ watch(search, async (newValue) => {
               </v-card-text>
             </v-card>
             <v-container v-if="showCard">
-              <v-card class="mx-auto z-0" rounded="3">
+              <v-card class="mx-auto z-0 sheet1-animation" rounded="3">
                 <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
                   <v-icon>mdi-account</v-icon>
                   <span class="ms-1">Student Submitted List</span>
@@ -259,10 +262,113 @@ watch(search, async (newValue) => {
     top: 35px;
     right: -26px;
   }
+
+  .container-animate {
+    animation: none !important;
+  }
+}
+
+.sheet1-animation {
+  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.sheet2-animation {
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .highlight {
   background-color: rgb(255, 255, 120);
   color: black;
+}
+
+.container-animate {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 </style>

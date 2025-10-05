@@ -1,6 +1,6 @@
 <template>
   <v-container class="student-container" fluid>
-    <v-card class="pa-5" style="max-width: 900px; width: 100%;" elevation="2" rounded="5">
+    <v-card class="pa-5 card-animation card-container" elevation="4" rounded="5">
       <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="submitForm">
@@ -88,6 +88,44 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
+.card-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.card-animation {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .student-container {
   display: flex;
   justify-content: center;
@@ -96,6 +134,6 @@ const submitForm = async () => {
 }
 
 .v-card {
-  box-shadow: rgb(255, 255, 255) 0px 0.2px 8px !important;
+  box-shadow: rgb(160, 219, 255) 0px 0.2px 8px !important;
 }
 </style>
