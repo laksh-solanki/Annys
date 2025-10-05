@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-animate navbar-expand-lg bg-dark border-1 border-bottom border-secondary navbar-dark shadow-sm w-100 z-3 position-sticky top-0">
+    class="navbar navbar-expand-lg bg-dark border-1 border-bottom border-secondary navbar-dark shadow-sm w-100 z-3 position-sticky top-0">
     <div class="container">
       <router-link class="navbar-brand img-style" to="/"><img src="../assets/Main-logo.png" alt=""
           width="40" /></router-link>
@@ -44,39 +44,6 @@ import { RouterLink } from 'vue-router'
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
-
-.navbar-animate {
-  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@-webkit-keyframes slide-in-top {
-  0% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-top {
-  0% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 .img-style {
   font-family: 'Oooh Baby', cursive;

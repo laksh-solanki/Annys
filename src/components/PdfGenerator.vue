@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <v-btn @click="generatePdf" color="primary">Download PDF</v-btn>
-  </div>
+  <v-tooltip text="Download PDF" location="top">
+    <template v-slot:activator="{ props }">
+      <v-btn v-bind="props" @click="generatePdf" variant="tonal" color="primary" text="Download PDF"></v-btn>
+    </template>
+  </v-tooltip>
 </template>
 
 <script setup>
@@ -23,7 +25,7 @@ const generatePdf = () => {
   const a4Height = 297
 
   // Add a background image
-  
+
   doc.addImage(imageUrl, 'JPEG', 0, 0, a4Width, a4Height)
 
   let y = 129

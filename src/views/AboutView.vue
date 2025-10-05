@@ -9,8 +9,8 @@
             the future.
           </p>
         </v-col>
-        <v-col cols="12" md="6" class="d-flex justify-content- align-center">
-          <img src="../assets/use-1.svg" class="About-image ms-auto" alt="" />
+        <v-col cols="12" md="6" class="d-flex justify-content-center align-center">
+          <img src="../assets/use-1.svg" class="About-image rounded-5 ms-auto" alt="" />
         </v-col>
       </v-row>
     </v-container>
@@ -40,7 +40,6 @@
   & .About-image {
     width: 100%;
     border: 3px solid #000000;
-    border-radius: 10px;
     animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
 }
