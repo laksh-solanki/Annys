@@ -33,7 +33,7 @@ app.post('/register', async (req, res) => {
       fname: req.body.fname,
       email: req.body.email,
       studentMobile: req.body.studentMobile,
-      parentsMobile: req.body.parentsMobile,
+      course: req.body.course,
       prnNo: req.body.prnNo,
       rollNo: req.body.rollNo,
       createdAt: new Date(),

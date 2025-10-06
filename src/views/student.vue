@@ -22,8 +22,9 @@
                 name="studentMobile" id="studentMobile" rounded="4"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="form.parentsMobile" :counter="10" label="Parents Mobile No." variant="outlined"
-                name="parentsMobile" id="parentsMobile" rounded="4"></v-text-field>
+              <v-select v-model="form.course"
+                :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
+                label="Course" variant="outlined" name="course" id="course" rounded="4"></v-select>
             </v-col>
           </v-row>
 
@@ -90,7 +91,7 @@ const form = reactive({
   fname: '',
   email: '',
   studentMobile: '',
-  parentsMobile: '',
+  course: '',
   prnNo: '',
   rollNo: '',
 })

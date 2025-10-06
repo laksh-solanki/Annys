@@ -36,7 +36,15 @@ const generatePdf = () => {
 
   y += 10
 
-  doc.save(String(props.formData.fname).toUpperCase() + '.pdf')
+  let t = 167
+
+  doc.setFont('helvetica', 'bold')
+  doc.setFontSize(15)
+  doc.text(String(props.formData.course).toUpperCase(), 105, t, { align: 'center' })
+
+  t += 10
+
+  doc.save(String(props.formData.course).toUpperCase() + '.pdf')
 }
 
 defineExpose({
