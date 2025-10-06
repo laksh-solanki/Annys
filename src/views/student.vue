@@ -24,7 +24,8 @@
             <v-col cols="12" md="6">
               <v-select v-model="form.course"
                 :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
-                label="Course" variant="outlined" name="course" id="course" rounded="4"></v-select>
+                label="Course" :list-props="{ bgColor: 'black' }" variant="outlined" name="course" id="course"
+                rounded="4"></v-select>
             </v-col>
           </v-row>
 
