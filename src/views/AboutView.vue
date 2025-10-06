@@ -24,24 +24,24 @@
 <style scoped>
 .about-page {
   width: 100%;
-  height: auto;
+  height: 100%;
   padding: 0;
   animation: color-change-2x 5s linear infinite alternate both;
+}
 
-  & .About-header {
-    width: 100%;
-    height: 91vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.About-header {
+  width: 100%;
+  height: 91.12vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  & .About-image {
-    width: 100%;
-    border: 3px solid #000000;
-    animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
+.About-image {
+  width: 100%;
+  border: 3px solid #000000;
+  animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @keyframes slide-in-right {
