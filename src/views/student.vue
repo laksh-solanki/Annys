@@ -1,6 +1,6 @@
 <template>
   <v-container class="student-container">
-    <v-card class="pa-5 card-animation card-container" elevation="4" rounded="5">
+    <v-card class="pa-5 card-animation card-container" elevation="4" rounded="3">
       <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="submitForm">
@@ -11,21 +11,21 @@
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field v-model="form.fname" label="Full Name" variant="outlined" name="fname" id="fname"
-                rounded="4" aria-required="true"></v-text-field>
+                rounded="2" aria-required="true"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field v-model="form.email" label="Email" variant="outlined" name="email" id="email"
-                rounded="4"></v-text-field>
+                rounded="2"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field v-model="form.studentMobile" :counter="10" label="Student Mobile No." variant="outlined"
-                name="studentMobile" id="studentMobile" rounded="4"></v-text-field>
+                name="studentMobile" id="studentMobile" rounded="2"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
               <v-select v-model="form.course"
                 :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
                 label="Course" :list-props="{ bgColor: 'black' }" variant="outlined" name="course" id="course"
-                rounded="4"></v-select>
+                rounded="2"></v-select>
             </v-col>
           </v-row>
 
@@ -36,11 +36,11 @@
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field v-model="form.prnNo" label="PRN No." variant="outlined" name="prnNo" id="prnNo"
-                rounded="4"></v-text-field>
+                rounded="2"></v-text-field>
             </v-col>
             <v-col cols="12" md="6">
               <v-text-field v-model="form.rollNo" label="Roll No." variant="outlined" name="rollNo" id="rollNo"
-                rounded="4"></v-text-field>
+                rounded="2"></v-text-field>
             </v-col>
           </v-row>
 
