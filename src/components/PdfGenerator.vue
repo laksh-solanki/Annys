@@ -1,7 +1,7 @@
 <template>
   <v-tooltip text="Download PDF" location="top">
     <template v-slot:activator="{ props }">
-      <v-btn v-bind="props" @click="generatePdf" variant="tonal" color="white" text="Download PDF"></v-btn>
+      <v-btn v-bind="props" @click="generatePdf" variant="tonal" color="#4CAF50" text="Download PDF"></v-btn>
     </template>
   </v-tooltip>
 </template>

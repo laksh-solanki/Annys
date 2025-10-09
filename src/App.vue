@@ -6,7 +6,7 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
-  <v-app theme="dark" id="app">
+  <v-app theme="light" id="app">
     <Navbar />
     <v-main>
       <router-view />

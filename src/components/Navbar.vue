@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg bg-dark border-1 border-bottom border-secondary navbar-dark shadow-sm w-100 z-3 position-sticky top-0">
+    class="navbar navbar-expand-lg border-1 border-bottom border-black w-100 z-3 position-sticky top-0 bg-light">
     <div class="container">
       <router-link class="navbar-brand img-style" to="/"><img src="../assets/Main-logo.png" alt=""
           width="40" /></router-link>
@@ -9,9 +9,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse w-100 navbar-collapse justify-content-center" id="navbarScroll">
-        <ul class="nav navbar-nav gap-3 flex-row w-100 justify-content-center">
+        <ul class="nav navbar-nav nav-underline gap-3 flex-row w-100 justify-content-center">
           <li class="nav-item">
-            <router-link class="nav-link" to="/" exact>Home</router-link>
+            <router-link class="nav-link" to="/">Home</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
@@ -23,7 +23,7 @@
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Settings
             </a>
-            <ul class="dropdown-menu rounded-3 dropdown-menu-dark position-absolute z-3">
+            <ul class="dropdown-menu rounded-3 position-absolute z-3">
               <li><router-link class="dropdown-item" to="/settings"><i
                     class="fa-solid fa-gear me-2"></i>Settings</router-link></li>
               <li>
@@ -64,7 +64,15 @@ import { RouterLink } from 'vue-router'
 
 .dropdown-menu {
   z-index: 1000;
-  background-color: #16293e;
   border: 3px solid rgba(144, 144, 144, 0.908) !important;
+}
+
+.nav-link.router-link-active {
+  border-bottom: 2px solid #000;
+  color: #000 !important;
+}
+
+.nav-link:hover {
+  color: #007bff !important;
 }
 </style>

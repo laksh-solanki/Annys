@@ -1,6 +1,6 @@
 <template>
   <v-container class="student-container">
-    <v-card class="pa-5 card-animation card-container" elevation="4" rounded="3">
+    <v-card class="pa-5 card-animation card-container" elevation="2" border="1" rounded="3">
       <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="submitForm">
@@ -48,13 +48,13 @@
             <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
               <v-tooltip text="Submit the form" location="top">
                 <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="primary" @click="snackbar = true" type="submit" variant="tonal"
+                  <v-btn v-bind="props" color="#1976D2" @click="snackbar = true" type="submit" variant="tonal"
                     text="Submit" class="mr-4" :loading="loading"></v-btn>
                 </template>
               </v-tooltip>
               <v-tooltip text="Reset the form" location="top">
                 <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="secondary" type="reset" text="Reset" variant="tonal"
+                  <v-btn v-bind="props" color="#616161" type="reset" text="Reset" variant="tonal"
                     :loading="loading"></v-btn>
                 </template>
               </v-tooltip>
@@ -113,8 +113,8 @@ const submitForm = async () => {
 
 <style scoped>
 .card-container {
-  max-width: 900px;
   width: 100%;
+  background-color: #e3f2fd; /* Light blue color */
 }
 
 .card-animation {

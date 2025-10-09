@@ -27,6 +27,7 @@
   height: 100%;
   padding: 0;
   animation: color-change-2x 5s linear infinite alternate both;
+  overflow-x: hidden;
 }
 
 .About-header {

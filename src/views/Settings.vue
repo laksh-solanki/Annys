@@ -99,9 +99,9 @@ watch(search, async (newValue) => {
 
 <template>
   <v-layout ref="app" class="fill-height z-0">
-    <v-navigation-drawer v-model="drawer" class="border-secondary border-end container-animate" color="dark"
+    <v-navigation-drawer v-model="drawer" class="border-secondary border-end container-animate"
       elevation="2" app>
-      <v-sheet class="pa-4 border-bottom border-secondary" color="dark">
+      <v-sheet class="pa-4 border-bottom border-black">
         <v-avatar class="mb-4" color="grey-darken-1" size="70"><img src="../assets/profile-pic.webp" alt=""
             class="rounded-5 object-fit-cover" width="60" /></v-avatar>
         <v-card-title class="p-0">Laksh Solanki</v-card-title>
@@ -142,13 +142,13 @@ watch(search, async (newValue) => {
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
+            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="9">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
+            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -159,19 +159,19 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content2'">
         <v-row>
           <v-col cols="12" md="9">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="rounded-4 sheet1-animation">
+            <v-sheet min-height="268" rounded="lg" elevation="2" class="rounded-4 sheet1-animation">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="268" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
+            <v-sheet min-height="268" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="3" class="rounded-4 sheet2-animation">
+            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
               <!--  -->
             </v-sheet>
           </v-col>
@@ -181,7 +181,7 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content3'">
         <v-row>
           <v-col cols="12" md="12" style="height: 91.4vh;">
-            <v-card v-if="!showCard" class="pa-5 z-0 sheet1-animation" rounded="4">
+            <v-card v-if="!showCard" class="pa-5 z-0 sheet1-animation" rounded="4" elevation="1" border="1">
               <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="checkCredentials">
@@ -193,7 +193,7 @@ watch(search, async (newValue) => {
               </v-card-text>
             </v-card>
             <v-container v-if="showCard">
-              <v-card class="mx-auto z-0 sheet1-animation" rounded="3">
+              <v-card class="mx-auto z-0 sheet1-animation" rounded="3" elevation="1" border="1">
                 <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
                   <v-icon>mdi-account</v-icon>
                   <span class="ms-1">Student Submitted List</span>
@@ -202,7 +202,7 @@ watch(search, async (newValue) => {
                     variant="solo-filled" flat hide-details single-line></v-text-field>
                 </v-card-title>
                 <v-card-text class="pt-4">
-                  <v-table theme="dark" height="500px" fixed-header>
+                  <v-table height="500px" fixed-header>
                     <thead>
                       <tr>
                         <th class="text-left">Roll No.</th>
