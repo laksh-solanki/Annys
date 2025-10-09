@@ -24,7 +24,7 @@
             <v-col cols="12" md="6">
               <v-select v-model="form.course"
                 :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
-                label="Course" :list-props="{ bgColor: 'black' }" variant="outlined" name="course" id="course"
+                label="Course" :list-props="{ bgColor: 'light' }" variant="outlined" name="course" id="course"
                 rounded="2"></v-select>
             </v-col>
           </v-row>
@@ -114,7 +114,8 @@ const submitForm = async () => {
 <style scoped>
 .card-container {
   width: 100%;
-  background-color: #e3f2fd; /* Light blue color */
+  background-color: #e3f2fd;
+  /* Light blue color */
 }
 
 .card-animation {
