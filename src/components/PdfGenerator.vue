@@ -7,45 +7,47 @@
 </template>
 
 <script setup>
-import { jsPDF } from 'jspdf'
-import imageUrl from '../assets/IMCA.jpg'
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+import backgroundImage from '@/assets/IMCA.jpg';
 
 const props = defineProps({
   formData: {
     type: Object,
     required: true,
   },
-})
+});
 
 const generatePdf = () => {
-  const doc = new jsPDF()
+  const card = document.getElementById('profile-card-container'); // The element to capture
+  if (!card) {
+    console.error("Element with ID 'profile-card-container' not found.");
+    return;
+  }
 
-  // A4 dimensions in mm
-  const a4Width = 210
-  const a4Height = 297
+  html2canvas(card, {
+    backgroundColor: null, // Make the background transparent
+    useCORS: true
+  }).then((canvas) => {
+    const cardImgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
 
-  // Add a background image
+    // Add the background image first, covering the whole page
+    pdf.addImage(backgroundImage, 'JPEG', 0, 0, pdfWidth, pdfHeight);
 
-  doc.addImage(imageUrl, 'JPEG', 0, 0, a4Width, a4Height)
+    // Add the profile card image on top of the background
+    // Centering the card on the page
+    const cardWidth = 90; // Adjust as needed
+    const cardHeight = (canvas.height * cardWidth) / canvas.width;
+    const x = (pdfWidth - cardWidth) / 2;
+    const y = (pdfHeight - cardHeight) / 2;
+    pdf.addImage(cardImgData, 'PNG', x, y, cardWidth, cardHeight);
 
-  let y = 129
-
-  doc.setFont('helvetica', 'bold')
-  doc.setFontSize(27)
-  doc.text(String(props.formData.fname).toUpperCase(), 105, y, { align: 'center' })
-
-  y += 10
-
-  let t = 167
-
-  doc.setFont('PlusJakartaSans-VariableFont_wght.ttf', 'bold')
-  doc.setFontSize(15)
-  doc.text(String(props.formData.course).toUpperCase(), 105, t, { align: 'center' })
-
-  t += 10
-
-  doc.save(String(props.formData.course).toUpperCase() + '.pdf')
-}
+    pdf.save(`${props.formData.fname}_profile.pdf`);
+  });
+};
 
 defineExpose({
   generatePdf,

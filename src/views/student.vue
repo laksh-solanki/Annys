@@ -1,5 +1,6 @@
 <template>
   <v-container class="student-container">
+    <profilecard :form-data="form" class="profile-card-for-pdf" />
     <v-card class="pa-5 card-animation card-container" elevation="2" border="1" rounded="3">
       <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
       <v-card-text>
@@ -81,6 +82,7 @@
 </template>
 
 <script setup>
+import profilecard from '@/components/profilecard.vue';
 const snackbar = ref(false)
 const text = ref('')
 const timeout = ref(2000)
@@ -156,5 +158,11 @@ const submitForm = async () => {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.profile-card-for-pdf {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
 }
 </style>
