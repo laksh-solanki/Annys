@@ -38,7 +38,7 @@ const generatePdf = () => {
 
   let t = 167
 
-  doc.setFont('helvetica', 'bold')
+  doc.setFont('PlusJakartaSans-VariableFont_wght.ttf', 'bold')
   doc.setFontSize(15)
   doc.text(String(props.formData.course).toUpperCase(), 105, t, { align: 'center' })
 
