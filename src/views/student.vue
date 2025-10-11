@@ -100,7 +100,7 @@ const loading = ref(false)
 const submitForm = async () => {
   loading.value = true
   try {
-    const res = await axios.put('http://localhost:5000/register', form)
+    const res = await axios.post('http://localhost:5000/register', form)
     if (res.status === 200) {
       pdfGenerator.value.generatePdf()
     }
