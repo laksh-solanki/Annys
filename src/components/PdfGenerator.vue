@@ -1,12 +1,31 @@
 <template>
-  <v-tooltip text="Download PDF" location="top">
-    <template v-slot:activator="{ props }">
-      <v-btn v-bind="props" @click="generatePdf" variant="tonal" color="#4CAF50" text="Download PDF"></v-btn>
-    </template>
-  </v-tooltip>
+  <div>
+    <v-tooltip text="Preview and Download the certificate" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn v-bind="props" @click="generatePdf" class="mt-3" color="primary" text="Open Dialog"></v-btn>
+      </template>
+    </v-tooltip>
+    <v-dialog v-model="dialog" max-width="800">
+      <v-card>
+        <v-card-title class="p-0">
+          <v-btn icon @click="dialog = false" variant="plain">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+        <v-card-text>
+          <iframe :src="pdfUrl" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-btn color="primary" @click="downloadPdf">Download</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import backgroundImage from '@/assets/IMCA.jpg';
@@ -17,6 +36,9 @@ const props = defineProps({
     required: true,
   },
 });
+
+const dialog = ref(false);
+const pdfUrl = ref('');
 
 const generatePdf = () => {
   const card = document.getElementById('profile-card-container'); // The element to capture
@@ -39,17 +61,25 @@ const generatePdf = () => {
 
     // Add the profile card image on top of the background
     // Centering the card on the page
-    const cardWidth = 90; // Adjust as needed
+    const cardWidth = pdfWidth; // Adjust as needed
     const cardHeight = (canvas.height * cardWidth) / canvas.width;
     const x = (pdfWidth - cardWidth) / 2;
     const y = (pdfHeight - cardHeight) / 2;
     pdf.addImage(cardImgData, 'PNG', x, y, cardWidth, cardHeight);
-
-    pdf.save(`${props.formData.fname}_profile.pdf`);
+    const blob = pdf.output('blob');
+    pdfUrl.value = URL.createObjectURL(blob);
+    dialog.value = true; // Open the dialog
   });
+};
+
+const downloadPdf = () => {
+  const a = document.createElement('a');
+  a.href = pdfUrl.value;
+  a.download = 'generated-pdf.pdf';
+  a.click();
 };
 
 defineExpose({
   generatePdf,
-})
+});
 </script>

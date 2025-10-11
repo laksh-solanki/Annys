@@ -1,6 +1,6 @@
 <template>
   <div id="profile-card-container" color="transparent" flat>
-    <h1 class="certi_name">{{ formData.fname }}</h1>
+    <p class="certi_name">{{ formData.fname }}</p>
     <p class="certi_course">
       {{ formData.course }}
     </p>
@@ -18,15 +18,34 @@ defineProps({
 
 <style scoped>
 #profile-card-container {
+  width: 100%;  
   height: 100%;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .certi_name {
-  margin-top: 250px !important;
+  width: 100%;
+  text-align: center;
+  font-size: 80px !important;
+  margin-top: 235px !important;
   font-weight: bolder !important;
   color: black !important;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.certi_course {
+  width: 100%;
+  text-align: center;
+  font-size: 50px !important;
+  font-weight: bold !important;
+  margin-top: 210px !important;
+  color: black !important;
+  padding: 0;
+  line-height: 1;
 }
 </style>

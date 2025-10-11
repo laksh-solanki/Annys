@@ -49,21 +49,19 @@
             <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
               <v-tooltip text="Submit the form" location="top">
                 <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="#1976D2" @click="snackbar = true" type="submit" variant="tonal"
+                  <v-btn v-bind="props" color="#1976D2" type="submit"
                     text="Submit" class="mr-4" :loading="loading"></v-btn>
                 </template>
               </v-tooltip>
               <v-tooltip text="Reset the form" location="top">
                 <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="#616161" type="reset" text="Reset" variant="tonal"
+                  <v-btn v-bind="props" color="#616161" type="reset" text="Reset"
                     :loading="loading"></v-btn>
                 </template>
               </v-tooltip>
             </v-col>
             <v-col cols="12" md="3" class="p-0 d-flex justify-center justify-content-lg-end">
-              <v-card-actions>
-                <PdfGenerator :form-data="form" ref="pdfGenerator" />
-              </v-card-actions>
+              <PdfGenerator :form-data="form" ref="pdfGenerator" />
             </v-col>
           </v-row>
         </v-form>
@@ -82,10 +80,7 @@
 </template>
 
 <script setup>
-import profilecard from '@/components/profilecard.vue';
-const snackbar = ref(false)
-const text = ref('')
-const timeout = ref(2000)
+import profilecard from '@/components/pdf_view.vue';
 import { ref, reactive } from 'vue'
 import axios from 'axios'
 import PdfGenerator from '@/components/PdfGenerator.vue'
@@ -100,15 +95,19 @@ const form = reactive({
 })
 
 const pdfGenerator = ref(null)
+const loading = ref(false)
 
 const submitForm = async () => {
+  loading.value = true
   try {
-    const res = await axios.post('http://localhost:5000/register', form)
+    const res = await axios.put('http://localhost:5000/register', form)
     if (res.status === 200) {
       pdfGenerator.value.generatePdf()
     }
   } catch (err) {
     text.value = 'Error: ' + err.message
+  } finally {
+    loading.value = false
   }
 }
 </script>
