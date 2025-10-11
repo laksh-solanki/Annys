@@ -49,14 +49,13 @@
             <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
               <v-tooltip text="Submit the form" location="top">
                 <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="#1976D2" type="submit"
-                    text="Submit" class="mr-4" :loading="loading"></v-btn>
+                  <v-btn v-bind="props" color="#1976D2" type="submit" text="Submit" class="mr-4"
+                    :loading="loading"></v-btn>
                 </template>
               </v-tooltip>
               <v-tooltip text="Reset the form" location="top">
                 <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="#616161" type="reset" text="Reset"
-                    :loading="loading"></v-btn>
+                  <v-btn v-bind="props" color="#616161" type="reset" text="Reset" :loading="loading"></v-btn>
                 </template>
               </v-tooltip>
             </v-col>
@@ -85,6 +84,10 @@ import { ref, reactive } from 'vue'
 import axios from 'axios'
 import PdfGenerator from '@/components/PdfGenerator.vue'
 
+const snackbar = ref(false)
+const text = ref('')
+const timeout = ref(3000)
+
 const form = reactive({
   fname: '',
   email: '',
@@ -103,9 +106,12 @@ const submitForm = async () => {
     const res = await axios.post('http://localhost:5000/register', form)
     if (res.status === 200) {
       pdfGenerator.value.generatePdf()
+      text.value = 'Form submitted successfully!'
+      snackbar.value = true
     }
   } catch (err) {
     text.value = 'Error: ' + err.message
+    snackbar.value = true
   } finally {
     loading.value = false
   }
