@@ -13,7 +13,7 @@
           </v-btn>
         </v-card-title>
         <v-card-text>
-          <iframe :src="pdfUrl" style="width: 100%; height: 500px;" frameborder="0"></iframe>
+          <embed :src="pdfUrl" style="width: 100%; height: 500px;" frameborder="0"></embed>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
