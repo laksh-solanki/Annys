@@ -1,86 +1,100 @@
 <template>
-  <v-container class="student-container">
-    <profilecard :form-data="form" class="profile-card-for-pdf" />
-    <v-card class="pa-5 card-animation card-container" elevation="2" border="1" rounded="3">
-      <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
-      <v-card-text>
-        <v-form @submit.prevent="submitForm">
-          <v-row>
-            <v-col cols="12">
-              <h3 class="text-h6">Personal Details</h3>
-              <v-divider class="my-3"></v-divider>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="form.fname" label="Full Name" variant="outlined" name="fname" id="fname"
-                rounded="2" aria-required="true"></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="form.email" label="Email" variant="outlined" name="email" id="email"
-                rounded="2"></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="form.studentMobile" :counter="10" label="Student Mobile No." variant="outlined"
-                name="studentMobile" id="studentMobile" rounded="2"></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-select v-model="form.course"
-                :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
-                label="Course" :list-props="{ bgColor: 'light' }" variant="outlined" name="course" id="course"
-                rounded="2"></v-select>
-            </v-col>
-          </v-row>
-
-          <v-row class="mt-5">
-            <v-col cols="12">
-              <h3 class="text-h6">Academic Details</h3>
-              <v-divider class="my-3"></v-divider>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="form.prnNo" label="PRN No." variant="outlined" name="prnNo" id="prnNo"
-                rounded="2"></v-text-field>
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-text-field v-model="form.rollNo" label="Roll No." variant="outlined" name="rollNo" id="rollNo"
-                rounded="2"></v-text-field>
-            </v-col>
-          </v-row>
-
-          <v-row class="mt-5">
-            <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
-              <v-tooltip text="Submit the form" location="top">
-                <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="#1976D2" type="submit" text="Submit" class="mr-4"
-                    :loading="loading"></v-btn>
-                </template>
-              </v-tooltip>
-              <v-tooltip text="Reset the form" location="top">
-                <template v-slot:activator="{ props }">
-                  <v-btn v-bind="props" color="#616161" type="reset" text="Reset" :loading="loading"></v-btn>
-                </template>
-              </v-tooltip>
-            </v-col>
-            <v-col cols="12" md="3" class="p-0 d-flex justify-center justify-content-lg-end">
-              <PdfGenerator :form-data="form" ref="pdfGenerator" />
-            </v-col>
-          </v-row>
+  <v-container fluid>
+    <v-card v-if="!showCard" class="pa-5 z-0 card-animation d-flex justify-center align-center" rounded="4"
+      elevation="1" border="1" style="height: 91.4vh;">
+      <v-card-text style="width: 500px;">
+        <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
+        <v-form @submit.prevent="checkCredentials">
+          <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
+          <v-text-field v-model="password" label="Password" type="password" variant="outlined"></v-text-field>
+          <v-btn type="submit" color="primary">Submit</v-btn>
+          <v-alert v-if="showError" type="error" class="mt-3">Invalid ID or password</v-alert>
         </v-form>
-        <v-snackbar v-model="snackbar" location="bottom right" style="margin-bottom: -60px;" :timeout="timeout"
-          transition="slide-x-reverse-transition">
-          {{ text }}
-          <template v-slot:actions>
-            <v-btn color="blue" variant="text" @click="snackbar = false">
-              Close
-            </v-btn>
-          </template>
-        </v-snackbar>
       </v-card-text>
     </v-card>
+    <v-container v-if="showCard" class="student-container">
+      <profilecard :form-data="form" class="profile-card-for-pdf" />
+      <v-card class="pa-5 card-animation card-container" elevation="2" border="1" rounded="3">
+        <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
+        <v-card-text>
+          <v-form @submit.prevent="submitForm">
+            <v-row>
+              <v-col cols="12">
+                <h3 class="text-h6">Personal Details</h3>
+                <v-divider class="my-3"></v-divider>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field v-model="form.fname" label="Full Name" variant="outlined" name="fname" id="fname"
+                  rounded="2" aria-required="true"></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field v-model="form.email" label="Email" variant="outlined" name="email" id="email"
+                  rounded="2"></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field v-model="form.studentMobile" :counter="10" label="Student Mobile No." variant="outlined"
+                  name="studentMobile" id="studentMobile" rounded="2"></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-select v-model="form.course"
+                  :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
+                  label="Course" :list-props="{ bgColor: 'light' }" variant="outlined" name="course" id="course"
+                  rounded="2"></v-select>
+              </v-col>
+            </v-row>
+
+            <v-row class="mt-5">
+              <v-col cols="12">
+                <h3 class="text-h6">Academic Details</h3>
+                <v-divider class="my-3"></v-divider>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field v-model="form.prnNo" label="PRN No." variant="outlined" name="prnNo" id="prnNo"
+                  rounded="2"></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field v-model="form.rollNo" label="Roll No." variant="outlined" name="rollNo" id="rollNo"
+                  rounded="2"></v-text-field>
+              </v-col>
+            </v-row>
+
+            <v-row class="mt-5">
+              <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
+                <v-tooltip text="Submit the form" location="top">
+                  <template v-slot:activator="{ props }">
+                    <v-btn v-bind="props" color="#1976D2" type="submit" text="Submit" class="mr-4"
+                      :loading="loading"></v-btn>
+                  </template>
+                </v-tooltip>
+                <v-tooltip text="Reset the form" location="top">
+                  <template v-slot:activator="{ props }">
+                    <v-btn v-bind="props" color="#616161" type="reset" text="Reset" :loading="loading"></v-btn>
+                  </template>
+                </v-tooltip>
+              </v-col>
+              <v-col cols="12" md="3" class="p-0 d-flex justify-center justify-content-lg-end">
+                <PdfGenerator :form-data="form" ref="pdfGenerator" />
+              </v-col>
+            </v-row>
+          </v-form>
+          <v-snackbar v-model="snackbar" location="bottom right" style="margin-bottom: -60px;" :timeout="timeout"
+            transition="slide-x-reverse-transition">
+            {{ text }}
+            <template v-slot:actions>
+              <v-btn color="blue" variant="text" @click="snackbar = false">
+                Close
+              </v-btn>
+            </template>
+          </v-snackbar>
+        </v-card-text>
+      </v-card>
+    </v-container>
   </v-container>
 </template>
 
 <script setup>
 import profilecard from '@/components/pdf_view.vue';
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import axios from 'axios'
 import PdfGenerator from '@/components/PdfGenerator.vue'
 
@@ -115,6 +129,59 @@ const submitForm = async () => {
   } finally {
     loading.value = false
   }
+}
+
+const id = ref('')
+const password = ref('')
+const showCard = ref(false)
+const showError = ref(false)
+let recaptchaPromise = null
+
+const fixedId = 'Lucky2912'
+const fixedPassword = 'Lucky.2912'
+
+function loadRecaptcha() {
+  if (!recaptchaPromise) {
+    recaptchaPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src =
+        'https://www.google.com/recaptcha/api.js?render=6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc'
+      script.async = true
+      script.defer = true
+      script.onload = () => {
+        grecaptcha.ready(resolve)
+      }
+      script.onerror = (error) => {
+        reject(error)
+      }
+      document.head.appendChild(script)
+    })
+  }
+  return recaptchaPromise
+}
+
+onMounted(() => {
+  loadRecaptcha().catch((error) => console.error('reCAPTCHA script failed to load:', error))
+})
+
+function checkCredentials() {
+  loadRecaptcha()
+    .then(() => {
+      grecaptcha
+        .execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' })
+        .then(function (token) {
+          // IMPORTANT: You need to send this token to your backend for verification.
+          console.log('reCAPTCHA token:', token)
+
+          if (id.value === fixedId && password.value === fixedPassword) {
+            showCard.value = true
+            showError.value = false
+          } else {
+            showError.value = true
+          }
+        })
+    })
+    .catch((error) => console.error('reCAPTCHA execution failed:', error))
 }
 </script>
 
