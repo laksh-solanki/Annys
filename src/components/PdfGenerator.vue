@@ -7,12 +7,12 @@
     </v-tooltip>
     <v-dialog v-model="dialog" max-width="800">
       <v-card>
-        <v-card-title class="p-0">
+        <v-card-title class="p-0 ms-auto">
           <v-btn icon @click="dialog = false" variant="plain">
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="p-1">
           <embed :src="pdfUrl" style="width: 100%; height: 500px;" frameborder="0"></embed>
         </v-card-text>
         <v-divider></v-divider>
@@ -67,7 +67,7 @@ const generatePdf = () => {
     const y = (pdfHeight - cardHeight) / 2;
     pdf.addImage(cardImgData, 'PNG', x, y, cardWidth, cardHeight);
     const blob = pdf.output('blob');
-    pdfUrl.value = URL.createObjectURL(blob);
+    pdfUrl.value = URL.createObjectURL(blob) + '#toolbar=0';
     dialog.value = true; // Open the dialog
   });
 };
