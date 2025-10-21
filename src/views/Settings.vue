@@ -71,12 +71,18 @@ const rowRefs = ref([])
 
 const submissions = ref(
   JSON.parse(localStorage.getItem('studentSubmissions')) ||
-  Array(48).fill().map(() => ({ status: 'undefined' }))
+    Array(48)
+      .fill()
+      .map(() => ({ status: 'undefined' })),
 )
 
-watch(submissions, (newSubmissions) => {
-  localStorage.setItem('studentSubmissions', JSON.stringify(newSubmissions))
-}, { deep: true })
+watch(
+  submissions,
+  (newSubmissions) => {
+    localStorage.setItem('studentSubmissions', JSON.stringify(newSubmissions))
+  },
+  { deep: true },
+)
 
 function updateSubmission(index, newStatus) {
   submissions.value[index].status = newStatus
@@ -99,20 +105,41 @@ watch(search, async (newValue) => {
 
 <template>
   <v-layout ref="app" class="fill-height z-0">
-    <v-navigation-drawer v-model="drawer" class="border-secondary border-end container-animate" elevation="2" app>
+    <v-navigation-drawer
+      v-model="drawer"
+      class="border-secondary border-end container-animate"
+      elevation="2"
+      app
+    >
       <v-sheet class="pa-4 border-bottom border-black">
-        <v-avatar class="mb-4" color="grey-darken-1" size="70"><img src="../assets/profile-pic.webp" alt=""
-            class="rounded-5 object-fit-cover" width="60" /></v-avatar>
+        <v-avatar class="mb-4" color="grey-darken-1" size="70"
+          ><img
+            src="../assets/profile-pic.webp"
+            alt=""
+            class="rounded-5 object-fit-cover"
+            width="60"
+        /></v-avatar>
         <v-card-title class="p-0">Laksh Solanki</v-card-title>
         <v-card-subtitle class="p-0">lakshsolanki848@gmail.com</v-card-subtitle>
-        <v-btn icon class="mobile-toggle-btn" @click="drawer = !drawer"
-          :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'">
+        <v-btn
+          icon
+          class="mobile-toggle-btn"
+          @click="drawer = !drawer"
+          :aria-label="drawer ? 'Close navigation drawer' : 'Open navigation drawer'"
+        >
           <v-icon>{{ drawer ? 'mdi-menu-open' : 'mdi-menu' }}</v-icon>
         </v-btn>
       </v-sheet>
       <v-list>
-        <v-list-item v-for="[icon, text, identifier] in links" :key="icon" :prepend-icon="icon" :title="text"
-          :active="identifier === activeContent" @click="showContent(identifier)" link>
+        <v-list-item
+          v-for="[icon, text, identifier] in links"
+          :key="icon"
+          :prepend-icon="icon"
+          :title="text"
+          :active="identifier === activeContent"
+          @click="showContent(identifier)"
+          link
+        >
           <template v-slot:append>
             <v-icon v-if="identifier === activeContent">mdi-chevron-right</v-icon>
           </template>
@@ -124,15 +151,22 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content1'" class="content1">
         <v-row>
           <v-col cols="12" md="12">
-            <v-sheet rounded="lg" elevation="3" class="pa-3 bg-style-1 rounded-4 text-wrap sheet1-animation"
-              color="teal-lighten-4">
+            <v-sheet
+              rounded="lg"
+              elevation="3"
+              class="pa-3 bg-style-1 rounded-4 text-wrap sheet1-animation"
+              color="teal-lighten-4"
+            >
               <v-row class="d-flex justify-content-start align-items-center">
                 <v-col cols="12" md="2" class="d-flex justify-center align-center">
-                  <v-avatar size="100" color="grey-darken-1 m-4">
-                    <img src="../assets/profile-pic.webp" width="70" alt="Profile Picture">
+                  <v-avatar size="100" color="grey-darken-1 m-3">
+                    <img src="../assets/profile-pic.webp" width="70" alt="Profile Picture" />
                   </v-avatar>
                 </v-col>
-                <v-col md="10" class="d-flex flex-column text-center text-lg-start text-md-start text-wrap">
+                <v-col
+                  md="10"
+                  class="d-flex flex-column text-center text-lg-start text-md-start text-wrap"
+                >
                   <v-card-title>Laksh Solanki</v-card-title>
                   <v-card-subtitle>lakshsolanki848@gmail.com</v-card-subtitle>
                 </v-col>
@@ -141,13 +175,25 @@ watch(search, async (newValue) => {
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+              elevation="2"
+              class="rounded-4 sheet3-animation"
+              color="blue-lighten-2"
+            >
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="9">
-            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+              elevation="2"
+              class="rounded-4 sheet2-animation"
+              color="deep-purple-lighten-3"
+            >
               <!--  -->
             </v-sheet>
           </v-col>
@@ -158,19 +204,37 @@ watch(search, async (newValue) => {
       <v-container v-if="activeContent === 'content2'">
         <v-row>
           <v-col cols="12" md="9">
-            <v-sheet min-height="268" rounded="lg" elevation="2" class="rounded-4 sheet1-animation">
+            <v-sheet
+              min-height="268"
+              rounded="lg"
+              elevation="2"
+              class="rounded-4 sheet1-animation"
+              color="teal-accent-1"
+            >
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="3">
-            <v-sheet min-height="268" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
+            <v-sheet
+              min-height="268"
+              rounded="lg"
+              elevation="2"
+              class="rounded-4 sheet2-animation"
+              color="orange-lighten-4"
+            >
               <!--  -->
             </v-sheet>
           </v-col>
 
           <v-col cols="12" md="12">
-            <v-sheet min-height="70vh" rounded="lg" elevation="2" class="rounded-4 sheet2-animation">
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+              elevation="2"
+              class="rounded-4 sheet2-animation"
+              color="deep-purple-accent-1"
+            >
               <!--  -->
             </v-sheet>
           </v-col>
@@ -179,26 +243,49 @@ watch(search, async (newValue) => {
       <!-- Container 3 -->
       <v-container v-if="activeContent === 'content3'">
         <v-row>
-          <v-col cols="12" md="12" style="height: 91.4vh;">
-            <v-card v-if="!showCard" class="pa-5 z-0 sheet1-animation" rounded="4" elevation="1" border="1">
+          <v-col cols="12" md="12">
+            <v-card
+              v-if="!showCard"
+              class="pa-5 z-0 sheet1-animation border-1"
+              rounded="4"
+              elevation="1"
+              color="light-blue-lighten-4"
+            >
               <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
               <v-card-text>
                 <v-form @submit.prevent="checkCredentials">
                   <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
-                  <v-text-field v-model="password" label="Password" type="password" variant="outlined"></v-text-field>
-                  <v-btn type="submit" color="primary">Submit</v-btn>
-                  <v-alert v-if="showError" type="error" class="mt-3">Invalid ID or password</v-alert>
+                  <v-text-field
+                    v-model="password"
+                    label="Password"
+                    type="password"
+                    variant="outlined"
+                  ></v-text-field>
+                  <v-btn type="submit" color="teal-lighten-3 border-1" variant="flat" elevation="1">Submit</v-btn>
+                  <v-alert v-if="showError" type="error" class="mt-3 rounded-4" color="red" elevation="2"
+                    >Invalid ID or password</v-alert
+                  >
                 </v-form>
               </v-card-text>
             </v-card>
             <v-container v-if="showCard">
               <v-card class="mx-auto z-0 sheet1-animation" rounded="3" elevation="1" border="1">
-                <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
+                <v-card-title
+                  class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2"
+                >
                   <v-icon>mdi-account</v-icon>
                   <span class="ms-1">Student Submitted List</span>
                   <v-spacer></v-spacer>
-                  <v-text-field v-model="search" density="compact" label="Search" prepend-inner-icon="mdi-magnify"
-                    variant="solo-filled" flat hide-details single-line></v-text-field>
+                  <v-text-field
+                    v-model="search"
+                    density="compact"
+                    label="Search"
+                    prepend-inner-icon="mdi-magnify"
+                    variant="solo-filled"
+                    flat
+                    hide-details
+                    single-line
+                  ></v-text-field>
                 </v-card-title>
                 <v-card-text class="pt-4">
                   <v-table height="500px" fixed-header>
@@ -210,21 +297,42 @@ watch(search, async (newValue) => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="i in 48" :key="i" :ref="(el) => {
-                        if (el) rowRefs[i - 1] = el
-                      }
-                        " :class="{ highlight: search && i === parseInt(search) }">
+                      <tr
+                        v-for="i in 48"
+                        :key="i"
+                        :ref="
+                          (el) => {
+                            if (el) rowRefs[i - 1] = el
+                          }
+                        "
+                        :class="{ highlight: search && i === parseInt(search) }"
+                      >
                         <td>{{ i }}</td>
                         <td>
-                          <span v-if="submissions[i - 1].status === 'submitted'"
-                            class="text-green font-weight-bold">Submitted</span>
-                          <span v-else-if="submissions[i - 1].status === 'not-submitted'"
-                            class="text-red font-weight-bold">Not Submitted</span>
+                          <span
+                            v-if="submissions[i - 1].status === 'submitted'"
+                            class="text-green font-weight-bold"
+                            >Submitted</span
+                          >
+                          <span
+                            v-else-if="submissions[i - 1].status === 'not-submitted'"
+                            class="text-red font-weight-bold"
+                            >Not Submitted</span
+                          >
                           <div v-else class="d-flex">
-                            <v-btn size="small" color="green"
-                              @click="updateSubmission(i - 1, 'submitted')">Submitted</v-btn>
-                            <v-btn size="small" color="red" class="ml-2"
-                              @click="updateSubmission(i - 1, 'not-submitted')">Not Submitted</v-btn>
+                            <v-btn
+                              size="small"
+                              color="green"
+                              @click="updateSubmission(i - 1, 'submitted')"
+                              >Submitted</v-btn
+                            >
+                            <v-btn
+                              size="small"
+                              color="red"
+                              class="ml-2"
+                              @click="updateSubmission(i - 1, 'not-submitted')"
+                              >Not Submitted</v-btn
+                            >
                           </div>
                         </td>
                         <td>
@@ -250,9 +358,7 @@ watch(search, async (newValue) => {
   display: none;
 }
 
-
 @media (max-width: 960px) {
-
   /* Show button on small and extra small screens */
   .mobile-toggle-btn {
     display: inline-flex !important;
@@ -268,13 +374,18 @@ watch(search, async (newValue) => {
 }
 
 .sheet1-animation {
-  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .sheet2-animation {
-  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.sheet3-animation {
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .highlight {
@@ -283,8 +394,8 @@ watch(search, async (newValue) => {
 }
 
 .container-animate {
-  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @-webkit-keyframes slide-in-top {

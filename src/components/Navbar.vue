@@ -1,11 +1,20 @@
 <template>
   <nav
-    class="navbar navbar-expand-lg border-1 border-bottom border-black w-100 z-3 position-sticky top-0 bg-light">
+    class="navbar navbar-expand-lg border-1 border-bottom border-black w-100 z-3 position-sticky top-0 bg-light"
+  >
     <div class="container">
-      <router-link class="navbar-brand img-style" to="/"><img src="../assets/Main-logo.png" alt=""
-          width="40" /></router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <router-link class="navbar-brand img-style" to="/"
+        ><img src="../assets/Main-logo.png" alt="" width="40"
+      /></router-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse w-100 navbar-collapse justify-content-center" id="navbarScroll">
@@ -20,17 +29,28 @@
             <router-link class="nav-link" to="/Student">Student</router-link>
           </li>
           <li class="dropdown nav-item">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               Settings
             </a>
             <ul class="dropdown-menu rounded-3 position-absolute z-3">
-              <li><router-link class="dropdown-item" to="/settings"><i
-                    class="fa-solid fa-gear me-2"></i>Settings</router-link></li>
+              <li>
+                <router-link class="dropdown-item" to="/settings"
+                  ><i class="fa-solid fa-gear me-2"></i>Settings</router-link
+                >
+              </li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
-              <li><router-link class="dropdown-item" to="/Help"><i
-                    class="fa-solid fa-circle-question me-2"></i>Help</router-link></li>
+              <li>
+                <router-link class="dropdown-item" to="/Help"
+                  ><i class="fa-solid fa-circle-question me-2"></i>Help</router-link
+                >
+              </li>
             </ul>
           </li>
         </ul>
@@ -64,7 +84,7 @@ import { RouterLink } from 'vue-router'
 
 .dropdown-menu {
   z-index: 1000;
-  border: 3px solid rgba(144, 144, 144, 0.908) !important;
+  border: 2px solid rgb(226, 220, 211);
 }
 
 .nav-link.router-link-active {
