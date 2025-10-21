@@ -30,7 +30,7 @@ defineProps({
   width: 100% !important;
   text-align: center !important;
   font-size: 80px !important;
-  margin-top: 235px !important;
+  margin-top: 264px !important;
   font-weight: bolder !important;
   color: black !important;
   padding: 0 !important;
@@ -42,7 +42,7 @@ defineProps({
   text-align: center !important;
   font-size: 50px !important;
   font-weight: bold !important;
-  margin-top: 196px !important;
+  margin-top: 175px !important;
   color: black !important;
   padding: 0 !important;
   line-height: 1 !important;

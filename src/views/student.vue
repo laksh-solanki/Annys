@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-card v-if="!showCard" class="pa-5 z-0 card-animation d-flex justify-center align-center" rounded="4"
-      elevation="1" border="1" style="height: 91.4vh;">
+      elevation="1" border="1">
       <v-card-text style="width: 500px;">
         <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
         <v-form @submit.prevent="checkCredentials">
@@ -14,7 +14,7 @@
     </v-card>
     <v-container v-if="showCard" class="student-container">
       <profilecard :form-data="form" class="profile-card-for-pdf" />
-      <v-card class="pa-5 card-animation card-container" elevation="2" border="1" rounded="3">
+      <v-card class="pa-5 card-animation w-100 border-2" elevation="3" rounded="4" color="cyan-lighten-3">
         <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
         <v-card-text>
           <v-form @submit.prevent="submitForm">
@@ -186,12 +186,6 @@ function checkCredentials() {
 </script>
 
 <style scoped>
-.card-container {
-  width: 100%;
-  background-color: #e3f2fd;
-  /* Light blue color */
-}
-
 .card-animation {
   -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
