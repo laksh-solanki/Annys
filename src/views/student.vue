@@ -12,7 +12,7 @@
         </v-form>
       </v-card-text>
     </v-card>
-    <v-container v-if="showCard" class="student-container">
+    <v-container v-if="showCard">
       <profilecard :form-data="form" class="profile-card-for-pdf" />
       <v-card class="pa-5 card-animation w-100 border-2" elevation="3" rounded="4" color="cyan-lighten-3">
         <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
@@ -37,7 +37,7 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-select v-model="form.course"
-                  :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Hands-On Projects']"
+                  :items="['Window Server administrator/IT Support Specialist', 'Web Developer', 'Cloud Engineer/Cloud Solution Architect', 'Web & API Development Specialist', 'Python for Computer Vision: Theory and Project']"
                   label="Course" :list-props="{ bgColor: 'light' }" variant="outlined" name="course" id="course"
                   rounded="2"></v-select>
               </v-col>
@@ -217,13 +217,6 @@ function checkCredentials() {
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-.student-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
 .profile-card-for-pdf {

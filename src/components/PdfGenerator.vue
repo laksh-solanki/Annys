@@ -28,7 +28,7 @@
 import { ref } from 'vue';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import backgroundImage from '@/assets/IMCA.jpg';
+import backgroundImage from '@/assets/IMCA.jpeg';
 
 const props = defineProps({
   formData: {
