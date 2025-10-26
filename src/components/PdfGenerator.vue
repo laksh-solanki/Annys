@@ -8,6 +8,7 @@
     <v-dialog v-model="dialog" max-width="800">
       <v-card>
         <v-card-title class="p-0 ms-auto">
+          <v-btn color="primary" @click="downloadPdf">Download</v-btn>
           <v-btn icon @click="dialog = false" variant="plain">
             <v-icon>mdi-close</v-icon>
           </v-btn>
@@ -15,10 +16,6 @@
         <v-card-text class="p-1">
           <embed :src="pdfUrl" style="width: 100%; height: 500px;" frameborder="0"></embed>
         </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <v-btn color="primary" @click="downloadPdf">Download</v-btn>
-        </v-card-actions>
       </v-card>
     </v-dialog>
   </div>
@@ -68,14 +65,14 @@ const generatePdf = () => {
     pdf.addImage(cardImgData, 'PNG', x, y, cardWidth, cardHeight);
     const blob = pdf.output('blob');
     pdfUrl.value = URL.createObjectURL(blob) + '#toolbar=0';
-    dialog.value = true; // Open the dialog
+    dialog.value = true;
   });
 };
 
 const downloadPdf = () => {
   const a = document.createElement('a');
   a.href = pdfUrl.value;
-  a.download = 'generated-pdf.pdf';
+  a.download = 'pdf.pdf';
   a.click();
 };
 

@@ -14,13 +14,13 @@
     </v-card>
     <v-container v-if="showCard">
       <profilecard :form-data="form" class="profile-card-for-pdf" />
-      <v-card class="pa-5 card-animation w-100 border-2" elevation="3" rounded="4" color="cyan-lighten-3">
-        <v-card-title class="text-h5 text-center text-wrap">Student Registration Form</v-card-title>
+      <v-card class="pa-5 card-animation w-100" border="2" elevation="2" rounded="3">
+        <v-card-title class="text-h5 text-center text-wrap bg-info rounded-3">Student Registration Form</v-card-title>
         <v-card-text>
           <v-form @submit.prevent="submitForm">
             <v-row>
               <v-col cols="12">
-                <h3 class="text-h6">Personal Details</h3>
+                <h3 class="text-h6 mt-4 text-lg-start text-md-start text-center">Personal Details</h3>
                 <v-divider class="my-3"></v-divider>
               </v-col>
               <v-col cols="12" md="6">
@@ -43,9 +43,9 @@
               </v-col>
             </v-row>
 
-            <v-row class="mt-5">
+            <v-row class="mt-3">
               <v-col cols="12">
-                <h3 class="text-h6">Academic Details</h3>
+                <h3 class="text-h6 text-lg-start text-md-start text-center">Academic Details</h3>
                 <v-divider class="my-3"></v-divider>
               </v-col>
               <v-col cols="12" md="6">
