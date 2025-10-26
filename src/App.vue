@@ -21,5 +21,6 @@ import Footer from '@/components/Footer.vue'
   margin: 0%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 </style>

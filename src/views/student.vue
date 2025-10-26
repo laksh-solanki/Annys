@@ -1,7 +1,6 @@
 <template>
-  <v-container fluid>
-    <v-card v-if="!showCard" class="pa-5 z-0 card-animation d-flex justify-center align-center" rounded="4"
-      elevation="1" border="1">
+  <v-container>
+    <v-card v-if="!showCard" class="pa-5 z-0 card-animation d-flex" rounded="4" elevation="1" border="1">
       <v-card-text style="width: 500px;">
         <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
         <v-form @submit.prevent="checkCredentials">
@@ -14,8 +13,8 @@
     </v-card>
     <v-container v-if="showCard">
       <profilecard :form-data="form" class="profile-card-for-pdf" />
-      <v-card class="pa-5 card-animation w-100" border="2" elevation="2" rounded="3">
-        <v-card-title class="text-h5 text-center text-wrap bg-info rounded-3">Student Registration Form</v-card-title>
+      <v-card class="pa-5 card-animation w-100" border="1" elevation="2" rounded="3">
+        <v-card-title class="text-h5 text-center text-wrap bg-dark text-white rounded-3">Student Registration Form</v-card-title>
         <v-card-text>
           <v-form @submit.prevent="submitForm">
             <v-row>
