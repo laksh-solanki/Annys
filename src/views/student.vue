@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card v-if="!showCard" class="pa-5 z-0 card-animation d-flex" rounded="4" elevation="1" border="1">
+    <v-card v-if="!showCard" class="pa-5 z-0 card-animation d-flex justify-content-center align-content-center" rounded="4" elevation="1" border="1">
       <v-card-text style="width: 500px;">
         <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
         <v-form @submit.prevent="checkCredentials">
