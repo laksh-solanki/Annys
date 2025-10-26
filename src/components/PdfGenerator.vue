@@ -63,7 +63,7 @@ const generatePdf = () => {
 const downloadPdf = () => {
   const a = document.createElement('a');
   a.href = pdfUrl.value;
-  a.download = 'pdf.pdf';
+  a.download = `${props.formData.course}.pdf`;
   a.click();
 };
 
