@@ -58,7 +58,7 @@
               </v-col>
             </v-row>
 
-            <v-row class="mt-5">
+            <v-row class="mt-5 justify-content-start">
               <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
                 <v-tooltip text="Submit the form" location="top">
                   <template v-slot:activator="{ props }">
