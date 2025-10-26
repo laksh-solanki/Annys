@@ -1,5 +1,4 @@
-<script setup>
-import { SpeedInsights } from '@vercel/speed-insights/vue'
+<script setup>  
 import { RouterView } from 'vue-router'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
@@ -10,7 +9,6 @@ import Footer from '@/components/Footer.vue'
     <Navbar />
     <v-main>
       <router-view />
-      <SpeedInsights />
     </v-main>
     <Footer />
   </v-app>
