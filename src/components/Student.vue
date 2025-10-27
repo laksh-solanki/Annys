@@ -92,7 +92,9 @@ const submitForm = async () => {
 
     <!-- Student Form -->
     <v-card v-if="showFullForm" class="pa-5 card-animation w-100" border="1" elevation="2" rounded="3">
-        <v-btn icon="mdi-close" variant="text" @click="showFullForm = false" class="m-auto" position="relative"></v-btn>
+        <div class="d-flex justify-content-end">
+            <v-btn icon="mdi-close" variant="text" @click="showFullForm = false" position="relative"></v-btn>
+        </div>
         <v-card-title class="text-h5 text-wrap text-center">
             Student Registration Form
         </v-card-title>
@@ -142,14 +144,14 @@ const submitForm = async () => {
                     <v-col cols="12" md="9" class="d-flex justify-center justify-content-lg-start">
                         <v-tooltip text="Submit the form" location="top">
                             <template v-slot:activator="{ props }">
-                                <v-btn v-bind="props" color="#1976D2" type="submit" text="Submit" class="mr-4"
-                                    :loading="loading"></v-btn>
+                                <v-btn v-bind="props" color="#1976D2" type="submit" text="Submit"
+                                    prepend-icon="mdi-check" class="mr-4" :loading="loading"></v-btn>
                             </template>
                         </v-tooltip>
                         <v-tooltip text="Reset the form" location="top">
                             <template v-slot:activator="{ props }">
                                 <v-btn v-bind="props" color="#616161" type="reset" text="Reset"
-                                    :loading="loading"></v-btn>
+                                    prepend-icon="mdi-refresh" :loading="loading"></v-btn>
                             </template>
                         </v-tooltip>
                     </v-col>
@@ -178,9 +180,9 @@ const submitForm = async () => {
     <!-- PDF Preview Dialog -->
     <v-dialog v-model="dialog" max-width="800">
         <v-card>
-            <v-card-title class="p-0 ms-auto ">
-                <v-btn color="primary" @click="downloadPdf">Download</v-btn>
-                <v-btn icon @click="dialog = false" variant="plain">
+            <v-card-title class="p-0 d-flex justify-space-between align-center">
+                <v-btn color="primary" @click="downloadPdf" text="Download" prepend-icon="mdi-download" :loading="loading" variant="text"></v-btn>
+                <v-btn icon @click="dialog = false" variant="text">
                     <v-icon>mdi-close</v-icon>
                 </v-btn>
             </v-card-title>
