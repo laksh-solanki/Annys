@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -27,36 +26,10 @@ async function connectDB() {
 }
 connectDB();
 
-// API route to verify reCAPTCHA
-app.post('/verify-recaptcha', async (req, res) => {
-  const { token } = req.body;
-  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-  const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`;
-
-  try {
-    const response = await axios.post(verificationURL);
-    const { success } = response.data;
-    if (success) {
-      res.json({ success: true, message: 'reCAPTCHA verification successful.' });
-    } else {
-      res.json({ success: false, message: 'reCAPTCHA verification failed.' });
-    }
-  } catch (error) {
-    console.error('Error during reCAPTCHA verification:', error);
-    res.status(500).json({ success: false, error: 'Error during reCAPTCHA verification.' });
-  }
-});
-
 // API route to save student data
 app.post('/register', async (req, res) => {
   try {
-    const { token, ...studentData } = req.body;
-
-    // Verify reCAPTCHA first
-    const recaptchaResponse = await axios.post('http://localhost:5000/verify-recaptcha', { token });
-    if (!recaptchaResponse.data.success) {
-      return res.status(400).json({ success: false, error: 'reCAPTCHA verification failed.' });
-    }
+    const studentData = req.body;
 
     console.log('Received registration request. Body:', studentData);
     const dataToInsert = {

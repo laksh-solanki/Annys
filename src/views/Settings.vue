@@ -1,106 +1,15 @@
 <script setup>
-import { ref, computed, watch, onMounted, nextTick } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [
   ['mdi-account-box-outline', 'Profile', 'content1'],
   ['mdi-cogs', 'Settings', 'content2'],
-  ['mdi-account-key', 'Student Key', 'content3'],
 ]
 function showContent(identifier) {
   activeContent.value = identifier
 }
 
-const id = ref('')
-const password = ref('')
-const showCard = ref(false)
-const showError = ref(false)
-let recaptchaPromise = null
-
-const fixedId = 'Lucky2912'
-const fixedPassword = 'Lucky.2912'
-
-function loadRecaptcha() {
-  if (!recaptchaPromise) {
-    recaptchaPromise = new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src =
-        'https://www.google.com/recaptcha/api.js?render=6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc'
-      script.async = true
-      script.defer = true
-      script.onload = () => {
-        grecaptcha.ready(resolve)
-      }
-      script.onerror = (error) => {
-        reject(error)
-      }
-      document.head.appendChild(script)
-    })
-  }
-  return recaptchaPromise
-}
-
-watch(activeContent, (newValue) => {
-  if (newValue === 'content3') {
-    loadRecaptcha().catch((error) => console.error('reCAPTCHA script failed to load:', error))
-  }
-})
-
-function checkCredentials() {
-  loadRecaptcha()
-    .then(() => {
-      grecaptcha
-        .execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' })
-        .then(function (token) {
-          // IMPORTANT: You need to send this token to your backend for verification.
-          console.log('reCAPTCHA token:', token)
-
-          if (id.value === fixedId && password.value === fixedPassword) {
-            showCard.value = true
-            showError.value = false
-          } else {
-            showError.value = true
-          }
-        })
-    })
-    .catch((error) => console.error('reCAPTCHA execution failed:', error))
-}
-
-const search = ref('')
-const rowRefs = ref([])
-
-const submissions = ref(
-  JSON.parse(localStorage.getItem('studentSubmissions')) ||
-  Array(48)
-    .fill()
-    .map(() => ({ status: 'undefined' })),
-)
-
-watch(
-  submissions,
-  (newSubmissions) => {
-    localStorage.setItem('studentSubmissions', JSON.stringify(newSubmissions))
-  },
-  { deep: true },
-)
-
-function updateSubmission(index, newStatus) {
-  submissions.value[index].status = newStatus
-}
-
-function editSubmission(index) {
-  submissions.value[index].status = 'undefined'
-}
-
-watch(search, async (newValue) => {
-  if (newValue) {
-    await nextTick()
-    const highlightedRow = rowRefs.value[parseInt(newValue) - 1]
-    if (highlightedRow) {
-      highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }
-  }
-})
 </script>
 
 <template>
@@ -187,73 +96,6 @@ watch(search, async (newValue) => {
           </v-col>
         </v-row>
       </v-container>
-      <!-- Container 3 -->
-      <v-container v-if="activeContent === 'content3'">
-        <v-row>
-          <v-col cols="12" md="12">
-            <v-card v-if="!showCard" class="pa-5 z-0 sheet1-animation border-1" rounded="4" elevation="1"
-              color="light-blue-lighten-4">
-              <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
-              <v-card-text>
-                <v-form @submit.prevent="checkCredentials">
-                  <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
-                  <v-text-field v-model="password" label="Password" type="password" variant="outlined"></v-text-field>
-                  <v-btn type="submit" color="teal-lighten-3 border-1" variant="flat" elevation="1">Submit</v-btn>
-                  <v-alert v-if="showError" type="error" class="mt-3 rounded-4" color="red" elevation="2">Invalid ID or
-                    password</v-alert>
-                </v-form>
-              </v-card-text>
-            </v-card>
-            <v-container v-if="showCard">
-              <v-card class="mx-auto z-0 sheet1-animation" rounded="3" elevation="1" border="1">
-                <v-card-title class="d-flex flex-wrap gap-1 justify-content-center align-center pe-2">
-                  <v-icon>mdi-account</v-icon>
-                  <span class="ms-1">Student Submitted List</span>
-                  <v-spacer></v-spacer>
-                  <v-text-field v-model="search" density="compact" label="Search" prepend-inner-icon="mdi-magnify"
-                    variant="solo-filled" flat hide-details single-line></v-text-field>
-                </v-card-title>
-                <v-card-text class="pt-4">
-                  <v-table height="500px" fixed-header>
-                    <thead>
-                      <tr>
-                        <th class="text-left">Roll No.</th>
-                        <th class="text-left">Submittion</th>
-                        <th class="text-left">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr v-for="i in 48" :key="i" :ref="(el) => {
-                          if (el) rowRefs[i - 1] = el
-                        }
-                        " :class="{ highlight: search && i === parseInt(search) }">
-                        <td>{{ i }}</td>
-                        <td>
-                          <span v-if="submissions[i - 1].status === 'submitted'"
-                            class="text-green font-weight-bold">Submitted</span>
-                          <span v-else-if="submissions[i - 1].status === 'not-submitted'"
-                            class="text-red font-weight-bold">Not Submitted</span>
-                          <div v-else class="d-flex">
-                            <v-btn size="small" color="green"
-                              @click="updateSubmission(i - 1, 'submitted')">Submitted</v-btn>
-                            <v-btn size="small" color="red" class="ml-2"
-                              @click="updateSubmission(i - 1, 'not-submitted')">Not Submitted</v-btn>
-                          </div>
-                        </td>
-                        <td>
-                          <v-btn size="small" icon @click="editSubmission(i - 1)">
-                            <v-icon>mdi-pencil</v-icon>
-                          </v-btn>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </v-table>
-                </v-card-text>
-              </v-card>
-            </v-container>
-          </v-col>
-        </v-row>
-      </v-container>
     </v-main>
   </v-layout>
 </template>
@@ -263,7 +105,7 @@ watch(search, async (newValue) => {
   display: none;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1300px) {
 
   /* Show button on small and extra small screens */
   .mobile-toggle-btn {
@@ -292,11 +134,6 @@ watch(search, async (newValue) => {
 .sheet3-animation {
   -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-.highlight {
-  background-color: rgb(255, 255, 120);
-  color: black;
 }
 
 .container-animate {

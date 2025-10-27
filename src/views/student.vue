@@ -116,8 +116,7 @@ const loading = ref(false)
 const submitForm = async () => {
   loading.value = true;
   try {
-    const token = await grecaptcha.execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'submit' });
-    const res = await axios.post('http://localhost:5000/register', { ...form, token });
+    const res = await axios.post('http://localhost:5000/register', { ...form });
     if (res.status === 200) {
       pdfGenerator.value.generatePdf();
       text.value = 'Form submitted successfully!';
@@ -135,56 +134,17 @@ const id = ref('')
 const password = ref('')
 const showCard = ref(false)
 const showError = ref(false)
-let recaptchaPromise = null
 
 const fixedId = 'Lucky2912'
 const fixedPassword = 'Lucky.2912'
 
-function loadRecaptcha() {
-  if (!recaptchaPromise) {
-    recaptchaPromise = new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src =
-        'https://www.google.com/recaptcha/api.js?render=6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc'
-      script.async = true
-      script.defer = true
-      script.onload = () => {
-        grecaptcha.ready(resolve)
-      }
-      script.onerror = (error) => {
-        reject(error)
-      }
-      document.head.appendChild(script)
-    })
-  }
-  return recaptchaPromise
-}
-
-onMounted(() => {
-  loadRecaptcha().catch((error) => console.error('reCAPTCHA script failed to load:', error))
-})
-
 function checkCredentials() {
-  loadRecaptcha()
-    .then(() => {
-      grecaptcha
-        .execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' })
-        .then(function (token) {
-          axios.post('http://localhost:5000/verify-recaptcha', { token }).then(response => {
-            if (response.data.success) {
-              if (id.value === fixedId && password.value === fixedPassword) {
-                showCard.value = true
-                showError.value = false
-              } else {
-                showError.value = true
-              }
-            } else {
-              showError.value = true
-            }
-          });
-        })
-    })
-    .catch((error) => console.error('reCAPTCHA execution failed:', error))
+  if (id.value === fixedId && password.value === fixedPassword) {
+    showCard.value = true
+    showError.value = false
+  } else {
+    showError.value = true
+  }
 }
 </script>
 
