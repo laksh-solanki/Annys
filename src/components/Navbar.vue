@@ -16,7 +16,7 @@
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/Student">Student</router-link>
+            <router-link class="nav-link" to="/project">project</router-link>
           </li>
           <li class="dropdown nav-item">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
