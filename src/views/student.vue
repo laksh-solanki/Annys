@@ -114,21 +114,22 @@ const pdfGenerator = ref(null)
 const loading = ref(false)
 
 const submitForm = async () => {
-  loading.value = true
+  loading.value = true;
   try {
-    const res = await axios.post('http://localhost:5000/register', form)
+    const token = await grecaptcha.execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'submit' });
+    const res = await axios.post('http://localhost:5000/register', { ...form, token });
     if (res.status === 200) {
-      pdfGenerator.value.generatePdf()
-      text.value = 'Form submitted successfully!'
-      snackbar.value = true
+      pdfGenerator.value.generatePdf();
+      text.value = 'Form submitted successfully!';
+      snackbar.value = true;
     }
   } catch (err) {
-    text.value = 'Error: ' + err.message
-    snackbar.value = true
+    text.value = 'Error: ' + err.message;
+    snackbar.value = true;
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-}
+};
 
 const id = ref('')
 const password = ref('')
@@ -169,15 +170,18 @@ function checkCredentials() {
       grecaptcha
         .execute('6LfaC9grAAAAACKD6OqS8ZTY2YMxl3TNrSS0Mswc', { action: 'login' })
         .then(function (token) {
-          // IMPORTANT: You need to send this token to your backend for verification.
-          console.log('reCAPTCHA token:', token)
-
-          if (id.value === fixedId && password.value === fixedPassword) {
-            showCard.value = true
-            showError.value = false
-          } else {
-            showError.value = true
-          }
+          axios.post('http://localhost:5000/verify-recaptcha', { token }).then(response => {
+            if (response.data.success) {
+              if (id.value === fixedId && password.value === fixedPassword) {
+                showCard.value = true
+                showError.value = false
+              } else {
+                showError.value = true
+              }
+            } else {
+              showError.value = true
+            }
+          });
         })
     })
     .catch((error) => console.error('reCAPTCHA execution failed:', error))
