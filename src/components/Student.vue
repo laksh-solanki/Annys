@@ -88,8 +88,8 @@ const submitForm = async () => {
 
     <!-- Student Form -->
     <v-card v-if="showFullForm" class="pa-5 card-animation w-100" border="1" elevation="2" rounded="3">
-        <div class="d-flex justify-content-end">
-            <v-btn icon="mdi-close" variant="text" @click="showFullForm = false" position="relative"></v-btn>
+        <div class="d-flex justify-content-start">
+            <v-btn icon="mdi-arrow-left" variant="text" @click="showFullForm = false" position="relative"></v-btn>
         </div>
         <v-card-title class="text-h5 text-wrap text-center">
             Student Registration Form

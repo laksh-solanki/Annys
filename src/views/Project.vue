@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-card v-if="!isLoggedIn" class="pa-5 z-0 card-animation d-flex justify-content-center align-content-center"
+    <v-card v-if="!isLoggedIn" class="pa-5 card-animation d-flex justify-content-center align-content-center"
       rounded="4" elevation="1" border="1">
-      <v-card-text style="width: 500px;">
+      <v-card-text class="login-form-width">
         <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
         <v-form @submit.prevent="checkCredentials">
           <v-text-field v-model="id" label="ID" variant="outlined" autocomplete="username"></v-text-field>
@@ -16,14 +16,14 @@
       <template v-if="!showStudentForm">
         <v-row justify="center" class="text-center">
           <v-col cols="auto">
-            <v-btn @click="showStudentForm = true" variant="outlined" prepend-icon="mdi-folder"
+            <v-btn @click="showStudentForm = true" color="primary" width="auto" size="large" variant="outlined" prepend-icon="mdi-folder"
               text="Student Registration"></v-btn>
           </v-col>
           <v-col cols="auto">
-            <v-btn variant="outlined" prepend-icon="mdi-folder" text="Main Project"></v-btn>
+            <v-btn variant="outlined" color="primary" width="285" size="large" prepend-icon="mdi-folder" text="Other Project"> </v-btn>
           </v-col>
           <v-col cols="auto">
-            <v-btn variant="outlined" prepend-icon="mdi-folder" text="Other Project"></v-btn>
+            <v-btn variant="outlined" color="primary" width="285" size="large" prepend-icon="mdi-folder" text="Main Project"></v-btn>
           </v-col>
         </v-row>
       </template>
@@ -44,11 +44,11 @@ const isLoggedIn = ref(false)
 const showError = ref(false)
 const showStudentForm = ref(false)
 
-const fixedId = 'Lucky2912'
-const fixedPassword = 'Lucky.2912'
+const fixedId = import.meta.env.VITE_APP_ID;
+const fixedPassword = import.meta.env.VITE_APP_PASSWORD;
 
 function checkCredentials() {
-  if (id.value === fixedId && password.value === fixedPassword) {
+  if (id.value === fixedId && password.value === fixedPassword && id.value) {
     isLoggedIn.value = true
     showError.value = false
   } else {
@@ -58,6 +58,10 @@ function checkCredentials() {
 </script>
 
 <style scoped>
+.login-form-width {
+  width: 500px;
+}
+
 .card-animation {
   -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -89,11 +93,5 @@ function checkCredentials() {
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-.profile-card-for-pdf {
-  position: absolute;
-  left: -9999px;
-  top: -9999px;
 }
 </style>
