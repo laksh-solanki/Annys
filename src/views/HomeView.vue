@@ -14,10 +14,10 @@
               dedicated to delivering high-quality results.
             </p>
             <div class="hero-buttons gap-2 d-flex flex-wrap">
-              <v-btn class="hero-button" to="/student" rounded="5" width="200" height="50" color="white"
-                variant="outlined" large>Our Students</v-btn>
+              <v-btn class="hero-button" to="/project" rounded="5" width="200" height="50" color="white" text="Our Projects"
+                variant="outlined" large></v-btn>
               <v-btn class="hero-button" to="/about" rounded="5" width="200" height="50" color="white"
-                variant="outlined" large>About me</v-btn>
+                variant="outlined" text="About Us" large></v-btn>
             </div>
           </v-col>
           <v-col cols="12" md="5">

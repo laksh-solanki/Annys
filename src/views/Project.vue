@@ -5,8 +5,8 @@
       <v-card-text style="width: 500px;">
         <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
         <v-form @submit.prevent="checkCredentials">
-          <v-text-field v-model="id" label="ID" variant="outlined"></v-text-field>
-          <v-text-field v-model="password" label="Password" type="password" variant="outlined"></v-text-field>
+          <v-text-field v-model="id" label="ID" variant="outlined" autocomplete="username"></v-text-field>
+          <v-text-field v-model="password" label="Password" type="password" variant="outlined" autocomplete="current-password"></v-text-field>
           <v-btn type="submit" color="primary" text="Submit"></v-btn>
           <v-alert v-if="showError" type="error" class="mt-3">Invalid ID or password</v-alert>
         </v-form>
@@ -16,14 +16,14 @@
       <template v-if="!showStudentForm">
         <v-row justify="center" class="text-center">
           <v-col cols="auto">
-            <v-btn @click="showStudentForm = true" variant="outlined" prepend-icon="mdi-folder-move"
+            <v-btn @click="showStudentForm = true" variant="outlined" prepend-icon="mdi-folder"
               text="Student Registration"></v-btn>
           </v-col>
           <v-col cols="auto">
-            <v-btn variant="outlined" prepend-icon="mdi-logout" text="Logout"></v-btn>
+            <v-btn variant="outlined" prepend-icon="mdi-folder" text="Main Project"></v-btn>
           </v-col>
           <v-col cols="auto">
-            <v-btn variant="outlined" prepend-icon="mdi-help" text="Help"></v-btn>
+            <v-btn variant="outlined" prepend-icon="mdi-folder" text="Other Project"></v-btn>
           </v-col>
         </v-row>
       </template>

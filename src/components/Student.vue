@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
-import axios from 'axios'
-import { useVModel } from '@vueuse/core'
+import axios from 'axios';
+import { useVModel } from '@vueuse/core';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import backgroundImage from '@/assets/IMCA.jpeg';
@@ -30,16 +30,11 @@ const loading = ref(false)
 const dialog = ref(false);
 const pdfUrl = ref('');
 
-const generatePdf = () => {
-    const card = document.getElementById('profile-card-container');
-    if (!card) {
-        console.error('PDF template element not found.');
-        return;
-    }
-    html2canvas(card, {
-        backgroundColor: null,
-        useCORS: true
-    }).then((canvas) => {
+const generatePdf = async () => {
+    loading.value = true;
+    const cardElement = document.getElementById('profile-card-container');
+    if (cardElement) {
+        const canvas = await html2canvas(cardElement, { backgroundColor: null, useCORS: true });
         const cardImgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', 'a4');
         const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -53,7 +48,8 @@ const generatePdf = () => {
         const blob = pdf.output('blob');
         pdfUrl.value = URL.createObjectURL(blob) + '#toolbar=0';
         dialog.value = true;
-    });
+    }
+    loading.value = false;
 };
 
 const downloadPdf = () => {
@@ -169,9 +165,7 @@ const submitForm = async () => {
                 transition="slide-x-reverse-transition">
                 {{ text }}
                 <template v-slot:actions>
-                    <v-btn color="blue" variant="text" @click="snackbar = false">
-                        Close
-                    </v-btn>
+                    <v-btn color="blue" variant="text" @click="snackbar = false" text="Close"></v-btn>
                 </template>
             </v-snackbar>
         </v-card-text>
@@ -181,10 +175,9 @@ const submitForm = async () => {
     <v-dialog v-model="dialog" max-width="800">
         <v-card>
             <v-card-title class="p-0 d-flex justify-space-between align-center">
-                <v-btn color="primary" @click="downloadPdf" text="Download" prepend-icon="mdi-download" :loading="loading" variant="text"></v-btn>
-                <v-btn icon @click="dialog = false" variant="text">
-                    <v-icon>mdi-close</v-icon>
-                </v-btn>
+                <v-btn color="primary" @click="downloadPdf" text="Download" prepend-icon="mdi-download"
+                    :loading="loading" variant="text"></v-btn>
+                <v-btn icon="mdi-close" @click="dialog = false" variant="text"></v-btn>
             </v-card-title>
             <embed :src="pdfUrl" style="width: 100%; height: 500px;" frameborder="0"></embed>
         </v-card>
