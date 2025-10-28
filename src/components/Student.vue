@@ -216,8 +216,8 @@ const submitForm = async () => {
     font-family: "Inter", sans-serif;
     width: 100% !important;
     text-align: center !important;
-    font-size: 80px;
-    margin-top: 264px;
+    font-size: 74px;
+    margin-top: 240px;
     font-weight: 800 !important;
     color: black !important;
     padding: 0 !important;
@@ -228,10 +228,10 @@ const submitForm = async () => {
     font-family: "Inter", sans-serif;
     width: 100% !important;
     text-align: center !important;
-    font-size: 40px;
+    font-size: 35px;
     letter-spacing: 0 !important;
     font-weight: 800 !important;
-    margin-top: 175px;
+    margin-top: 132px;
     color: black !important;
     padding: 0 !important;
     line-height: 1 !important;
