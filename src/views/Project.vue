@@ -19,6 +19,10 @@
               text="Student Registration"></v-btn>
           </v-col>
           <v-col cols="auto">
+            <v-btn to="/student-data" color="primary" width="auto" size="large" variant="outlined" prepend-icon="mdi-folder"
+              text="Student Data"></v-btn>
+          </v-col>
+          <v-col cols="auto">
             <v-btn variant="outlined" color="primary" width="285" size="large" prepend-icon="mdi-folder" text="Other Project"> </v-btn>
           </v-col>
           <v-col cols="auto">
