@@ -1,7 +1,6 @@
 <template>
   <v-container>
-    <v-card v-if="!isLoggedIn" class="pa-5 card-animation d-flex justify-content-center align-content-center"
-      rounded="4" elevation="1" border="1">
+    <v-card v-if="!isLoggedIn" class="pa-5 card-animation d-flex justify-content-center align-content-center" elevation="0" border="0">
       <v-card-text class="login-form-width">
         <v-card-title class="text-h5 text-center m-3">Enter Credentials</v-card-title>
         <v-form @submit.prevent="checkCredentials">
