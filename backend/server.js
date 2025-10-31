@@ -8,6 +8,8 @@ const fs = require('fs');
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // MongoDB connection
@@ -15,7 +17,6 @@ const uri =
   'mongodb+srv://Student_reg:Student_reg.12345@cluster0.prbmefr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // paste your Atlas URI
 const client = new MongoClient(uri);
 
-let studentsCollection;
 let studentDetailsCollection;
 
 async function connectDB() {
@@ -26,6 +27,7 @@ async function connectDB() {
     console.log('✅ Connected to MongoDB Atlas');
   } catch (err) {
     console.error('❌ MongoDB connection failed:', err);
+    process.exit(1);
   }
 }
 connectDB();

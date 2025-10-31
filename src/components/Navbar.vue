@@ -18,9 +18,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/project">project</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/student_detail">Student Details</router-link>
-          </li>
           <li class="dropdown nav-item">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Settings

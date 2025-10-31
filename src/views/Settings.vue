@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, nextTick } from 'vue'
+import { ref} from 'vue'
 const drawer = ref(true)
 const activeContent = ref('content1')
 const links = [

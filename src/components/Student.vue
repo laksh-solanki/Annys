@@ -87,7 +87,8 @@ watch(dialog, (newValue) => {
     <!-- Student Form -->
     <v-card v-if="showFullForm" class="pa-5 card-animation w-100" border="0" elevation="0">
         <div class="d-flex justify-content-start">
-            <v-btn icon="mdi-arrow-left" variant="text" @click="showFullForm = false" position="relative"></v-btn>
+            <v-btn icon="mdi-arrow-left" color="primary" variant="flat" @click="showFullForm = false"
+                position="relative"></v-btn>
         </div>
         <v-card-title class="text-h5 text-wrap text-center">
             Student Certificate
@@ -100,14 +101,13 @@ watch(dialog, (newValue) => {
                         <v-divider class="my-3"></v-divider>
                     </v-col>
                     <v-col cols="12" md="6">
-                        <v-text-field v-model="form.fname" :rules="[v => !!v || 'Full Name is required']" label="Full Name" variant="outlined" name="fname" id="fname"
-                            rounded="2" aria-required="true"></v-text-field>
+                        <v-text-field v-model="form.fname" :rules="[v => !!v || 'Full Name is required']"
+                            label="Full Name" variant="outlined" name="fname" id="fname" rounded="2"
+                            aria-required="true"></v-text-field>
                     </v-col>
                     <v-col cols="12" md="6">
-                        <v-select v-model="form.course"
-                            :items="courses" :rules="[v => !!v || 'Course is required']"
-                            label="Course" variant="outlined" name="course"
-                            id="course" rounded="2"></v-select>
+                        <v-select v-model="form.course" :items="courses" :rules="[v => !!v || 'Course is required']"
+                            label="Course" variant="outlined" name="course" id="course" rounded="2"></v-select>
                     </v-col>
                 </v-row>
                 <v-row class="mt-5 justify-content-center">
