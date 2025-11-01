@@ -8,7 +8,7 @@ import vuetify from 'vite-plugin-vuetify'
 export default defineConfig({
   plugins: [vue(), vuetify()],
   server: {
-    allowedHosts: ['all'],
+    allowedHosts: ['annys.onrender.com'],
   },
   resolve: {
     alias: {
