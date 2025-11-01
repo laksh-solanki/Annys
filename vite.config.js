@@ -10,6 +10,9 @@ export default defineConfig({
   server: {
     allowedHosts: ['annys.onrender.com'],
   },
+  preview: {
+    allowedHosts: ['annys.onrender.com'],
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
